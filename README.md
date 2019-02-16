@@ -1,1 +1,1 @@
-test_doc
+This is our Technopolis project, by the way.
