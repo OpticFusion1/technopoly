@@ -1,1 +1,1 @@
-This is our Technopolis project
+This is our Technopolis project, by the way.
