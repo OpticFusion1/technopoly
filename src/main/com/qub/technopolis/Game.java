@@ -1,10 +1,12 @@
 package main.com.qub.technopolis;
 
+import main.com.qub.technopolis.actor.Player;
+import main.com.qub.technopolis.board.Board;
 import main.com.qub.technopolis.exception.GameStateException;
 
 /**
  * Bootstrap responsible for the game loop.
- * 
+ *
  * @author lakrs
  *
  */
@@ -22,25 +24,18 @@ public class Game {
     return instance;
   }
 
+  private Board board;
   private boolean gameRunning = false;
 
   private Game() {
     // Prevent instantiation
-  }
-  
-  /**
-   * Check whether the game is running
-   * @return
-   */
-  public boolean isGameRunning() {
-    return gameRunning;
   }
 
   /**
    * Ends the game
    * <p>
    * Throws {@link GameStateException} if this method is called when the game is not running
-   * 
+   *
    * @throws GameStateException
    */
   public void End() throws GameStateException {
@@ -53,10 +48,19 @@ public class Game {
   }
 
   /**
+   * Check whether the game is running
+   * 
+   * @return
+   */
+  public boolean isGameRunning() {
+    return gameRunning;
+  }
+
+  /**
    * Starts a new game
    * <p>
    * Throws {@link GameStateException} if this method is called when the game is already running
-   * 
+   *
    * @throws GameStateException
    */
   public void Start() throws GameStateException {
@@ -65,6 +69,14 @@ public class Game {
     }
 
     // TODO - Start game.
+    // TODO - Create Players. Add to Board.
+    board = new Board();
+
+    board.AddActor(new Player("Ronald Reagan"));
+    board.AddActor(new Player("Theresa Mays"));
+    board.AddActor(new Player("Donald Trump"));
+    board.AddActor(new Player("Vladimir Putin"));
+
     gameRunning = true;
   }
 
@@ -72,7 +84,7 @@ public class Game {
    * The game loop. Is responsible for updating all actors in the game, and calling methods on them.
    * <p>
    * Throws {@link GameStateException} if this method is called when the game is not running
-   * 
+   *
    * @throws GameStateException
    */
   public void Update() throws GameStateException {
@@ -81,5 +93,13 @@ public class Game {
     }
 
     // TODO - Update game.
+    final var nextActor = board.getNextActor();
+    nextActor.SetActive();
+
+    while (nextActor.IsActive()) {
+      if (nextActor.Update()) {
+        nextActor.SetInactive();
+      }
+    }
   }
 }
