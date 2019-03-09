@@ -8,7 +8,7 @@ import org.junit.jupiter.api.RepeatedTest;
 class RandomDiceTest {
   
   private static final long RANDOM_SEED = 1234567;
-  private final DiceConfig diceConfig = DiceConfig.getDefault();
+  private final DiceConfig diceConfig = DiceConfig.getDEFAULT();
   private Random seededRandom;
   private Dice dice;
   

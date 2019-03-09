@@ -1,44 +1,38 @@
 package com.qub.Technopoly.dice;
 
-import java.util.Scanner;
+import com.qub.Technopoly.input.InputSource;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class DeveloperDice implements Dice {
-  
-  private final DiceConfig diceConfig;
-  
-  public DeveloperDice(DiceConfig diceConfig) {
-    this.diceConfig = diceConfig;
-  }
 
-  @Override
-  public int roll() {
-    
-    var minRoll = diceConfig.getMinRoll();
-    var maxRoll = diceConfig.getMaxRoll();
+    @NonNull
+    private final DiceConfig diceConfig;
 
-    try (var scanner = new Scanner(System.in)) {
-      var hasRoll = false;
-      int roll = 0;
-      do {
-        System.out.printf("Select a Dice roll (%s-%s):", minRoll, maxRoll);
+    @NonNull
+    private final InputSource inputSource;
 
-        if (!scanner.hasNextInt()) {
-          scanner.next();
-          System.out.println("This is not a valid number!");
-          continue;
-        }
+    @Override
+    public int roll() {
 
+        var minRoll = diceConfig.getMinRoll();
+        var maxRoll = diceConfig.getMaxRoll();
 
-        roll = scanner.nextInt();
-        if ((roll >= minRoll) && (roll <= maxRoll)) {
-          hasRoll = true;
-        } else {
-          System.out.printf("Number must be between %s-%s\n", minRoll, maxRoll);
-        }
-      } while (!hasRoll);
+        var roll = 0;
+        var hasRoll = false;
+        do {
+            System.out.printf("Select a Dice roll (%s-%s):", minRoll, maxRoll);
 
-      return roll;
+            roll = inputSource.getNextInt();
+
+            if ((roll >= minRoll) && (roll <= maxRoll)) {
+                hasRoll = true;
+            } else {
+                System.out.printf("Number must be between %s-%s\n", minRoll, maxRoll);
+            }
+        } while (!hasRoll);
+
+        return roll;
     }
-  }
-
 }

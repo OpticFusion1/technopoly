@@ -14,10 +14,23 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
     <!-- Dependency Versions -->
+    <java.version>11</java.version>
+    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+    <lombok.version>1.18.6</lombok.version>
+
+    <!-- Test Versions -->
     <junit.version>5.4.0</junit.version>
+    <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+    <mockito-junit-jupiter.version>2.25.0</mockito-junit-jupiter.version>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
   <!-- Test Dependencies -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -31,5 +44,34 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${mockito-junit-jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <release>${java.version}</release>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
