@@ -1,12 +1,9 @@
-package test.com.qub.technopolis.dice;
+package com.qub.Technopoly.dice;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
-import main.com.qub.technopolis.dice.Dice;
-import main.com.qub.technopolis.dice.DiceConfig;
-import main.com.qub.technopolis.dice.RandomDice;
 
 class RandomDiceTest {
   
