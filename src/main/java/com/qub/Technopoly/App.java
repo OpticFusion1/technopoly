@@ -10,23 +10,23 @@ public class App
     {
 
         // var game = Game.getInstance();
-        // game.Start();
+        // game.start();
         //
         // while(game.isGameRunning()) {
-        // game.Update();
+        // game.update();
         // }
 
         // TODO - This will not be called by this class. Probably.
-        // game.End();
+        // game.stop();
 
         // For now, you can put code in this method for testing. Later on, main will be running a game
         // loop.
 
         final var game = Game.getInstance();
-        game.Start();
+        game.start();
 
         while (game.isGameRunning()) {
-          game.Update();
+          game.update();
         }
 
         // Dice dice = new DeveloperDice(DiceConfig.getDefault());
