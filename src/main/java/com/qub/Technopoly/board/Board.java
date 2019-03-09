@@ -1,8 +1,5 @@
-package main.com.qub.technopolis.board;
-
-import java.util.LinkedList;
-import java.util.Queue;
-import main.com.qub.technopolis.actor.Actor;
+package com.qub.Technopoly.board;
+import com.qub.Technopoly.actor.Actor;
 
 public class Board {
   

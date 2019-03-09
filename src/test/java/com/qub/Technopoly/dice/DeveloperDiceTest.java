@@ -1,12 +1,11 @@
-package test.com.qub.technopolis.dice;
+package com.qub.Technopoly.dice;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 import java.io.ByteArrayInputStream;
+
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import main.com.qub.technopolis.dice.DeveloperDice;
-import main.com.qub.technopolis.dice.Dice;
-import main.com.qub.technopolis.dice.DiceConfig;
 
 class DeveloperDiceTest {
   

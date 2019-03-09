@@ -1,8 +1,8 @@
-package main.com.qub.technopolis;
+package com.qub.Technopoly;
 
-import main.com.qub.technopolis.actor.Player;
-import main.com.qub.technopolis.board.Board;
-import main.com.qub.technopolis.exception.GameStateException;
+import com.qub.Technopoly.actor.Player;
+import com.qub.Technopoly.board.Board;
+import com.qub.Technopoly.exception.GameStateException;
 
 /**
  * Bootstrap responsible for the game loop.

@@ -1,7 +1,4 @@
-package main.com.qub.technopolis.actor;
-
-import java.io.IOException;
-import java.util.Scanner;
+package com.qub.Technopoly.actor;
 
 public class Player implements Actor {
 

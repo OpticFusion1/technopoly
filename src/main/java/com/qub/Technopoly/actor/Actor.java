@@ -1,4 +1,4 @@
-package main.com.qub.technopolis.actor;
+package com.qub.Technopoly.actor;
 
 public interface Actor {
   /**

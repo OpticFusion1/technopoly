@@ -1,6 +1,6 @@
-package main.com.qub.technopolis.board;
+package com.qub.Technopoly.board;
 
-import main.com.qub.technopolis.actor.Actor;
+import com.qub.Technopoly.actor.Actor;
 
 public class ActorQueue {
   private Actor[] actors;

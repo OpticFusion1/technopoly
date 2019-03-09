@@ -1,4 +1,4 @@
-package main.com.qub.technopolis.dice;
+package com.qub.Technopoly.dice;
 
 /**
  * Interface for instances of Dices.
