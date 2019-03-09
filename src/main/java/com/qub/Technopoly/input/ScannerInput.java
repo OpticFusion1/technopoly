@@ -1,11 +1,13 @@
 package com.qub.Technopoly.input;
 
 
+   import java.io.Closeable;
+   import java.io.IOException;
    import java.util.Scanner;
 
 import static java.util.Objects.isNull;
 
-public class ScannerInput implements InputSource {
+public class ScannerInput implements InputSource, Closeable {
 
     private static ScannerInput instance;
 
@@ -18,6 +20,9 @@ public class ScannerInput implements InputSource {
     public int getNextInt() {
         Integer next = null;
         do {
+            if(!scanner.hasNext()){
+                continue;
+            }
             if (!scanner.hasNextInt()) {
                 System.out.println("Please enter a valid number");
                 scanner.next();
@@ -39,5 +44,11 @@ public class ScannerInput implements InputSource {
             instance = new ScannerInput();
         }
         return instance;
+    }
+
+    @Override
+    public void close() throws IOException {
+        scanner.close();
+        instance = null;
     }
 }

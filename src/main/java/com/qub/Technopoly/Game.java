@@ -38,12 +38,12 @@ public class Game {
    *
    * @throws GameStateException
    */
-  public void End() throws GameStateException {
+  public void stop() throws GameStateException {
     if (!gameRunning) {
-      throw new GameStateException("Can't end game as game is not running");
+      throw new GameStateException("Can't stop game as game is not running");
     }
 
-    // TODO - End game.
+    // TODO - stop game.
     gameRunning = false;
   }
 
@@ -63,19 +63,19 @@ public class Game {
    *
    * @throws GameStateException
    */
-  public void Start() throws GameStateException {
+  public void start() throws GameStateException {
     if (gameRunning) {
       throw new GameStateException("Can't start game as game is already running");
     }
 
-    // TODO - Start game.
+    // TODO - start game.
     // TODO - Create Players. Add to Board.
     board = new Board();
 
-    board.AddActor(new Player("Ronald Reagan"));
-    board.AddActor(new Player("Theresa Mays"));
-    board.AddActor(new Player("Donald Trump"));
-    board.AddActor(new Player("Vladimir Putin"));
+    board.addActor(new Player("Ronald Reagan"));
+    board.addActor(new Player("Theresa Mays"));
+    board.addActor(new Player("Donald Trump"));
+    board.addActor(new Player("Vladimir Putin"));
 
     gameRunning = true;
   }
@@ -87,12 +87,12 @@ public class Game {
    *
    * @throws GameStateException
    */
-  public void Update() throws GameStateException {
+  public void update() throws GameStateException {
     if (!gameRunning) {
       throw new GameStateException("Can't update game as game is not running");
     }
 
-    // TODO - Update game.
+    // TODO - update game.
     final var nextActor = board.getNextActor();
     nextActor.SetActive();
 
