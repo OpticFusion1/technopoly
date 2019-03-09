@@ -18,11 +18,6 @@ public class ActorQueue {
     currentSize++;
   }
   
-  // TODO - Find actor in array and remove them if exists
-  public void removeActor(Actor actor) {
-    
-  }
-  
   public Actor getNext() {
     var next = actors[currentActorIndex];
     

@@ -1,46 +1,46 @@
 package com.qub.Technopoly.dice;
 
-import static org.junit.Assert.assertEquals;
+import com.qub.Technopoly.input.InputSource;
+import com.qub.Technopoly.input.ScannerInput;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class DeveloperDiceTest {
   
-  private final DiceConfig diceConfig = DiceConfig.getDefault();
+  private final DiceConfig diceConfig = DiceConfig.getDEFAULT();
+  private final InputSource mockInput = mock(InputSource.class);
   private Dice dice;
 
   @BeforeEach
   void setUp() throws Exception {
-    dice = new DeveloperDice(diceConfig);
+    dice = new DeveloperDice(diceConfig, mockInput);
   }
   
 
   @Test
   void rollWithValidValueReturnsSuppliedValue() {   
-    int expected = 5;    
-    setInput(expected);
+    int expected = 5;
+    when(mockInput.getNextInt()).thenReturn(expected);
     assertEquals(expected, dice.roll());
   }
   
   @Test
   void rollWithDiceConfigMaxReturnsSuppliedValue() {
     int expected = diceConfig.getMaxRoll();
-    setInput(expected);
+    when(mockInput.getNextInt()).thenReturn(expected);
     assertEquals(expected, dice.roll());
   }
   
   @Test
   void rollWithDiceConfigMinReturnsSuppliedValue() {
     int expected = diceConfig.getMinRoll();
-    setInput(expected);
+    when(mockInput.getNextInt()).thenReturn(expected);
     assertEquals(expected, dice.roll());
-  }
-  
-  private void setInput(int input) {
-    var in = new ByteArrayInputStream(String.valueOf(input).getBytes());
-    System.setIn(in);
   }
 }
