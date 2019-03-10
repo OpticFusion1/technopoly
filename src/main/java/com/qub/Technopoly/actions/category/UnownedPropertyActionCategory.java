@@ -4,6 +4,7 @@ import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actions.action.AuctionPropertyAction;
 import com.qub.Technopoly.actions.action.BuyPropertyAction;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
@@ -25,21 +26,18 @@ public class UnownedPropertyActionCategory implements ActionCategory {
     private final OutputSource outputSource = IOHelper.getOutputSource();
 
     @NonNull
-    private final Actor actor;
-    @NonNull
     private final Property property;
 
     private final Action[] actions;
 
-    public UnownedPropertyActionCategory(Actor actor, Property property) {
+    public UnownedPropertyActionCategory(Actor actor, Property property, Board board) {
         requireNonNull(actor);
         requireNonNull(property);
 
-        this.actor = actor;
         this.property = property;
 
         actions =
-            new Action[] {new BuyPropertyAction(actor, property), new AuctionPropertyAction()};
+            new Action[] {new BuyPropertyAction(actor, property), new AuctionPropertyAction(property, board)};
     }
 
     @Override

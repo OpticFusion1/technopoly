@@ -2,6 +2,7 @@ package com.qub.Technopoly.tile;
 
 import com.qub.Technopoly.actions.category.ActionCategory;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.board.Board;
 
 public interface Tile {
     String getName();
@@ -17,7 +18,7 @@ public interface Tile {
      * Called when an Actor lands on the tile
      * Returns an {@link ActionCategory} with possible options for the tile
      */
-    ActionCategory onLand(Actor actor);
+    ActionCategory onLand(Actor actor, Board board);
 
     String toString();
 }

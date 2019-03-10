@@ -2,6 +2,7 @@ package com.qub.Technopoly.tile;
 
 import com.qub.Technopoly.actions.category.ActionCategory;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.config.StartConfig;
 import com.qub.Technopoly.io.IOHelper;
@@ -45,7 +46,7 @@ public class Start implements Tile {
     }
 
     @Override
-    public ActionCategory onLand(Actor actor) {
+    public ActionCategory onLand(Actor actor, Board board) {
         // TODO - Add money to Actor?
         return null;
     }
