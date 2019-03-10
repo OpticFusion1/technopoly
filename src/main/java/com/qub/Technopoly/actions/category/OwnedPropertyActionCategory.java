@@ -51,7 +51,7 @@ public class OwnedPropertyActionCategory implements ActionCategory {
 
         if (property.getOwner().equals(actor)) {
             // Return Owned Actions
-            return new Action[] {new UpgradePropertyAction(actor, property), new EndTurnAction()};
+            return new Action[] {new EndTurnAction()};
         } else {
             // Return Other's Actions
             return new Action[] {new PayRentAction(actor, property)};
