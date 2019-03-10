@@ -3,7 +3,7 @@
     "actionWait": 0.5
   },
   "inventoryConfig": {
-    "startBalance": 1000,
+    "startBalance": 1500,
     "currencyName": "dollars"
   },
   "playerConfig": {
@@ -83,8 +83,8 @@
       ]
     },
     {
-      "name": "The United Kingdom",
-      "description": "This field contains 2 properties",
+      "name": "Europe ",
+      "description": "High-tech and culturally diverse with well-established technology industries. ",
       "propertyConfigs": [
         {
           "propertyName": "Belfast",
@@ -140,15 +140,9 @@
               "housePrice": 125,
               "houseRent": 400
             }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Field 3x3",
-      "description": "This field contains 3 properties",
-      "propertyConfigs": [
-        {
+			]
+		},
+		{
           "propertyName": "London",
           "propertyDescription": "The second-most connected tech ecosystem globally make London a sound investment opportunity.",
           "propertyPrice": 150,
@@ -175,17 +169,23 @@
               "houseRent": 450
             }
           ]
-        },
-        {
-          "propertyName": "Shanghai",
-          "propertyDescription": "China's biggest technology hub in one of the world's economic powerhouses.",
+        }
+      ]
+    },
+    {
+      "name": "East Asia",
+      "description": "The world's most populous and rapidly-growing regional economy.",
+      "propertyConfigs": [
+	  {
+          "propertyName": "Ho Chi Minh City",
+          "propertyDescription": "Tax-friendly and ambitious Vietnam has all the ingredients for a successful tech-hub industry. ",
           "propertyPrice": 175,
           "propertyRent": 100,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 175,
-              "houseRent": 100
+              "houseRent": 150
             },
             {
               "houseName": "2nd Office",
@@ -205,20 +205,20 @@
           ]
         },
         {
-          "propertyName": "Singapore",
-          "propertyDescription": "Attractive trade policies, high-tech and a cosmopolitan city. Singapore is a gateway into Asia's rapidly growing markets. ",
+          "propertyName": "Shanghai",
+          "propertyDescription": "China's biggest technology hub in one of the world's economic powerhouses.",
           "propertyPrice": 200,
           "propertyRent": 120,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 200,
-              "houseRent": 120
+              "houseRent": 180
             },
             {
               "houseName": "2nd Office",
               "housePrice": 200,
-              "houseRent": 240
+              "houseRent": 260
             },
             {
               "houseName": "3rd Office",
@@ -231,28 +231,22 @@
               "houseRent": 600
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Field 4x3",
-      "description": "This field contains 3 properties",
-      "propertyConfigs": [
+        },
         {
-          "propertyName": "Austin",
-          "propertyDescription": "Also known as the 'Silcone Hills', Austin is a powerful tech hub in the world's biggest economy. ",
+          "propertyName": "Singapore",
+          "propertyDescription": "Attractive trade policies, high-tech and a cosmopolitan city. Singapore is a gateway into Asia's rapidly growing markets. ",
           "propertyPrice": 225,
-          "propertyRent": 140,
+          "propertyRent": 150,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 225,
-              "houseRent": 140
+              "houseRent": 200
             },
             {
               "houseName": "2nd Office",
               "housePrice": 225,
-              "houseRent": 280
+              "houseRent": 300
             },
             {
               "houseName": "3rd Office",
@@ -262,25 +256,31 @@
             {
               "houseName": "HQ",
               "housePrice": 225,
-              "houseRent": 750
+              "houseRent": 700
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "United States",
+      "description": "The world's most high-tech and powerful economy.",
+      "propertyConfigs": [
         {
           "propertyName": "New York",
           "propertyDescription": "A rich diversity and skilled workforce make this a very attractive tech stronghold to invest in. New York is a city that everybody wants to be in.",
           "propertyPrice": 250,
-          "propertyRent": 150,
+          "propertyRent": 175,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 250,
-              "houseRent": 150
+              "houseRent": 225
             },
             {
               "houseName": "2nd Office",
               "housePrice": 250,
-              "houseRent": 300
+              "houseRent": 350
             },
             {
               "houseName": "3rd Office",
@@ -298,12 +298,12 @@
           "propertyName": "Silicon Valley",
           "propertyDescription": "The worlds global center for high technology, innovation and investment.  Silicon Valley has been the bench-mark for tech success for decades. ",
           "propertyPrice": 300,
-          "propertyRent": 175,
+          "propertyRent": 200,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 300,
-              "houseRent": 175
+              "houseRent": 275
             },
             {
               "houseName": "2nd Office",
