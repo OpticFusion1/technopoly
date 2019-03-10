@@ -1,6 +1,9 @@
 package com.qub.Technopoly.actions.category;
 
 import com.qub.Technopoly.actions.action.Action;
+import com.qub.Technopoly.actions.action.EndTurnAction;
+import com.qub.Technopoly.actions.action.PayRentAction;
+import com.qub.Technopoly.actions.action.UpgradePropertyAction;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.io.IOHelper;
@@ -45,7 +48,13 @@ public class OwnedPropertyActionCategory implements ActionCategory {
 
     @Override
     public Action[] getActions() {
-        // TODO - Implement
-        return null;
+
+        if (property.getOwner().equals(actor)) {
+            // Return Owned Actions
+            return new Action[] {new UpgradePropertyAction(actor, property), new EndTurnAction()};
+        } else {
+            // Return Other's Actions
+            return new Action[] {new PayRentAction(actor, property)};
+        }
     }
 }

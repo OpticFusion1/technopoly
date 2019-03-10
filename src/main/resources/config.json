@@ -3,7 +3,7 @@
 		"actionWait": 0.5
 	},
 	"inventoryConfig": {
-		"startBalance": 20000,
+		"startBalance": 1000,
 		"currencyName": "dollars"
 	},
 	"playerConfig": {
@@ -16,8 +16,8 @@
 	},
 	"startConfig": {
 		"name": "Start",
-		"startPassBonus": 20000,
-		"startLandOnBonus": 20000
+		"startPassBonus": 300,
+		"startLandOnBonus": 300
 	},
 	"propertyConfigs": [{
 		"propertyName": "Hyderabad",
