@@ -93,7 +93,7 @@ public class AuctionPropertyAction implements Action {
                             outputSource.writeBody(BID_TOO_SMALL_ERROR);
                         }
                         if (selectedBid > actor.getInventory().getCurrentBalance()) {
-                            outputSource.writeBody(format(NOT_ENOUGH_MONEY_FORMAT, actor));
+                            outputSource.writeBody(format(NOT_ENOUGH_MONEY_FORMAT, actor.getActorName()));
                             selectedBid = 0;
                         }
 
