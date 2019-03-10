@@ -3,13 +3,16 @@ package com.qub.Technopoly.util;
 import static java.lang.reflect.Array.newInstance;
 
 public class CircularBuffer<T> {
-    private T[] buffer;
 
+    public final int length;
+
+    private T[] buffer;
     private int currentIndex = 0;
     private int currentSize = 0;
 
     public CircularBuffer(Class<T> clazz, int size) {
         buffer = (T[]) newInstance(clazz, size);
+        length = buffer.length;
     }
 
     // TODO - Check currentSize, or Throw.

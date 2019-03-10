@@ -2,7 +2,7 @@ package com.qub.Technopoly.dice;
 
 import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.config.DiceConfig;
-import com.qub.Technopoly.input.InputSource;
+import com.qub.Technopoly.io.InputSource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
