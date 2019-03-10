@@ -9,6 +9,7 @@ import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
 import static com.qub.Technopoly.io.IOHelper.WaitSeconds;
 import static java.lang.String.format;
 
@@ -32,7 +33,7 @@ public class OwnedPropertyActionCategory implements ActionCategory {
         outputSource.writeTitle(format(DESCRIPTION_FORMAT, property.getName()));
         outputSource.writeBody(property.getDescription());
 
-        WaitSeconds(1.0f);
+        DoActionDelay();
 
         var description = property.getOwner().equals(actor) ?
             OWNED_SELF_DESCRIPTION :

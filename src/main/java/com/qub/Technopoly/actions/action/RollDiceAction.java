@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
 import static java.lang.String.format;
 
 @RequiredArgsConstructor
@@ -40,7 +41,7 @@ public class RollDiceAction implements Action {
         roll = dice.roll();
         outputSource.writeBody(format(EXECUTE_MESSAGE_FORMAT, roll));
 
-        IOHelper.WaitSeconds(1f);
+        DoActionDelay();
 
         return true;
     }

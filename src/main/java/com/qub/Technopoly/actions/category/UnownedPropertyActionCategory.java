@@ -9,6 +9,7 @@ import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
 import static com.qub.Technopoly.io.IOHelper.WaitSeconds;
 import static java.lang.String.format;
 
@@ -30,7 +31,7 @@ public class UnownedPropertyActionCategory implements ActionCategory {
         outputSource.writeTitle(format(DESCRIPTION_FORMAT, property.getName()));
         outputSource.writeBody(property.getDescription());
 
-        WaitSeconds(1.0f);
+        DoActionDelay();
 
         outputSource.writeBody(format(DESCRIPTION_TWO_FORMAT, property.getPrice(),
             Config.getConfig().getInventoryConfig().getBalanceCurrencyPlural()));

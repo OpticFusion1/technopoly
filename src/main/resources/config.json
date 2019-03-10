@@ -1,4 +1,7 @@
 {
+	"delayConfig": {
+		"actionWait": 0.5
+	},
 	"inventoryConfig": {
 		"startBalance": 20000,
 		"balanceCurrencySingular": "dollar",
