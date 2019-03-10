@@ -4,8 +4,7 @@
 	},
 	"inventoryConfig": {
 		"startBalance": 20000,
-		"balanceCurrencySingular": "dollar",
-		"balanceCurrencyPlural": "dollars"
+		"currencyName": "dollars"
 	},
 	"playerConfig": {
 		"minPlayers": 2,

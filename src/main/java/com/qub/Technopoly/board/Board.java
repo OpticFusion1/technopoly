@@ -47,7 +47,7 @@ public class Board {
     }
 
     public void moveActor(Actor actor, int steps){
-        tiles.setCurrentPosition(actorPositions.get(actor));
+        tiles.setCurrentPosition(actorPositions.get(actor) + 1);
         for(var i = 0; i < steps - 1; i++){
             var nextTile = tiles.getNext();
             nextTile.onPass(actor);

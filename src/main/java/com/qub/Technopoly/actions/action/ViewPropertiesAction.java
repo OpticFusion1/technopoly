@@ -38,6 +38,6 @@ public class ViewPropertiesAction implements Action {
         for (var property : properties) {
             outputSource.writeBody(format(EXECUTE_MESSAGE_FORMAT, property.getName()));
         }
-        return true;
+        return false;
     }
 }
