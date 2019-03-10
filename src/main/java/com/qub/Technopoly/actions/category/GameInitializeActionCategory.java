@@ -5,6 +5,7 @@ import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actions.action.ExitGameAction;
 import com.qub.Technopoly.actions.action.LoadGameAction;
 import com.qub.Technopoly.actions.action.StartNewGameAction;
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.InputSource;
 import com.qub.Technopoly.io.OutputSource;
@@ -23,9 +24,9 @@ public class GameInitializeActionCategory implements ActionCategory {
     private final OutputSource outputSource = IOHelper.getOutputSource();
     private final InputSource inputSource = IOHelper.getInputSource();
 
-    public GameInitializeActionCategory(Game game){
+    public GameInitializeActionCategory(Game game, Board board){
         actions = new Action[]{
-            new StartNewGameAction(),
+            new StartNewGameAction(board),
             new LoadGameAction(),
             new ExitGameAction(game)
         };
@@ -48,7 +49,6 @@ public class GameInitializeActionCategory implements ActionCategory {
             return false;
         }
 
-        actions[selected].execute();
-        return true;
+        return actions[selected].execute();
     }
 }

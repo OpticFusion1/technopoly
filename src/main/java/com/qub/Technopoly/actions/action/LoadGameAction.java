@@ -18,7 +18,7 @@ public class LoadGameAction implements Action {
     }
 
     @Override
-    public void execute() {
-
+    public boolean execute() {
+        return false;
     }
 }

@@ -19,5 +19,5 @@ public interface Action {
     /**
      * Executes the action
      */
-    void execute();
+    boolean execute();
 }

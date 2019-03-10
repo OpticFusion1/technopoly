@@ -30,10 +30,11 @@ public class ExitGameAction implements Action {
     }
 
     @Override
-    public void execute() {
+    public boolean execute() {
         outputSource.writeTitle(EXECUTE_MESSAGE);
         if (game.isGameRunning()) {
             game.stop();
         }
+        return true;
     }
 }

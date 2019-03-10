@@ -6,8 +6,9 @@ import com.qub.Technopoly.board.Board;
 public class App {
     public static void main(String[] args) {
 
-        final var game = new Game(new Board());
-        var init = new GameInitializeActionCategory(game);
+        final var board = new Board();
+        final var game = new Game(board);
+        var init = new GameInitializeActionCategory(game, board);
         init.describe();
 
         // Halt execution while not initialized
