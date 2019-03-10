@@ -1,0 +1,72 @@
+{
+	"playerConfig": {
+		"minPlayers": 2,
+		"maxPlayers": 4
+	},
+	"diceConfig": {
+		"minRoll": 1,
+		"maxRoll": 6
+	},
+	"propertyConfigs": [{
+		"propertyName": "Example Property 1",
+		"propertyDescription": "Property Description",
+		"propertyPrice": 100,
+		"propertyRent": 10,
+		"houseConfigs": [{
+			"houseName": "1st Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "2nd Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "3rd Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "4th Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "HQ",
+			"housePrice": 0,
+			"houseRent": 0
+		}]
+	},
+	{
+		"propertyName": "Example Property 2",
+		"propertyDescription": "Property Description",
+		"propertyPrice": 100,
+		"propertyRent": 10,
+		"houseConfigs": [{
+			"houseName": "1st Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "2nd Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "3rd Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "4th Office",
+			"housePrice": 0,
+			"houseRent": 0
+		},
+		{
+			"houseName": "HQ",
+			"housePrice": 0,
+			"houseRent": 0
+		}]
+	}]
+}
