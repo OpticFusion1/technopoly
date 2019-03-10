@@ -15,19 +15,19 @@ public class PlayerTest {
     }
 
     @Test
-    public void setInactiveIsInactive(){
+    public void setInactiveIsInactive() {
         TEST_PLAYER.SetActive();
         TEST_PLAYER.SetInactive();
         assertFalse(TEST_PLAYER.IsActive());
     }
 
     @Test
-    public void playerIsInactiveByDefault(){
+    public void playerIsInactiveByDefault() {
         assertFalse(TEST_PLAYER.IsActive());
     }
 
     @Test
-    public void getNameReturnsExpected(){
+    public void getNameReturnsExpected() {
         assertEquals(EXPECTED_NAME, TEST_PLAYER.getActorName());
     }
 }

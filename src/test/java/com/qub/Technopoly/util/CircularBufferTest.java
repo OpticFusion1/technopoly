@@ -2,7 +2,6 @@ package com.qub.Technopoly.util;
 
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.actor.Player;
-import com.qub.Technopoly.util.CircularBuffer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -2,12 +2,9 @@ package com.qub.Technopoly;
 
 /**
  * Hello world!
- *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
 
         // var game = Game.getInstance();
         // game.start();
@@ -26,7 +23,7 @@ public class App
         game.start();
 
         while (game.isGameRunning()) {
-          game.update();
+            game.update();
         }
 
         // Dice dice = new DeveloperDice(DiceConfig.getDefault());
