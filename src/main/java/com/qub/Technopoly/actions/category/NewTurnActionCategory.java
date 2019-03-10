@@ -15,6 +15,7 @@ import com.qub.Technopoly.io.OutputSource;
 import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 
+import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
@@ -48,7 +49,7 @@ public class NewTurnActionCategory implements ActionCategory {
     public void describe() {
         outputSource.writeTitle(format(TITLE_DESCRIPTION_FORMAT, actor.getActorName()));
 
-        IOHelper.WaitSeconds(1f);
+        DoActionDelay();
 
         var inventory = actor.getInventory();
         var currencySign = Math.abs(inventory.getCurrentBalance()) > 1 ?
@@ -59,7 +60,7 @@ public class NewTurnActionCategory implements ActionCategory {
             format(TITLE_BODY_FORMAT, actor.getInventory().getCountInInventory(Property.class),
                 inventory.getCurrentBalance(), currencySign));
 
-        IOHelper.WaitSeconds(1f);
+        DoActionDelay();
 
         describeActions();
     }

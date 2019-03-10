@@ -1,7 +1,11 @@
 package com.qub.Technopoly.io;
 
+import com.qub.Technopoly.config.Config;
+
 import java.util.Random;
 import java.util.Scanner;
+
+import static java.lang.Float.compare;
 
 public class IOHelper {
 
@@ -26,15 +30,23 @@ public class IOHelper {
         return outputSource;
     }
 
-    public static Random getRandom(){
+    public static Random getRandom() {
         return random;
     }
 
-    public static void WaitSeconds(float seconds){
+    public static void WaitSeconds(float seconds) {
         try {
-            Thread.sleep((long)(seconds * 1000));
+            Thread.sleep((long) (seconds * 1000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void DoActionDelay() {
+        var waitSeconds = Config.getConfig().getDelayConfig().getActionWait();
+        if (compare(waitSeconds, 0) == 0) {
+            return;
+        }
+        WaitSeconds(waitSeconds);
     }
 }
