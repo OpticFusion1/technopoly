@@ -1,32 +1,23 @@
 package com.qub.Technopoly;
 
-import com.qub.Technopoly.actor.Player;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.exception.GameStateException;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Bootstrap responsible for the game loop.
  *
  * @author lakrs
  */
+@RequiredArgsConstructor
 public class Game {
     // TODO - Initialize Game..
     // TODO - Allow loading game from disk...
 
-    private static Game instance;
-    private Board board;
+    @NonNull
+    private final Board board;
     private boolean gameRunning = false;
-    private Game() {
-        // Prevent instantiation
-    }
-
-    public static Game getInstance() {
-        if (instance == null) {
-            instance = new Game();
-        }
-
-        return instance;
-    }
 
     /**
      * Ends the game
@@ -39,8 +30,6 @@ public class Game {
         if (!gameRunning) {
             throw new GameStateException("Can't stop game as game is not running");
         }
-
-        // TODO - stop game.
         gameRunning = false;
     }
 
@@ -64,16 +53,6 @@ public class Game {
         if (gameRunning) {
             throw new GameStateException("Can't start game as game is already running");
         }
-
-        // TODO - start game.
-        // TODO - Create Players. Add to Board.
-        board = new Board();
-
-        board.addActor(new Player("Ronald Reagan"));
-        board.addActor(new Player("Theresa Mays"));
-        board.addActor(new Player("Donald Trump"));
-        board.addActor(new Player("Vladimir Putin"));
-
         gameRunning = true;
     }
 

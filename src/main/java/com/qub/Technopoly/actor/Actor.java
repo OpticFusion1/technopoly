@@ -1,5 +1,7 @@
 package com.qub.Technopoly.actor;
 
+import com.qub.Technopoly.inventory.Inventory;
+
 public interface Actor {
     /**
      * Check whether it is this actors turn
@@ -29,4 +31,9 @@ public interface Actor {
      * @return The actor's name
      */
     String getActorName();
+
+    /**
+     * @return The actor's inventory
+     */
+    Inventory getInventory();
 }

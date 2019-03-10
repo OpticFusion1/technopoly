@@ -12,8 +12,14 @@ public class Board {
     private CircularBuffer<Actor> actorQueue =
         new CircularBuffer<>(Actor.class, playerConfig.getMaxPlayers());
 
-    public void addActor(Actor actor) {
+    public void addActor(Actor actor){
         actorQueue.add(actor);
+    }
+
+    public void addActors(Actor[] actors) {
+        for (var i = 0; i < actors.length; i++) {
+            actorQueue.add(actors[i]);
+        }
     }
 
     public Actor getNextActor() {

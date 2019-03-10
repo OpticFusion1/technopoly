@@ -1,5 +1,6 @@
 package com.qub.Technopoly.actor;
 
+import com.qub.Technopoly.inventory.Inventory;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,10 @@ public class Player implements Actor {
     @Getter
     @NonNull
     private final String actorName;
+    @Getter
+    @NonNull
+    private final Inventory inventory;
+
     private boolean isActive = false;
 
     @Override
