@@ -32,15 +32,19 @@ public class CircularBuffer<T> {
         return next;
     }
 
-    public void setCurrentPosition(int position){
+    public void setCurrentPosition(int position) {
         currentIndex = position % buffer.length;
     }
 
-    public int getCurrentPosition(){
-        return currentIndex - 1;
+    public int getCurrentPosition() {
+        var currentPos = currentIndex - 1;
+        if (currentPos < 0) {
+            currentPos = buffer.length - 1;
+        }
+        return currentPos;
     }
 
-    public T[] getBuffer(){
+    public T[] getBuffer() {
         return buffer;
     }
 }
