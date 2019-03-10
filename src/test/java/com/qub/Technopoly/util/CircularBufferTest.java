@@ -2,6 +2,7 @@ package com.qub.Technopoly.util;
 
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.actor.Player;
+import com.qub.Technopoly.inventory.Inventory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class CircularBufferTest {
 
     private static final int CAPACITY = 5;
     private static final int VALIDATION_RUNS = 20;
-    private static final Actor EXPECTED_ACTOR = new Player("Lars");
+    private static final Actor EXPECTED_ACTOR = new Player("Lars", new Inventory());
 
     private CircularBuffer<Actor> actorQueue;
 
@@ -46,7 +47,7 @@ public class CircularBufferTest {
     public void AddActorGetNextReturnsExpectedOrderOfActors() {
         var expectedActors = new Actor[CAPACITY];
         for (var i = 0; i < CAPACITY; i++) {
-            var newActor = new Player("Actor " + i);
+            var newActor = new Player("Actor " + i, new Inventory());
             expectedActors[i] = newActor;
             actorQueue.add(newActor);
         }

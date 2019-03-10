@@ -1,27 +1,14 @@
 package com.qub.Technopoly;
 
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.exception.GameStateException;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
 
-    private Game game;
-
-    @BeforeEach
-    public void setup() {
-        game = Game.getInstance();
-    }
-
-    @AfterEach
-    public void teardown() {
-        if (game.isGameRunning()) {
-            game.stop();
-        }
-    }
+    private Game game = new Game(new Board());
 
     @Test
     public void whenStartGameIsRunning() {

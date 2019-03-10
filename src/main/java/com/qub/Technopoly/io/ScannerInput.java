@@ -1,28 +1,24 @@
 package com.qub.Technopoly.io;
 
 
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Scanner;
 
 import static java.util.Objects.isNull;
 
+@RequiredArgsConstructor
 public class ScannerInput implements InputSource, Closeable {
 
-    private static ScannerInput instance;
-
+    @NonNull
     private final Scanner scanner;
 
-    private ScannerInput() {
-        scanner = new Scanner(System.in);
-    }
-
-    public static ScannerInput getInstance() {
-        if (instance == null) {
-            instance = new ScannerInput();
-        }
-        return instance;
-    }
+    @Getter
+    private boolean isClosed;
 
     public int getNextInt() {
         Integer next = null;
@@ -48,6 +44,6 @@ public class ScannerInput implements InputSource, Closeable {
     @Override
     public void close() throws IOException {
         scanner.close();
-        instance = null;
+        isClosed = true;
     }
 }

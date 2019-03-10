@@ -8,10 +8,12 @@ import lombok.Value;
 public class PlayerConfig {
     private final int minPlayers;
     private final int maxPlayers;
+    private final int startBalance;
 
     // Default Configuration
     public PlayerConfig() {
         minPlayers = 2;
         maxPlayers = 4;
+        startBalance = 10000;
     }
 }
