@@ -4,6 +4,7 @@ import com.qub.Technopoly.actions.category.ActionCategory;
 import com.qub.Technopoly.actions.category.OwnedPropertyActionCategory;
 import com.qub.Technopoly.actions.category.UnownedPropertyActionCategory;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.HouseConfig;
 import com.qub.Technopoly.config.PropertyConfig;
 import com.qub.Technopoly.exception.GameStateException;
@@ -41,10 +42,10 @@ public class Property implements Tile, Ownable {
     }
 
     @Override
-    public ActionCategory onLand(Actor actor) {
+    public ActionCategory onLand(Actor actor, Board board) {
         var owner = getOwner();
         return owner == null ?
-            new UnownedPropertyActionCategory(actor, this) :
+            new UnownedPropertyActionCategory(actor, this, board) :
             new OwnedPropertyActionCategory(actor, this);
     }
 

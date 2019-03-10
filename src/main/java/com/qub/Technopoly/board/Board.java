@@ -62,14 +62,13 @@ public class Board {
             nextTile.onPass(actor);
         }
         var lastTile = tiles.getNext();
-        var actionCategory = lastTile.onLand(actor);
+        var actionCategory = lastTile.onLand(actor, this);
 
         actorPositions.replace(actor, tiles.getCurrentPosition());
 
         if (actionCategory != null) {
             actionCategory.describe();
-            while (!actionCategory.execute())
-                ;
+            while (!actionCategory.execute());
         } else {
             getOutputSource().writeTitle("You landed on " + lastTile.getName() + "!");
         }
@@ -92,5 +91,9 @@ public class Board {
         var tileIndex = tiles.indexOf(tile);
         return actorPositions.keySet().stream().filter(a -> actorPositions.get(a) == tileIndex)
             .collect(Collectors.toList()).toArray(Actor[]::new);
+    }
+
+    public Actor[] getActors(){
+        return actorQueue.getBuffer();
     }
 }
