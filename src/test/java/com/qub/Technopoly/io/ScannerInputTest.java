@@ -1,4 +1,4 @@
-package com.qub.Technopoly.input;
+package com.qub.Technopoly.io;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

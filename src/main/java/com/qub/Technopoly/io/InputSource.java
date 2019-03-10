@@ -1,4 +1,4 @@
-package com.qub.Technopoly.input;
+package com.qub.Technopoly.io;
 
 public interface InputSource {
     int getNextInt();

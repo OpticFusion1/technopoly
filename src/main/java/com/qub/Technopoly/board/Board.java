@@ -1,13 +1,16 @@
 package com.qub.Technopoly.board;
 
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.config.Config;
+import com.qub.Technopoly.config.PlayerConfig;
 import com.qub.Technopoly.util.CircularBuffer;
-
-import static com.qub.Technopoly.constants.BoardConstants.MAX_PLAYERS;
 
 public class Board {
 
-    private CircularBuffer<Actor> actorQueue = new CircularBuffer<>(Actor.class, MAX_PLAYERS);
+    private final PlayerConfig playerConfig = Config.getConfig().getPlayerConfig();
+
+    private CircularBuffer<Actor> actorQueue =
+        new CircularBuffer<>(Actor.class, playerConfig.getMaxPlayers());
 
     public void addActor(Actor actor) {
         actorQueue.add(actor);
@@ -18,6 +21,6 @@ public class Board {
     }
 
     public int getBoardActorCapacity() {
-        return MAX_PLAYERS;
+        return actorQueue.length;
     }
 }
