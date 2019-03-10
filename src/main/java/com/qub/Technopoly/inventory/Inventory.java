@@ -19,7 +19,7 @@ public class Inventory {
     private final List<Ownable> owned = new ArrayList<>();
     @NonFinal
     @Getter
-    private int currentBalance = Config.getConfig().getPlayerConfig().getStartBalance();
+    private int currentBalance = Config.getConfig().getInventoryConfig().getStartBalance();
 
     public void add(Ownable ownable) {
         if (owned.contains(ownable)) {
@@ -45,6 +45,10 @@ public class Inventory {
 
     public boolean contains(Ownable ownable) {
         return owned.contains(ownable);
+    }
+
+    public <T extends Ownable> int getCountInInventory(Class<T> type) {
+        return (int) owned.stream().filter(type::isInstance).count();
     }
 
     public void remove(int amount) {

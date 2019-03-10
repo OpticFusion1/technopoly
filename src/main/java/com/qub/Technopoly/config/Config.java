@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 public class Config {
     private static final String CONFIG_FILENAME = "config.json";
     private static Config config;
+    private final InventoryConfig inventoryConfig;
     private final PlayerConfig playerConfig;
     private final DiceConfig diceConfig;
     private final PropertyConfig[] propertyConfigs;

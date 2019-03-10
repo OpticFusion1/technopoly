@@ -1,6 +1,7 @@
 package com.qub.Technopoly.actions.category;
 
 import com.qub.Technopoly.actions.action.Action;
+import com.qub.Technopoly.io.InputSource;
 import com.qub.Technopoly.io.OutputSource;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -39,7 +40,11 @@ public interface ActionCategory {
             var body = nonNull(action.getDescription()) ?
                 action.getName() + " - " + action.getDescription() :
                 action.getName();
-            outputSource.writeBody(i + ".\t" + body);
+            outputSource.writeBody((i + 1) + ".\t" + body);
         }
+    }
+
+    default int getSelectedAction(InputSource inputSource){
+        return inputSource.getNextInt() - 1;
     }
 }
