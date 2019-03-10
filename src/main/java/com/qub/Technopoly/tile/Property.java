@@ -5,12 +5,18 @@ import com.qub.Technopoly.actions.category.OwnedPropertyActionCategory;
 import com.qub.Technopoly.actions.category.UnownedPropertyActionCategory;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.config.PropertyConfig;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @RequiredArgsConstructor
 public class Property implements Tile, Ownable {
 
     private final PropertyConfig propertyConfig;
+
+    @Getter
+    @Setter
+    private Actor owner;
 
     @Override
     public String getName() {
@@ -33,11 +39,6 @@ public class Property implements Tile, Ownable {
         return owner == null ?
             new UnownedPropertyActionCategory(actor, this) :
             new OwnedPropertyActionCategory(actor, this);
-    }
-
-    @Override
-    public Actor getOwner() {
-        return null;
     }
 
     public int getRent() {

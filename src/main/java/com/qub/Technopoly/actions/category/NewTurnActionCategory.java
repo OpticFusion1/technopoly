@@ -52,9 +52,7 @@ public class NewTurnActionCategory implements ActionCategory {
         DoActionDelay();
 
         var inventory = actor.getInventory();
-        var currencySign = Math.abs(inventory.getCurrentBalance()) > 1 ?
-            inventoryConfig.getBalanceCurrencyPlural() :
-            inventoryConfig.getBalanceCurrencySingular();
+        var currencySign = inventoryConfig.getCurrencyName();
 
         outputSource.writeBody(
             format(TITLE_BODY_FORMAT, actor.getInventory().getCountInInventory(Property.class),

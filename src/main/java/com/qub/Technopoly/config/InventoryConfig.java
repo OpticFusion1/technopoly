@@ -7,12 +7,10 @@ import lombok.Value;
 @Value
 public class InventoryConfig {
     private final int startBalance;
-    private final String balanceCurrencySingular;
-    private final String balanceCurrencyPlural;
+    private final String currencyName;
 
     public InventoryConfig(){
         startBalance = 20000;
-        balanceCurrencySingular = "dollar";
-        balanceCurrencyPlural = "dollars";
+        currencyName = "dollars";
     }
 }

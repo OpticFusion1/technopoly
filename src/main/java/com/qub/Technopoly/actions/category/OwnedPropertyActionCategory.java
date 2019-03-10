@@ -10,7 +10,6 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
-import static com.qub.Technopoly.io.IOHelper.WaitSeconds;
 import static java.lang.String.format;
 
 @RequiredArgsConstructor
@@ -38,8 +37,7 @@ public class OwnedPropertyActionCategory implements ActionCategory {
         var description = property.getOwner().equals(actor) ?
             OWNED_SELF_DESCRIPTION :
             format(OWNED_OTHER_DESCRIPTION_FORMAT, property.getOwner().getActorName(),
-                property.getRent(),
-                Config.getConfig().getInventoryConfig().getBalanceCurrencyPlural());
+                property.getRent(), Config.getConfig().getInventoryConfig().getCurrencyName());
         outputSource.writeTitle(description);
 
         describeActions();
