@@ -1,5 +1,6 @@
 package com.qub.Technopoly.inventory;
 
+import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.exception.InventoryException;
 import com.qub.Technopoly.tile.Ownable;
 import lombok.Getter;
@@ -18,7 +19,7 @@ public class Inventory {
     private final List<Ownable> owned = new ArrayList<>();
     @NonFinal
     @Getter
-    private int currentBalance;
+    private int currentBalance = Config.getConfig().getPlayerConfig().getStartBalance();
 
     public void add(Ownable ownable) {
         if (owned.contains(ownable)) {

@@ -21,7 +21,7 @@ public class StartNewGameAction implements Action {
 
     private static final String EXECUTE_DESCRIPTION_FORMAT =
         "How many players will be playing? (%s - %s)";
-    private static final String EXECUTE_PLAYERNAME_FORMAT = "Please write Player %s's name:";
+    private static final String EXECUTE_PLAYERNAME_FORMAT = "Please enter Player %s's name:";
     private static final String MIN_PLAYER_ERROR_FORMAT =
         "A minimum of %s players are needed to play.";
     private static final String MAX_PLAYER_ERROR_FORMAT = "Can't have more than %s players.";
