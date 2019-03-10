@@ -2,6 +2,7 @@ package com.qub.Technopoly.board;
 
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.config.Config;
+import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.tile.Property;
 import com.qub.Technopoly.tile.Start;
 import com.qub.Technopoly.tile.Tile;
@@ -11,6 +12,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 
 public class Board {
 
@@ -46,9 +49,9 @@ public class Board {
         }
     }
 
-    public void moveActor(Actor actor, int steps){
+    public void moveActor(Actor actor, int steps) {
         tiles.setCurrentPosition(actorPositions.get(actor) + 1);
-        for(var i = 0; i < steps - 1; i++){
+        for (var i = 0; i < steps - 1; i++) {
             var nextTile = tiles.getNext();
             nextTile.onPass(actor);
         }
@@ -57,8 +60,13 @@ public class Board {
 
         actorPositions.replace(actor, tiles.getCurrentPosition());
 
-        actionCategory.describe();
-        while(!actionCategory.execute());
+        if (actionCategory != null) {
+            actionCategory.describe();
+            while (!actionCategory.execute())
+                ;
+        } else {
+            getOutputSource().writeTitle("You landed on " + lastTile.getName() + "!");
+        }
     }
 
     public Actor getNextActor() {
