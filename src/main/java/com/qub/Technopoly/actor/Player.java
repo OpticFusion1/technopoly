@@ -1,6 +1,7 @@
 package com.qub.Technopoly.actor;
 
 import com.qub.Technopoly.actions.category.NewTurnActionCategory;
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.exception.GameStateException;
 import com.qub.Technopoly.inventory.Inventory;
 import lombok.Getter;
@@ -27,11 +28,11 @@ public class Player implements Actor {
     }
 
     @Override
-    public void SetActive() {
+    public void SetActive(Board board) {
         isActive = true;
 
         if (newTurn == null) {
-            newTurn = new NewTurnActionCategory(this);
+            newTurn = new NewTurnActionCategory(this, board);
         }
 
         newTurn.describe();
@@ -43,14 +44,14 @@ public class Player implements Actor {
     }
 
     @Override
-    public boolean Update() {
+    public boolean Update(Board board) {
         if (!IsActive()) {
             throw new GameStateException(
                 "Can't update actor " + actorName + " because it isn't that actors turn!");
         }
 
         if (newTurn == null) {
-            newTurn = new NewTurnActionCategory(this);
+            newTurn = new NewTurnActionCategory(this, board);
         }
 
         return newTurn.execute();

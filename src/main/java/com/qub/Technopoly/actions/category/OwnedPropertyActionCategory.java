@@ -2,21 +2,24 @@ package com.qub.Technopoly.actions.category;
 
 import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
 import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import static com.qub.Technopoly.io.IOHelper.WaitSeconds;
 import static java.lang.String.format;
 
 @RequiredArgsConstructor
 public class OwnedPropertyActionCategory implements ActionCategory {
 
-    private static final String OWNED_SELF_DESCRIPTION_FORMAT =
-        "Welcome to %s!\nThis property is owned by you.";
+    private static final String DESCRIPTION_FORMAT = "Welcome to %s!";
+
+    private static final String OWNED_SELF_DESCRIPTION = "This property is owned by you.";
     private static final String OWNED_OTHER_DESCRIPTION_FORMAT =
-        "Welcome to %s!\nThis property is owned by %s. Rent is %s.";
+        "This property is owned by %s. Rent is %s %s";
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
     @NonNull
@@ -26,10 +29,16 @@ public class OwnedPropertyActionCategory implements ActionCategory {
 
     @Override
     public void describe() {
+        outputSource.writeTitle(format(DESCRIPTION_FORMAT, property.getName()));
+        outputSource.writeBody(property.getDescription());
+
+        WaitSeconds(1.0f);
+
         var description = property.getOwner().equals(actor) ?
-            format(OWNED_SELF_DESCRIPTION_FORMAT, property.getName()) :
-            format(OWNED_OTHER_DESCRIPTION_FORMAT, property.getName(),
-                property.getOwner().getActorName(), property.getRent());
+            OWNED_SELF_DESCRIPTION :
+            format(OWNED_OTHER_DESCRIPTION_FORMAT, property.getOwner().getActorName(),
+                property.getRent(),
+                Config.getConfig().getInventoryConfig().getBalanceCurrencyPlural());
         outputSource.writeTitle(description);
 
         describeActions();

@@ -70,10 +70,10 @@ public class Game {
 
         // TODO - update game.
         final var nextActor = board.getNextActor();
-        nextActor.SetActive();
+        nextActor.SetActive(board);
 
         while (nextActor.IsActive()) {
-            if (nextActor.Update()) {
+            if (nextActor.Update(board)) {
                 nextActor.SetInactive();
             }
         }
