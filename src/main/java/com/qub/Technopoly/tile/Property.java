@@ -14,6 +14,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class Property implements Tile, Ownable {
 
+    @Getter
     private final PropertyConfig propertyConfig;
 
     @Getter

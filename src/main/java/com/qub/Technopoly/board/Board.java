@@ -2,7 +2,7 @@ package com.qub.Technopoly.board;
 
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.config.Config;
-import com.qub.Technopoly.io.IOHelper;
+import com.qub.Technopoly.config.FieldConfig;
 import com.qub.Technopoly.tile.Property;
 import com.qub.Technopoly.tile.Start;
 import com.qub.Technopoly.tile.Tile;
@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 
@@ -25,9 +26,10 @@ public class Board {
     private CircularBuffer<Tile> tiles;
 
     public Board() {
-        var propertyConfigs = Config.getConfig().getPropertyConfigs();
-        var properties =
-            Arrays.stream(propertyConfigs).map(Property::new).collect(Collectors.toList());
+        var propertyConfigs =
+            Arrays.stream(Config.getConfig().getFieldConfigs()).map(FieldConfig::getPropertyConfigs)
+                .flatMap(Stream::of);
+        var properties = propertyConfigs.map(Property::new).collect(Collectors.toList());
 
         tiles = new CircularBuffer<>(Tile.class, properties.size() + 1);
         tiles.add(new Start(Config.getConfig().getStartConfig()));

@@ -20,7 +20,7 @@ public class Config {
     private final PlayerConfig playerConfig;
     private final DiceConfig diceConfig;
     private final StartConfig startConfig;
-    private final PropertyConfig[] propertyConfigs;
+    private final FieldConfig[] fieldConfigs;
 
     public static Config getConfig() {
         if (config != null) {
