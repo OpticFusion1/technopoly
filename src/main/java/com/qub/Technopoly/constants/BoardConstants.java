@@ -4,7 +4,7 @@ public class BoardConstants {
 
     public static final int MAX_PLAYERS = 4;
 
-    private BoardConstants(){
+    private BoardConstants() {
         // Prevent instantiation
     }
 }

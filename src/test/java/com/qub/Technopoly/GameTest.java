@@ -12,49 +12,49 @@ public class GameTest {
     private Game game;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         game = Game.getInstance();
     }
 
     @AfterEach
-    public void teardown(){
-        if(game.isGameRunning()){
+    public void teardown() {
+        if (game.isGameRunning()) {
             game.stop();
         }
     }
 
     @Test
-    public void whenStartGameIsRunning(){
+    public void whenStartGameIsRunning() {
         game.start();
         assertTrue(game.isGameRunning());
     }
 
     @Test
-    public void gameIsNotRunningByDefault(){
+    public void gameIsNotRunningByDefault() {
         assertFalse(game.isGameRunning());
     }
 
     @Test
-    public void whenStopGameIsNotRunning(){
+    public void whenStopGameIsNotRunning() {
         game.start();
         game.stop();
         assertFalse(game.isGameRunning());
     }
 
     @Test
-    public void startWhenRunningThrowsGameStateException(){
+    public void startWhenRunningThrowsGameStateException() {
         game.start();
 
         assertThrows(GameStateException.class, () -> game.start());
     }
 
     @Test
-    public void stopWhenNotRunningThrowsGameStateException(){
+    public void stopWhenNotRunningThrowsGameStateException() {
         assertThrows(GameStateException.class, () -> game.stop());
     }
 
     @Test
-    public void updateWhenNotRunningThrowsGameStateException(){
+    public void updateWhenNotRunningThrowsGameStateException() {
         assertThrows(GameStateException.class, () -> game.update());
     }
 }

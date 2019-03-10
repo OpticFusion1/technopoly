@@ -1,30 +1,32 @@
 package com.qub.Technopoly.actor;
 
 public interface Actor {
-  /**
-   * Check whether it is this actors turn
-   * @return
-   */
-  boolean IsActive();
-  
-  /**
-   * Set this Actor active, i.e., it is this actor's turn.
-   */
-  void SetActive();
-  
-  /**
-   * Set this Actor inactive, i.e., it is no longer this actor's turn.
-   */
-  void SetInactive();
-  
-  /**
-   * update the Actor
-   * @return True if the actor updated, False is the actor did not update
-   */
-  boolean Update();
+    /**
+     * Check whether it is this actors turn
+     *
+     * @return
+     */
+    boolean IsActive();
 
-  /**
-   * @return The actor's name
-   */
-  String getActorName();
+    /**
+     * Set this Actor active, i.e., it is this actor's turn.
+     */
+    void SetActive();
+
+    /**
+     * Set this Actor inactive, i.e., it is no longer this actor's turn.
+     */
+    void SetInactive();
+
+    /**
+     * update the Actor
+     *
+     * @return True if the actor updated, False is the actor did not update
+     */
+    boolean Update();
+
+    /**
+     * @return The actor's name
+     */
+    String getActorName();
 }

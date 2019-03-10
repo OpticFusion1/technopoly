@@ -2,7 +2,6 @@ package com.qub.Technopoly.board;
 
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.actor.Player;
-import com.qub.Technopoly.constants.BoardConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
