@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.NonFinal;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class Inventory {
     private final List<Ownable> owned = new ArrayList<>();
     @NonFinal
     @Getter
-    private int currentBalance = Config.getConfig().getPlayerConfig().getStartBalance();
+    private int currentBalance = Config.getConfig().getInventoryConfig().getStartBalance();
 
     public void add(Ownable ownable) {
         if (owned.contains(ownable)) {
@@ -45,6 +46,21 @@ public class Inventory {
 
     public boolean contains(Ownable ownable) {
         return owned.contains(ownable);
+    }
+
+    public <T extends Ownable> int getCountInInventory(Class<T> type) {
+        return (int) owned.stream().filter(type::isInstance).count();
+    }
+
+    public <T extends Ownable> T[] getTypeInInventory(Class<T> type) {
+        var ownablesGeneric = owned.stream().filter(type::isInstance).toArray();
+        var ownablesOfType = (T[]) Array.newInstance(type, ownablesGeneric.length);
+
+        for (var i = 0; i < ownablesOfType.length; i++) {
+            ownablesOfType[i] = (T) ownablesGeneric[i];
+        }
+
+        return ownablesOfType;
     }
 
     public void remove(int amount) {

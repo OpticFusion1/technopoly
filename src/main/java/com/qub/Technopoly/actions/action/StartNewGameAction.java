@@ -1,5 +1,6 @@
 package com.qub.Technopoly.actions.action;
 
+import com.qub.Technopoly.Game;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.actor.Player;
 import com.qub.Technopoly.board.Board;
@@ -30,6 +31,9 @@ public class StartNewGameAction implements Action {
 
     private static final String NAME = "Start New Game";
     private static final String DESCRIPTION = null;
+
+    @NonNull
+    private final Game game;
 
     @NonNull
     private final Board board;
@@ -82,6 +86,7 @@ public class StartNewGameAction implements Action {
         board.addActors(playerNames.stream()
             .map(name -> new Player(name, new Inventory()))
             .toArray(Actor[]::new));
+        game.start();
         return true;
     }
 }
