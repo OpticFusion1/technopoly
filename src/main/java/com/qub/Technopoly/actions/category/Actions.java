@@ -1,4 +1,4 @@
-package com.qub.Technopoly.action;
+package com.qub.Technopoly.actions.category;
 
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.tile.Property;
@@ -16,12 +16,12 @@ public class Actions {
      * @param tile  The tile the actor is on (landed on)
      * @return The action representing this tile, for the specific actor
      */
-    public Action getTileAction(Actor actor, Tile tile) {
+    public ActionCategory getTileAction(Actor actor, Tile tile) {
         if (tile instanceof Property) {
             var property = (Property) tile;
             var owner = property.getOwner();
 
-            return owner == null ? new UnownedPropertyAction(actor, property) : new OwnedPropertyAction(actor, property);
+            return owner == null ? new UnownedPropertyActionCategory(actor, property) : new OwnedPropertyActionCategory(actor, property);
         }
         return null;
     }

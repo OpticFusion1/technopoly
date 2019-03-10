@@ -1,5 +1,6 @@
-package com.qub.Technopoly.action;
+package com.qub.Technopoly.actions.category;
 
+import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
@@ -10,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import static java.lang.String.format;
 
 @RequiredArgsConstructor
-public class OwnedPropertyAction implements Action {
+public class OwnedPropertyActionCategory implements ActionCategory {
 
     private static final String OWNED_SELF_DESCRIPTION_FORMAT =
         "Welcome to %s!\nThis property is owned by you.";
@@ -29,13 +30,20 @@ public class OwnedPropertyAction implements Action {
             format(OWNED_SELF_DESCRIPTION_FORMAT, property.getName()) :
             format(OWNED_OTHER_DESCRIPTION_FORMAT, property.getName(),
                 property.getOwner().getActorName(), property.getRent());
-
         outputSource.writeTitle(description);
+
+        describeActions(outputSource);
     }
 
     @Override
     public boolean execute() {
         // TODO - Implement
         return false;
+    }
+
+    @Override
+    public Action[] getActions() {
+        // TODO - Implement
+        return null;
     }
 }

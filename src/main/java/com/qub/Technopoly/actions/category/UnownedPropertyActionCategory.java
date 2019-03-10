@@ -1,5 +1,6 @@
-package com.qub.Technopoly.action;
+package com.qub.Technopoly.actions.category;
 
+import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
@@ -10,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import static java.lang.String.format;
 
 @RequiredArgsConstructor
-public class UnownedPropertyAction implements Action {
+public class UnownedPropertyActionCategory implements ActionCategory {
 
     private static final String DESCRIPTION_FORMAT =
         "Welcome to %s!\n%s\nYou can buy this property for %s.";
@@ -34,5 +35,11 @@ public class UnownedPropertyAction implements Action {
     @Override
     public boolean execute() {
         return false;
+    }
+
+    @Override
+    public Action[] getActions() {
+        // TODO - Implement
+        return null;
     }
 }
