@@ -37,4 +37,6 @@ public interface Actor {
      * @return The actor's inventory
      */
     Inventory getInventory();
+
+    boolean isBankrupt();
 }

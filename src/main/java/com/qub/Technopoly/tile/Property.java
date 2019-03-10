@@ -4,7 +4,9 @@ import com.qub.Technopoly.actions.category.ActionCategory;
 import com.qub.Technopoly.actions.category.OwnedPropertyActionCategory;
 import com.qub.Technopoly.actions.category.UnownedPropertyActionCategory;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.config.HouseConfig;
 import com.qub.Technopoly.config.PropertyConfig;
+import com.qub.Technopoly.exception.GameStateException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -13,6 +15,9 @@ import lombok.Setter;
 public class Property implements Tile, Ownable {
 
     private final PropertyConfig propertyConfig;
+
+    @Getter
+    private int currentHouses = 0;
 
     @Getter
     @Setter
@@ -42,11 +47,42 @@ public class Property implements Tile, Ownable {
     }
 
     public int getRent() {
-        // TODO - Calculate rent
-        return propertyConfig.getPropertyRent();
+        if (currentHouses == 0) {
+            return propertyConfig.getPropertyRent();
+        }
+
+        return propertyConfig.getHouseConfigs()[currentHouses - 1].getHouseRent();
     }
 
     public int getPrice() {
         return propertyConfig.getPropertyPrice();
+    }
+
+    public HouseConfig getNextHouseInfo() {
+        if (!canUpgrade()) {
+            throw new GameStateException(
+                "Can't upgrade the property as the property is already max upgraded");
+        }
+        return propertyConfig.getHouseConfigs()[currentHouses];
+    }
+
+    public void addHouse() {
+        if (!canUpgrade()) {
+            throw new GameStateException(
+                "Can't add house to property as the property is already max upgraded");
+        }
+        currentHouses++;
+    }
+
+    public void removeHouse() {
+        if (currentHouses <= 0) {
+            throw new GameStateException(
+                "Can't remove house from property as the property has no houses");
+        }
+        currentHouses--;
+    }
+
+    public boolean canUpgrade() {
+        return currentHouses < propertyConfig.getHouseConfigs().length;
     }
 }

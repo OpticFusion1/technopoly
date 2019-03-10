@@ -56,4 +56,9 @@ public class Player implements Actor {
 
         return newTurn.execute();
     }
+
+    @Override
+    public boolean isBankrupt() {
+        return inventory.getCurrentBalance() < 0;
+    }
 }
