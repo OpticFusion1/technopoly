@@ -8,6 +8,7 @@ import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
 import com.qub.Technopoly.tile.Property;
+import com.qub.Technopoly.util.Field;
 import lombok.NonNull;
 
 import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
@@ -16,7 +17,9 @@ import static java.util.Objects.requireNonNull;
 
 public class UnownedPropertyActionCategory implements ActionCategory {
 
-    private static final String DESCRIPTION_FORMAT = "Welcome to %s!";
+    private static final String DESCRIPTION_FIELD_FORMAT = "Welcome to %s!";
+    private static final String DESCRIPTION_PROPERTY_FORMAT = "You are currently in %s";
+
     private static final String DESCRIPTION_TWO_FORMAT = "You can buy this property for %s %s.";
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
@@ -41,7 +44,13 @@ public class UnownedPropertyActionCategory implements ActionCategory {
 
     @Override
     public void describe() {
-        outputSource.writeTitle(format(DESCRIPTION_FORMAT, property.getName()));
+        var field = Field.getFieldForProperty(property);
+        outputSource.writeTitle(format(DESCRIPTION_FIELD_FORMAT, field.getName()));
+        outputSource.writeBody(field.getDescription());
+
+        DoActionDelay();
+
+        outputSource.writeBody(format(DESCRIPTION_PROPERTY_FORMAT, property.getName()));
         outputSource.writeBody(property.getDescription());
 
         DoActionDelay();
