@@ -4,6 +4,7 @@ import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actions.action.RollDiceAction;
 import com.qub.Technopoly.actions.action.ViewPropertiesAction;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.config.InventoryConfig;
 import com.qub.Technopoly.dice.DeveloperDice;
@@ -15,6 +16,7 @@ import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 
 import static java.lang.String.format;
+import static java.util.Objects.requireNonNull;
 
 public class NewTurnActionCategory implements ActionCategory {
 
@@ -23,14 +25,21 @@ public class NewTurnActionCategory implements ActionCategory {
 
     @NonNull
     private final Actor actor;
+    @NonNull
+    private final Board board;
+
     private final InventoryConfig inventoryConfig = Config.getConfig().getInventoryConfig();
     private final OutputSource outputSource = IOHelper.getOutputSource();
 
     private final Action[] actions;
 
-    public NewTurnActionCategory(Actor actor) {
-        this.actor = actor;
+    public NewTurnActionCategory(Actor actor, Board board) {
 
+        requireNonNull(actor);
+        requireNonNull(board);
+
+        this.actor = actor;
+        this.board = board;
         actions = new Action[] {new RollDiceAction(getDiceForActor(actor)),
                                 new ViewPropertiesAction(actor)};
     }
@@ -58,6 +67,31 @@ public class NewTurnActionCategory implements ActionCategory {
     @Override
     public Action[] getActions() {
         return actions;
+    }
+
+    @Override
+    public boolean execute() {
+        var selected = getSelectedAction();
+        if (selected < 0 || selected >= getActions().length) {
+            IOHelper.getOutputSource()
+                .writeBody("Invalid action! Please select a valid action from the list");
+            describeActions();
+            return false;
+        }
+
+        var action = getActions()[selected];
+        var success = action.execute();
+        if (!success) {
+            describeActions();
+        }
+
+        if (action instanceof RollDiceAction) {
+            var rollDice = (RollDiceAction) action;
+            var roll = rollDice.getRoll();
+            board.moveActor(actor, roll);
+        }
+
+        return success;
     }
 
     private Dice getDiceForActor(Actor actor) {

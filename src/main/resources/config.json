@@ -12,6 +12,11 @@
 		"minRoll": 1,
 		"maxRoll": 6
 	},
+	"startConfig": {
+		"name": "Start",
+		"startPassBonus": 20000,
+		"startLandOnBonus": 20000
+	},
 	"propertyConfigs": [{
 		"propertyName": "Hyderabad",
 		"propertyDescription": "India - 1",

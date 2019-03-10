@@ -18,6 +18,7 @@ public class Config {
     private final InventoryConfig inventoryConfig;
     private final PlayerConfig playerConfig;
     private final DiceConfig diceConfig;
+    private final StartConfig startConfig;
     private final PropertyConfig[] propertyConfigs;
 
     public static Config getConfig() {

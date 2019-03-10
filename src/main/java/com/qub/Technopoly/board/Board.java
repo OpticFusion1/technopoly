@@ -2,15 +2,41 @@ package com.qub.Technopoly.board;
 
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.config.Config;
+import com.qub.Technopoly.tile.Property;
+import com.qub.Technopoly.tile.Start;
+import com.qub.Technopoly.tile.Tile;
 import com.qub.Technopoly.util.CircularBuffer;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Board {
 
     private CircularBuffer<Actor> actorQueue =
         new CircularBuffer<>(Actor.class, Config.getConfig().getPlayerConfig().getMaxPlayers());
 
+    private Map<Actor, Integer> actorPositions = new HashMap<>();
+
+    private CircularBuffer<Tile> tiles;
+
+    public Board() {
+        var propertyConfigs = Config.getConfig().getPropertyConfigs();
+        var properties =
+            Arrays.stream(propertyConfigs).map(Property::new).collect(Collectors.toList());
+
+        tiles = new CircularBuffer<>(Tile.class, properties.size() + 1);
+        tiles.add(new Start(Config.getConfig().getStartConfig()));
+
+        for (var property : properties) {
+            tiles.add(property);
+        }
+    }
+
     public void addActor(Actor actor) {
         actorQueue.add(actor);
+        actorPositions.put(actor, 0);
     }
 
     public void addActors(Actor[] actors) {
@@ -18,6 +44,21 @@ public class Board {
         for (var i = 0; i < actors.length; i++) {
             addActor(actors[i]);
         }
+    }
+
+    public void moveActor(Actor actor, int steps){
+        tiles.setCurrentPosition(actorPositions.get(actor));
+        for(var i = 0; i < steps - 1; i++){
+            var nextTile = tiles.getNext();
+            nextTile.onPass(actor);
+        }
+        var lastTile = tiles.getNext();
+        var actionCategory = lastTile.onLand(actor);
+
+        actorPositions.replace(actor, tiles.getCurrentPosition());
+
+        actionCategory.describe();
+        while(!actionCategory.execute());
     }
 
     public Actor getNextActor() {
