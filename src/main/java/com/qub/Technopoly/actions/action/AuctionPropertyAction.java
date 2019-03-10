@@ -18,16 +18,18 @@ import static java.lang.String.format;
 @RequiredArgsConstructor
 public class AuctionPropertyAction implements Action {
 
-    private static String EXECUTION_MESSAGE_TITLE_FORMAT = "Action for %s (Field: %s) started!";
-    private static String EXECUTION_MESSAGE_DESCRIPTION_FORMAT = "Starting bid is %s %s.";
-    private static String EXECUTION_PROMPT_MESSAGE_FORMAT = "Would you like to bid %s? (y/N)";
-    private static String EXECUTION_BID_MESSAGE_FORMAT =
+    private static final String EXECUTION_MESSAGE_TITLE_FORMAT =
+        "Action for %s (Field: %s) started!";
+    private static final String EXECUTION_MESSAGE_DESCRIPTION_FORMAT = "Starting bid is %s %s.";
+    private static final String EXECUTION_PROMPT_MESSAGE_FORMAT = "Would you like to bid %s? (y/N)";
+    private static final String EXECUTION_BID_MESSAGE_FORMAT =
         "%s, please enter your bid. (Minimum %s %s)";
-    private static String BID_TOO_SMALL_ERROR = "Sorry, this bid is too small";
-    private static String NOT_ENOUGH_MONEY_FORMAT = "Sorry %s, you do not have enough money";
+    private static final String BID_TOO_SMALL_ERROR = "Sorry, this bid is too small";
+    private static final String NOT_ENOUGH_MONEY_FORMAT = "Sorry %s, you do not have enough money";
 
-    private static String NAME = "Auction Property";
-    private static String DESCRIPTION = "Don't want the property? Can't afford it? Auction it!";
+    private static final String NAME = "Auction Property";
+    private static final String DESCRIPTION =
+        "Don't want the property? Can't afford it? Auction it!";
 
     private static final String CURRENT_BID_MESSAGE_FORMAT = "Current bid is %s %s by %s.";
     private static final String AUCTION_WON_MESSAGE_FORMAT =
@@ -64,7 +66,7 @@ public class AuctionPropertyAction implements Action {
         outputSource.writeBody(format(EXECUTION_MESSAGE_DESCRIPTION_FORMAT, startingBid, currency));
 
         var done = false;
-        var actors = Arrays.asList(board.getActors());
+        var actors = board.getActors();
 
         var currentBid = startingBid;
         Actor currentWinner = null;
@@ -93,7 +95,8 @@ public class AuctionPropertyAction implements Action {
                             outputSource.writeBody(BID_TOO_SMALL_ERROR);
                         }
                         if (selectedBid > actor.getInventory().getCurrentBalance()) {
-                            outputSource.writeBody(format(NOT_ENOUGH_MONEY_FORMAT, actor.getActorName()));
+                            outputSource
+                                .writeBody(format(NOT_ENOUGH_MONEY_FORMAT, actor.getActorName()));
                             selectedBid = 0;
                         }
 
