@@ -1,290 +1,328 @@
 {
-	"delayConfig": {
-		"actionWait": 0.5
-	},
-	"inventoryConfig": {
-		"startBalance": 1000,
-		"currencyName": "dollars"
-	},
-	"playerConfig": {
-		"minPlayers": 2,
-		"maxPlayers": 4
-	},
-	"diceConfig": {
-		"minRoll": 1,
-		"maxRoll": 6
-	},
-	"startConfig": {
-		"name": "Start",
-		"startPassBonus": 300,
-		"startLandOnBonus": 300
-	},
-	"propertyConfigs": [{
-		"propertyName": "Hyderabad",
-		"propertyDescription": "India - 1",
-		"propertyPrice": 50,
-		"propertyRent": 10,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 50,
-			"houseRent": 10
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 50,
-			"houseRent": 30
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 50,
-			"houseRent": 90
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 50,
-			"houseRent": 200
-		}]
-	},
-	{
-		"propertyName": "Bangalore",
-		"propertyDescription": "India - 2",
-		"propertyPrice": 75,
-		"propertyRent": 30,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 75,
-			"houseRent": 30
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 75,
-			"houseRent": 60
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 75,
-			"houseRent": 120
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 75,
-			"houseRent": 250
-		}]
-	},
-	
-	{
-		"propertyName": "Belfast",
-		"propertyDescription": "Europe - 1",
-		"propertyPrice": 100,
-		"propertyRent": 60,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 100,
-			"houseRent": 60
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 100,
-			"houseRent": 90
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 100,
-			"houseRent": 120
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 100,
-			"houseRent": 325
-		}]
-	},
-	
-	{
-		"propertyName": "Berlin",
-		"propertyDescription": "Europe - 3",
-		"propertyPrice": 125,
-		"propertyRent": 80,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 125,
-			"houseRent": 80
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 125,
-			"houseRent": 150
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 125,
-			"houseRent": 200
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 125,
-			"houseRent": 400
-		}]
-	},
-	
-	{
-		"propertyName": "London",
-		"propertyDescription": "Europe - 3",
-		"propertyPrice": 150,
-		"propertyRent": 110,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 150,
-			"houseRent": 110
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 150,
-			"houseRent": 175
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 150,
-			"houseRent": 225
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 150,
-			"houseRent": 450
-		}]
-	},
-	
-	{
-		"propertyName": "Tokyo",
-		"propertyDescription": "East Asia - 1",
-		"propertyPrice": 175,
-		"propertyRent": 100,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 175,
-			"houseRent": 100
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 175,
-			"houseRent": 225
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 175,
-			"houseRent": 325
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 175,
-			"houseRent": 525
-		}]
-	},
-	
-	{
-		"propertyName": "Singapore",
-		"propertyDescription": "East Asia - 2",
-		"propertyPrice": 200,
-		"propertyRent": 120,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 200,
-			"houseRent": 120
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 200,
-			"houseRent": 240
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 200,
-			"houseRent": 370
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 200,
-			"houseRent": 600
-		}]
-	},
-	
-	{
-		"propertyName": "Austin",
-		"propertyDescription": "USA - 1",
-		"propertyPrice": 225,
-		"propertyRent": 140,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 225,
-			"houseRent": 140
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 225,
-			"houseRent": 280
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 225,
-			"houseRent": 450
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 225,
-			"houseRent": 750
-		}]
-	},
-	
-	{
-		"propertyName": "New York",
-		"propertyDescription": "USA - 2",
-		"propertyPrice": 250,
-		"propertyRent": 150,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 250,
-			"houseRent": 150
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 250,
-			"houseRent": 300
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 250,
-			"houseRent": 570
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 250,
-			"houseRent": 900
-		}]
-	},
-	
-	{
-		"propertyName": "Silicone Valley",
-		"propertyDescription": "USA - 3",
-		"propertyPrice": 300,
-		"propertyRent": 175,
-		"houseConfigs": [{
-			"houseName": "1st Office",
-			"housePrice": 300,
-			"houseRent": 175
-		},
-		{
-			"houseName": "2nd Office",
-			"housePrice": 300,
-			"houseRent": 450
-		},
-		{
-			"houseName": "3rd Office",
-			"housePrice": 300,
-			"houseRent": 800
-		},
-		{
-			"houseName": "HQ",
-			"housePrice": 300,
-			"houseRent": 1200
-		}]
-	}]
+  "delayConfig": {
+    "actionWait": 0.5
+  },
+  "inventoryConfig": {
+    "startBalance": 1000,
+    "currencyName": "dollars"
+  },
+  "playerConfig": {
+    "minPlayers": 2,
+    "maxPlayers": 4
+  },
+  "diceConfig": {
+    "minRoll": 1,
+    "maxRoll": 6
+  },
+  "startConfig": {
+    "name": "Start",
+    "startPassBonus": 300,
+    "startLandOnBonus": 300
+  },
+  "fieldConfigs": [
+    {
+      "name": "India",
+      "description": "A developing country which is developing quite quickly.",
+      "propertyConfigs": [
+        {
+          "propertyName": "Hyderabad",
+          "propertyDescription": "India - 1",
+          "propertyPrice": 50,
+          "propertyRent": 10,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 50,
+              "houseRent": 10
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 50,
+              "houseRent": 30
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 50,
+              "houseRent": 90
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 50,
+              "houseRent": 200
+            }
+          ]
+        },
+        {
+          "propertyName": "Bangalore",
+          "propertyDescription": "India - 2",
+          "propertyPrice": 75,
+          "propertyRent": 30,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 75,
+              "houseRent": 30
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 75,
+              "houseRent": 60
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 75,
+              "houseRent": 120
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 75,
+              "houseRent": 250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The United Kingdom",
+      "description": "This field contains 2 properties",
+      "propertyConfigs": [
+        {
+          "propertyName": "Belfast",
+          "propertyDescription": "A port city in the United Kingdom with a flourishing tech-market, this tech-hub is bound to impress you!",
+          "propertyPrice": 100,
+          "propertyRent": 60,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 100,
+              "houseRent": 60
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 100,
+              "houseRent": 90
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 100,
+              "houseRent": 120
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 100,
+              "houseRent": 325
+            }
+          ]
+        },
+        {
+          "propertyName": "Berlin",
+          "propertyDescription": "Europe - 3",
+          "propertyPrice": 125,
+          "propertyRent": 80,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 125,
+              "houseRent": 80
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 125,
+              "houseRent": 150
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 125,
+              "houseRent": 200
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 125,
+              "houseRent": 400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Field 3x3",
+      "description": "This field contains 3 properties",
+      "propertyConfigs": [
+        {
+          "propertyName": "London",
+          "propertyDescription": "Europe - 3",
+          "propertyPrice": 150,
+          "propertyRent": 110,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 150,
+              "houseRent": 110
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 150,
+              "houseRent": 175
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 150,
+              "houseRent": 225
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 150,
+              "houseRent": 450
+            }
+          ]
+        },
+        {
+          "propertyName": "Tokyo",
+          "propertyDescription": "East Asia - 1",
+          "propertyPrice": 175,
+          "propertyRent": 100,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 175,
+              "houseRent": 100
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 175,
+              "houseRent": 225
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 175,
+              "houseRent": 325
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 175,
+              "houseRent": 525
+            }
+          ]
+        },
+        {
+          "propertyName": "Singapore",
+          "propertyDescription": "East Asia - 2",
+          "propertyPrice": 200,
+          "propertyRent": 120,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 200,
+              "houseRent": 120
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 200,
+              "houseRent": 240
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 200,
+              "houseRent": 370
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 200,
+              "houseRent": 600
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Field 4x3",
+      "description": "This field contains 3 properties",
+      "propertyConfigs": [
+        {
+          "propertyName": "Austin",
+          "propertyDescription": "USA - 1",
+          "propertyPrice": 225,
+          "propertyRent": 140,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 225,
+              "houseRent": 140
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 225,
+              "houseRent": 280
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 225,
+              "houseRent": 450
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 225,
+              "houseRent": 750
+            }
+          ]
+        },
+        {
+          "propertyName": "New York",
+          "propertyDescription": "USA - 2",
+          "propertyPrice": 250,
+          "propertyRent": 150,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 250,
+              "houseRent": 150
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 250,
+              "houseRent": 300
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 250,
+              "houseRent": 570
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 250,
+              "houseRent": 900
+            }
+          ]
+        },
+        {
+          "propertyName": "Silicone Valley",
+          "propertyDescription": "USA - 3",
+          "propertyPrice": 300,
+          "propertyRent": 175,
+          "houseConfigs": [
+            {
+              "houseName": "1st Office",
+              "housePrice": 300,
+              "houseRent": 175
+            },
+            {
+              "houseName": "2nd Office",
+              "housePrice": 300,
+              "houseRent": 450
+            },
+            {
+              "houseName": "3rd Office",
+              "housePrice": 300,
+              "houseRent": 800
+            },
+            {
+              "houseName": "HQ",
+              "housePrice": 300,
+              "houseRent": 1200
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -6,13 +6,13 @@ import lombok.Value;
 @RequiredArgsConstructor
 @Value
 public class FieldConfig {
-    private final String fieldName;
-    private final String fieldDescription;
+    private final String name;
+    private final String description;
     private PropertyConfig[] propertyConfigs;
 
     public FieldConfig() {
-        fieldName = "Field Name";
-        fieldDescription = "Field Description";
+        name = "Field Name";
+        description = "Field Description";
         propertyConfigs = new PropertyConfig[] {new PropertyConfig()};
     }
 }
