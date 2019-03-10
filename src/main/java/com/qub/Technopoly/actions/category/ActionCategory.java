@@ -1,8 +1,7 @@
 package com.qub.Technopoly.actions.category;
 
 import com.qub.Technopoly.actions.action.Action;
-import com.qub.Technopoly.io.InputSource;
-import com.qub.Technopoly.io.OutputSource;
+import com.qub.Technopoly.io.IOHelper;
 import org.apache.commons.lang3.ArrayUtils;
 
 import static java.util.Objects.nonNull;
@@ -20,7 +19,21 @@ public interface ActionCategory {
      *
      * @return True if the action was executed, false if it wasn't.
      */
-    boolean execute();
+    default boolean execute() {
+        var selected = getSelectedAction();
+        if (selected < 0 || selected >= getActions().length) {
+            IOHelper.getOutputSource()
+                .writeBody("Invalid action! Please select a valid action from the list");
+            describeActions();
+            return false;
+        }
+
+        var success = getActions()[selected].execute();
+        if (!success) {
+            describeActions();
+        }
+        return success;
+    }
 
     /**
      * Get the actions that can be performed. The index corresponds to the expected input. (E.g. 1. Start New Game)
@@ -29,7 +42,7 @@ public interface ActionCategory {
      */
     Action[] getActions();
 
-    default void describeActions(OutputSource outputSource) {
+    default void describeActions() {
         var actions = getActions();
         if (ArrayUtils.isEmpty(actions)) {
             return;
@@ -40,11 +53,11 @@ public interface ActionCategory {
             var body = nonNull(action.getDescription()) ?
                 action.getName() + " - " + action.getDescription() :
                 action.getName();
-            outputSource.writeBody((i + 1) + ".\t" + body);
+            IOHelper.getOutputSource().writeBody((i + 1) + ".\t" + body);
         }
     }
 
-    default int getSelectedAction(InputSource inputSource){
-        return inputSource.getNextInt() - 1;
+    default int getSelectedAction() {
+        return IOHelper.getInputSource().getNextInt() - 1;
     }
 }

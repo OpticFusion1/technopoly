@@ -1,5 +1,7 @@
 package com.qub.Technopoly.actor;
 
+import com.qub.Technopoly.actions.category.NewTurnActionCategory;
+import com.qub.Technopoly.exception.GameStateException;
 import com.qub.Technopoly.inventory.Inventory;
 import lombok.Getter;
 import lombok.NonNull;
@@ -16,6 +18,8 @@ public class Player implements Actor {
     private final Inventory inventory;
 
     private boolean isActive = false;
+    private NewTurnActionCategory newTurn;
+
 
     @Override
     public boolean IsActive() {
@@ -24,30 +28,31 @@ public class Player implements Actor {
 
     @Override
     public void SetActive() {
-        // TODO Auto-generated method stub
         isActive = true;
+
+        if (newTurn == null) {
+            newTurn = new NewTurnActionCategory(this);
+        }
+
+        newTurn.describe();
     }
 
     @Override
     public void SetInactive() {
-        // TODO Auto-generated method stub
         isActive = false;
     }
 
     @Override
     public boolean Update() {
-        // TODO THIS IS EXAMPLE CODE.
-        System.out.printf("It is %s's turn!\n", actorName);
-
-        // We will not be using thread.sleep :)
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        if (!IsActive()) {
+            throw new GameStateException(
+                "Can't update actor " + actorName + " because it isn't that actors turn!");
         }
 
-        // We are done
-        return true;
+        if (newTurn == null) {
+            newTurn = new NewTurnActionCategory(this);
+        }
+
+        return newTurn.execute();
     }
 }

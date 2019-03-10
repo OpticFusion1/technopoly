@@ -32,13 +32,7 @@ public class OwnedPropertyActionCategory implements ActionCategory {
                 property.getOwner().getActorName(), property.getRent());
         outputSource.writeTitle(description);
 
-        describeActions(outputSource);
-    }
-
-    @Override
-    public boolean execute() {
-        // TODO - Implement
-        return false;
+        describeActions();
     }
 
     @Override

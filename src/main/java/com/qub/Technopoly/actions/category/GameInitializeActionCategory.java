@@ -21,7 +21,6 @@ public class GameInitializeActionCategory implements ActionCategory {
     private final Action[] actions;
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
-    private final InputSource inputSource = IOHelper.getInputSource();
 
     public GameInitializeActionCategory(Game game, Board board) {
         actions = new Action[] {new StartNewGameAction(game, board),
@@ -34,22 +33,6 @@ public class GameInitializeActionCategory implements ActionCategory {
         outputSource.writeTitle(TITLE_DESCRIPTION);
         outputSource.writeBody(INIT_DESCRIPTION);
 
-        describeActions(outputSource);
-    }
-
-    @Override
-    public boolean execute() {
-        var selected = getSelectedAction(inputSource);
-        if (selected < 0 || selected >= actions.length) {
-            outputSource.writeBody("Invalid action! Please select a valid action from the list");
-            describeActions(outputSource);
-            return false;
-        }
-
-        var success = actions[selected].execute();
-        if (!success) {
-            describeActions(outputSource);
-        }
-        return success;
+        describeActions();
     }
 }
