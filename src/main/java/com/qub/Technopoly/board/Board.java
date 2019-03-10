@@ -78,4 +78,15 @@ public class Board {
     public int getBoardActorCapacity() {
         return actorQueue.length;
     }
+
+    public Tile[] getTiles() {
+        return tiles.getBuffer();
+    }
+
+    public Actor[] getActorsAtTile(Tile tile) {
+        var tiles = Arrays.asList(getTiles());
+        var tileIndex = tiles.indexOf(tile);
+        return actorPositions.keySet().stream().filter(a -> actorPositions.get(a) == tileIndex)
+            .collect(Collectors.toList()).toArray(Actor[]::new);
+    }
 }

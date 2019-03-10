@@ -18,4 +18,6 @@ public interface Tile {
      * Returns an {@link ActionCategory} with possible options for the tile
      */
     ActionCategory onLand(Actor actor);
+
+    String toString();
 }

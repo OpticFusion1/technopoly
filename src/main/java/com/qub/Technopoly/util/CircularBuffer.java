@@ -39,4 +39,8 @@ public class CircularBuffer<T> {
     public int getCurrentPosition(){
         return currentIndex;
     }
+
+    public T[] getBuffer(){
+        return buffer;
+    }
 }

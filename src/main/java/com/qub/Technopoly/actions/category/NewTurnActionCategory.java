@@ -2,7 +2,8 @@ package com.qub.Technopoly.actions.category;
 
 import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actions.action.RollDiceAction;
-import com.qub.Technopoly.actions.action.ViewPropertiesAction;
+import com.qub.Technopoly.actions.action.ManagePropertiesAction;
+import com.qub.Technopoly.actions.action.ViewBoardAction;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.Config;
@@ -42,7 +43,8 @@ public class NewTurnActionCategory implements ActionCategory {
         this.actor = actor;
         this.board = board;
         actions = new Action[] {new RollDiceAction(getDiceForActor(actor)),
-                                new ViewPropertiesAction(actor)};
+                                new ViewBoardAction(board),
+                                new ManagePropertiesAction(actor)};
     }
 
     @Override

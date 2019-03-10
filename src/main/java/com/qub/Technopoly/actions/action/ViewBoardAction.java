@@ -1,0 +1,87 @@
+package com.qub.Technopoly.actions.action;
+
+import com.qub.Technopoly.board.Board;
+import com.qub.Technopoly.config.FieldConfig;
+import com.qub.Technopoly.io.IOHelper;
+import com.qub.Technopoly.io.OutputSource;
+import com.qub.Technopoly.tile.Property;
+import com.qub.Technopoly.tile.Tile;
+import com.qub.Technopoly.util.Field;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+import static org.apache.commons.lang3.ArrayUtils.isEmpty;
+
+@RequiredArgsConstructor
+public class ViewBoardAction implements Action {
+
+    private static final String NAME = "View Board";
+    private static final String DESCRIPTION = "View your position on the board";
+
+    private static final String FIELD_BORDER = "#####################";
+
+    private final OutputSource outputSource = IOHelper.getOutputSource();
+
+    @NonNull
+    private final Board board;
+
+    @Override
+    public @NonNull String getName() {
+        return NAME;
+    }
+
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
+    }
+
+    @Override
+    public boolean execute() {
+        var tiles = board.getTiles();
+        outputSource.writeBody(getBoardDescription(tiles));
+        return true;
+    }
+
+    private String getBoardDescription(Tile[] all) {
+
+        var builder = new StringBuilder();
+
+        FieldConfig currentField = null;
+        for (var i = 0; i < all.length; i++) {
+            var tile = all[i];
+
+            if (tile instanceof Property) {
+                var newField = Field.getFieldForProperty((Property) tile);
+                if (!newField.equals(currentField)) {
+                    currentField = newField;
+                    builder.append('\n');
+                    builder.append(currentField.getName());
+                    builder.append('\n');
+                    builder.append(FIELD_BORDER);
+                    builder.append('\n');
+                }
+            }
+            else{
+                builder.append('\n');
+                builder.append(FIELD_BORDER);
+                builder.append('\n');
+            }
+
+            builder.append(tile.getName());
+            var actorsAtTile = board.getActorsAtTile(tile);
+            if (!isEmpty(actorsAtTile)) {
+                builder.append(" (");
+                for (var j = 0; j < actorsAtTile.length; j++) {
+                    var tileActor = actorsAtTile[j];
+                    builder.append(tileActor.getActorName());
+                    if (j < actorsAtTile.length - 1) {
+                        builder.append(", ");
+                    }
+                }
+                builder.append(")");
+            }
+            builder.append('\n');
+        }
+        return builder.toString();
+    }
+}

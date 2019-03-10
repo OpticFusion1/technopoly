@@ -49,4 +49,9 @@ public class Start implements Tile {
         // TODO - Add money to Actor?
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "[" + getName() + "]";
+    }
 }
