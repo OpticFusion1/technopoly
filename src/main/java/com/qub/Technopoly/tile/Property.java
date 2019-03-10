@@ -7,6 +7,7 @@ import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.config.HouseConfig;
 import com.qub.Technopoly.config.PropertyConfig;
 import com.qub.Technopoly.exception.GameStateException;
+import com.qub.Technopoly.util.Field;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -85,5 +86,10 @@ public class Property implements Tile, Ownable {
 
     public boolean canUpgrade() {
         return currentHouses < propertyConfig.getHouseConfigs().length;
+    }
+
+    @Override
+    public String toString() {
+        return "[Field: " + Field.getFieldForProperty(this).getName() + " Property: " + getName() + "]";
     }
 }
