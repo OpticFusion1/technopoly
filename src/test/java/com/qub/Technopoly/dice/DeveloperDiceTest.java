@@ -1,11 +1,9 @@
 package com.qub.Technopoly.dice;
 
+import com.qub.Technopoly.config.DiceConfig;
 import com.qub.Technopoly.input.InputSource;
-import com.qub.Technopoly.input.ScannerInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayInputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;

@@ -2,6 +2,8 @@ package com.qub.Technopoly.dice;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Random;
+
+import com.qub.Technopoly.config.DiceConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 

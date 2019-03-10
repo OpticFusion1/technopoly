@@ -1,5 +1,7 @@
 package com.qub.Technopoly.dice;
 
+import com.qub.Technopoly.config.DiceConfig;
+
 /**
  * Interface for instances of Dices.
  * <p>

@@ -1,5 +1,6 @@
 package com.qub.Technopoly.dice;
 
+import com.qub.Technopoly.config.DiceConfig;
 import com.qub.Technopoly.input.InputSource;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
