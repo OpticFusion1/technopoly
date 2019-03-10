@@ -22,11 +22,11 @@
   "fieldConfigs": [
     {
       "name": "India",
-      "description": "A developing country which is developing quite quickly.",
+      "description": "A developing country which is a burgeoning tech industry.",
       "propertyConfigs": [
         {
           "propertyName": "Hyderabad",
-          "propertyDescription": "India - 1",
+          "propertyDescription": "Also known as 'Cyberabad'. This city is a rapidly modernizing tech hub.",
           "propertyPrice": 50,
           "propertyRent": 10,
           "houseConfigs": [
@@ -54,7 +54,7 @@
         },
         {
           "propertyName": "Bangalore",
-          "propertyDescription": "India - 2",
+          "propertyDescription": "The 'Garden City' is India's tech capital with a thriving IT industry.",
           "propertyPrice": 75,
           "propertyRent": 30,
           "houseConfigs": [
@@ -116,7 +116,7 @@
         },
         {
           "propertyName": "Berlin",
-          "propertyDescription": "Europe - 3",
+          "propertyDescription": "A cosmopolitan European City. A vibrant mix of talent and creative culture make this ideal city to invest.",
           "propertyPrice": 125,
           "propertyRent": 80,
           "houseConfigs": [
@@ -150,7 +150,7 @@
       "propertyConfigs": [
         {
           "propertyName": "London",
-          "propertyDescription": "Europe - 3",
+          "propertyDescription": "The second-most connected tech ecosystem globally make London a sound investment opportunity.",
           "propertyPrice": 150,
           "propertyRent": 110,
           "houseConfigs": [
@@ -177,8 +177,8 @@
           ]
         },
         {
-          "propertyName": "Tokyo",
-          "propertyDescription": "East Asia - 1",
+          "propertyName": "Shanghai",
+          "propertyDescription": "China's biggest technology hub in one of the world's economic powerhouses.",
           "propertyPrice": 175,
           "propertyRent": 100,
           "houseConfigs": [
@@ -206,7 +206,7 @@
         },
         {
           "propertyName": "Singapore",
-          "propertyDescription": "East Asia - 2",
+          "propertyDescription": "Attractive trade policies, high-tech and a cosmopolitan city. Singapore is a gateway into Asia's rapidly growing markets. ",
           "propertyPrice": 200,
           "propertyRent": 120,
           "houseConfigs": [
@@ -240,7 +240,7 @@
       "propertyConfigs": [
         {
           "propertyName": "Austin",
-          "propertyDescription": "USA - 1",
+          "propertyDescription": "Also known as the 'Silcone Hills', Austin is a powerful tech hub in the world's biggest economy. ",
           "propertyPrice": 225,
           "propertyRent": 140,
           "houseConfigs": [
@@ -268,7 +268,7 @@
         },
         {
           "propertyName": "New York",
-          "propertyDescription": "USA - 2",
+          "propertyDescription": "A rich diversity and skilled workforce make this a very attractive tech stronghold to invest in. New York is a city that everybody wants to be in.",
           "propertyPrice": 250,
           "propertyRent": 150,
           "houseConfigs": [
@@ -295,8 +295,8 @@
           ]
         },
         {
-          "propertyName": "Silicone Valley",
-          "propertyDescription": "USA - 3",
+          "propertyName": "Silicon Valley",
+          "propertyDescription": "The worlds global center for high technology, innovation and investment.  Silicon Valley has been the bench-mark for tech success for decades. ",
           "propertyPrice": 300,
           "propertyRent": 175,
           "houseConfigs": [
