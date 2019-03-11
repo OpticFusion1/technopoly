@@ -6,8 +6,9 @@ import com.qub.Technopoly.inventory.Inventory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CircularBufferTest {
 
@@ -29,14 +30,14 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void AddActorToCapacityDoesNotThrow() {
+    public void addActorToCapacityDoesNotThrow() {
         for (var i = 0; i < CAPACITY; i++) {
             actorQueue.add(EXPECTED_ACTOR);
         }
     }
 
     @Test
-    public void AddActorOverCapacityThrowsArrayIndexOutOfBoundsException() {
+    public void addActorOverCapacityThrowsArrayIndexOutOfBoundsException() {
         for (var i = 0; i < CAPACITY; i++) {
             actorQueue.add(EXPECTED_ACTOR);
         }
@@ -44,7 +45,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void AddActorGetNextReturnsExpectedOrderOfActors() {
+    public void addActorGetNextReturnsExpectedOrderOfActors() {
         var expectedActors = new Actor[CAPACITY];
         for (var i = 0; i < CAPACITY; i++) {
             var newActor = new Player("Actor " + i, new Inventory());
@@ -55,6 +56,45 @@ public class CircularBufferTest {
         for (var i = 0; i < VALIDATION_RUNS; i++) {
             var actorIndex = i % CAPACITY;
             assertEquals(expectedActors[actorIndex], actorQueue.getNext());
+        }
+    }
+
+    @Test
+    public void getBufferReturnsExpectedBuffer() {
+        var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
+        var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
+        Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
+        assertArrayEquals(underlyingBuffer, circularBuffer.getBuffer());
+    }
+
+    @Test
+    public void getCurrentPositionReturnsMinusOneWhenOnCreated(){
+        var circularBuffer = new CircularBuffer<>(Integer.class, 5);
+        assertEquals(-1, circularBuffer.getCurrentPosition());
+    }
+
+    @Test
+    public void getCurrentPositionReturnsZeroWhenCalledOnce(){
+        var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
+        var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
+        Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
+
+        circularBuffer.getNext();
+        assertEquals(0, circularBuffer.getCurrentPosition());
+    }
+
+    @Test
+    public void setCurrentPositionCyclesPosition(){
+        var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
+        var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
+        Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
+
+        for(var i = 0; i < VALIDATION_RUNS; i++){
+            circularBuffer.setCurrentPosition(i);
+            var expectedIndex = i % underlyingBuffer.length;
+
+            assertEquals(expectedIndex, circularBuffer.getCurrentPosition());
+            circularBuffer.getNext();
         }
     }
 }

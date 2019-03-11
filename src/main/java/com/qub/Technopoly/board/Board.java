@@ -48,7 +48,7 @@ public class Board {
      */
     public void addActor(Actor actor) {
         actorQueue.add(actor);
-        actorPositions.put(actor, 0);
+        actorPositions.put(actor, -1);
     }
 
     /**
@@ -69,9 +69,6 @@ public class Board {
      */
     public void moveActor(Actor actor, int steps) {
         tiles.setCurrentPosition(actorPositions.get(actor));
-
-        // Skip the current tile.
-        tiles.getNext();
 
         for (var i = 0; i < steps - 1; i++) {
             var nextTile = tiles.getNext();

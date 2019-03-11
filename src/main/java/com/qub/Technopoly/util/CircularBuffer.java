@@ -11,7 +11,7 @@ public class CircularBuffer<T> {
     public final int length;
 
     private T[] buffer;
-    private int currentIndex = 0;
+    private int currentIndex = -1;
     private int currentSize = 0;
 
     /**
@@ -38,13 +38,12 @@ public class CircularBuffer<T> {
      * @return
      */
     public T getNext() {
-        var next = buffer[currentIndex];
-
         currentIndex++;
         if (currentIndex >= buffer.length) {
             currentIndex = 0;
         }
 
+        var next = buffer[currentIndex];
         return next;
     }
 
@@ -61,11 +60,7 @@ public class CircularBuffer<T> {
      * @return The current position of the circular buffer
      */
     public int getCurrentPosition() {
-        var currentPos = currentIndex - 1;
-        if (currentPos < 0) {
-            currentPos = buffer.length - 1;
-        }
-        return currentPos;
+        return currentIndex;
     }
 
     /**
