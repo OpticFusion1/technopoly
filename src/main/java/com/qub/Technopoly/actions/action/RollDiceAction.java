@@ -7,9 +7,13 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
+import static com.qub.Technopoly.io.IOHelper.doActionDelay;
 import static java.lang.String.format;
 
+/**
+ * {@inheritDoc}
+ * Used to roll the dice
+ */
 @RequiredArgsConstructor
 public class RollDiceAction implements Action {
 
@@ -26,22 +30,31 @@ public class RollDiceAction implements Action {
     @Getter
     private int roll;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return DESCRIPTION;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         roll = dice.roll();
         outputSource.writeBody(format(EXECUTE_MESSAGE_FORMAT, roll));
 
-        DoActionDelay();
+        doActionDelay();
 
         return true;
     }

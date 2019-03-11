@@ -29,10 +29,23 @@ public class Field {
         // Prevent instantiation
     }
 
+    /**
+     * Gets the {@link FieldConfig} for a specific {@link Property}
+     *
+     * @param property The property to get the field for
+     * @return
+     */
     public static FieldConfig getFieldForProperty(Property property) {
         return fieldsForProperties.get(property.getPropertyConfig());
     }
 
+    /**
+     * Checks that an {@link Actor} has all properties in a field for a specific {@link Property}
+     *
+     * @param actor    The actor that owns the property
+     * @param property The property in the field we're checking
+     * @return
+     */
     public static boolean hasAllPropertiesInFieldForProperty(Actor actor, Property property) {
         var field = fieldsForProperties.get(property.getPropertyConfig());
         var matchingProperties =

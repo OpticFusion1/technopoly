@@ -15,6 +15,10 @@ import java.util.Arrays;
 
 import static java.lang.String.format;
 
+/**
+ * {@inheritDoc}
+ * Used to Auction a property
+ */
 @RequiredArgsConstructor
 public class AuctionPropertyAction implements Action {
 
@@ -46,16 +50,25 @@ public class AuctionPropertyAction implements Action {
 
     private final InputSource inputSource = IOHelper.getInputSource();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return DESCRIPTION;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         outputSource.writeTitle(format(EXECUTION_MESSAGE_TITLE_FORMAT, property.getName(),

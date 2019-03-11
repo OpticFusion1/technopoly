@@ -6,6 +6,9 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import static java.util.Objects.nonNull;
 
+/**
+ * An action group wraps {@link Action} and provides a convenient way to group them/call them.
+ */
 public interface ActionGroup {
     /**
      * Describes the action group
@@ -42,6 +45,9 @@ public interface ActionGroup {
      */
     Action[] getActions();
 
+    /**
+     * Describes the {@link Action}s that this group contains
+     */
     default void describeActions() {
         var actions = getActions();
         if (ArrayUtils.isEmpty(actions)) {
@@ -57,6 +63,10 @@ public interface ActionGroup {
         }
     }
 
+    /**
+     * Gets the next selected action by the user
+     * @return
+     */
     default int getSelectedAction() {
         return IOHelper.getInputSource().getNextInt() - 1;
     }

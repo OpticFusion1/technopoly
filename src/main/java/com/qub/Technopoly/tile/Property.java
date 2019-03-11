@@ -13,6 +13,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Contains information about a property (monopoly street) that a user can own
+ */
 @RequiredArgsConstructor
 public class Property implements Tile, Ownable {
 
@@ -26,21 +29,33 @@ public class Property implements Tile, Ownable {
     @Setter
     private Actor owner;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName() {
         return propertyConfig.getPropertyName();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return propertyConfig.getPropertyDescription();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onPass(Actor actor) {
         // Do Nothing
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ActionGroup onLand(Actor actor, Board board) {
         var owner = getOwner();
@@ -49,6 +64,11 @@ public class Property implements Tile, Ownable {
             new OwnedPropertyActionGroup(actor, this);
     }
 
+    /**
+     * Calculates the rent that needs to be paid for landing on this property.
+     * <p>The rent factors in how many houses are on the property</p>
+     * @return
+     */
     public int getRent() {
         if (currentHouses == 0) {
             return propertyConfig.getPropertyRent();
@@ -57,6 +77,10 @@ public class Property implements Tile, Ownable {
         return propertyConfig.getHouseConfigs()[currentHouses - 1].getHouseRent();
     }
 
+    /**
+     * Gets the price of this property that the user has to pay to buy it.
+     * @return
+     */
     public int getPrice() {
         return propertyConfig.getPropertyPrice();
     }
@@ -69,6 +93,10 @@ public class Property implements Tile, Ownable {
         return propertyConfig.getHouseConfigs()[currentHouses];
     }
 
+    /**
+     * Adds a house to the property
+     * @throws GameStateException If the property is maximum upgraded
+     */
     public void addHouse() {
         if (!canUpgrade()) {
             throw new GameStateException(
@@ -77,6 +105,10 @@ public class Property implements Tile, Ownable {
         currentHouses++;
     }
 
+    /**
+     * Removes a house from the property
+     * @throws GameStateException If the property has no houses
+     */
     public void removeHouse() {
         if (currentHouses <= 0) {
             throw new GameStateException(
@@ -85,10 +117,17 @@ public class Property implements Tile, Ownable {
         currentHouses--;
     }
 
+    /**
+     * Check whether or not it is possible to upgrade this property
+     * @return
+     */
     public boolean canUpgrade() {
         return currentHouses < propertyConfig.getHouseConfigs().length;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "[Field: " + Field.getFieldForProperty(this).getName() + " Property: " + getName() + "]";

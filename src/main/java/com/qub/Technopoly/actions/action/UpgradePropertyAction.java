@@ -8,9 +8,13 @@ import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
+import static com.qub.Technopoly.io.IOHelper.doActionDelay;
 import static java.lang.String.format;
 
+/**
+ * {@inheritDoc}
+ * Used to upgrade a specific property
+ */
 @RequiredArgsConstructor
 public class UpgradePropertyAction implements Action {
 
@@ -28,11 +32,17 @@ public class UpgradePropertyAction implements Action {
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         if (!property.canUpgrade()) {
@@ -45,6 +55,9 @@ public class UpgradePropertyAction implements Action {
             currency, nextHouse.getHouseRent(), currency);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         if (!property.canUpgrade()) {
@@ -66,7 +79,7 @@ public class UpgradePropertyAction implements Action {
             format(BUY_UPGRADE_MESSAGE, property.getName(), inventory.getCurrentBalance(),
                 Config.getConfig().getInventoryConfig().getCurrencyName()));
 
-        DoActionDelay();
+        doActionDelay();
 
         return true;
     }

@@ -17,6 +17,10 @@ import java.util.HashSet;
 
 import static java.lang.String.format;
 
+/**
+ * {@inheritDoc}
+ * Used to start a new game
+ */
 @RequiredArgsConstructor
 public class StartNewGameAction implements Action {
 
@@ -45,16 +49,25 @@ public class StartNewGameAction implements Action {
 
     private final InputSource inputSource = IOHelper.getInputSource();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return DESCRIPTION;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         outputSource.writeBody(format(EXECUTE_DESCRIPTION_FORMAT, playerConfig.getMinPlayers(),

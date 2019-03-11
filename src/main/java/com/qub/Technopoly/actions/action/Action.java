@@ -2,6 +2,9 @@ package com.qub.Technopoly.actions.action;
 
 import lombok.NonNull;
 
+/**
+ * Represents a specific action that can be executed
+ */
 public interface Action {
     /**
      * Gets the action name

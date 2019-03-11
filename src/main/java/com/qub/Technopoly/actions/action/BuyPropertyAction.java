@@ -8,9 +8,13 @@ import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
+import static com.qub.Technopoly.io.IOHelper.doActionDelay;
 import static java.lang.String.format;
 
+/**
+ * {@inheritDoc}
+ * Used to buy a property
+ */
 @RequiredArgsConstructor
 public class BuyPropertyAction implements Action {
 
@@ -27,16 +31,25 @@ public class BuyPropertyAction implements Action {
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return DESCRIPTION;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         var inventory = actor.getInventory();
@@ -53,7 +66,7 @@ public class BuyPropertyAction implements Action {
             format(BUY_PROPERTY_MESSAGE, property.getName(), inventory.getCurrentBalance(),
                 Config.getConfig().getInventoryConfig().getCurrencyName()));
 
-        DoActionDelay();
+        doActionDelay();
 
         return true;
     }

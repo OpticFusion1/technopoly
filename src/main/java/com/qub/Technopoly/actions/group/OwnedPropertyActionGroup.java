@@ -12,9 +12,13 @@ import com.qub.Technopoly.util.Field;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
+import static com.qub.Technopoly.io.IOHelper.doActionDelay;
 import static java.lang.String.format;
 
+/**
+ * {@inheritDoc}
+ * Used when an actor lands on an owned property
+ */
 @RequiredArgsConstructor
 public class OwnedPropertyActionGroup implements ActionGroup {
 
@@ -31,18 +35,21 @@ public class OwnedPropertyActionGroup implements ActionGroup {
     @NonNull
     private final Property property;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void describe() {
         var field = Field.getFieldForProperty(property);
         outputSource.writeTitle(format(DESCRIPTION_FIELD_FORMAT, field.getName()));
         outputSource.writeBody(field.getDescription());
 
-        DoActionDelay();
+        doActionDelay();
 
         outputSource.writeBody(format(DESCRIPTION_PROPERTY_FORMAT, property.getName()));
         outputSource.writeBody(property.getDescription());
 
-        DoActionDelay();
+        doActionDelay();
 
         var description = property.getOwner().equals(actor) ?
             OWNED_SELF_DESCRIPTION :
@@ -53,6 +60,9 @@ public class OwnedPropertyActionGroup implements ActionGroup {
         describeActions();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Action[] getActions() {
 

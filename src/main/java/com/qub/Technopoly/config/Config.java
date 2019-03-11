@@ -12,6 +12,9 @@ import java.io.InputStreamReader;
 
 import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 
+/**
+ * Main Configuration Wrapper containing all configurable elements of the game.
+ */
 @RequiredArgsConstructor
 @Value
 public class Config {
@@ -24,6 +27,10 @@ public class Config {
     private final StartConfig startConfig;
     private final FieldConfig[] fieldConfigs;
 
+    /**
+     * Gets the Config to use for this game.
+     * @return
+     */
     public static Config getConfig() {
         if (config != null) {
             return config;

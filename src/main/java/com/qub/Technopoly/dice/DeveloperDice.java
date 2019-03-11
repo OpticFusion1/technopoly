@@ -5,6 +5,10 @@ import com.qub.Technopoly.io.InputSource;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * The DeveloperDice is used for testing.
+ * It allows the developer to specify the dice roll they would like to get.
+ */
 @RequiredArgsConstructor
 public class DeveloperDice implements Dice {
 
@@ -14,6 +18,9 @@ public class DeveloperDice implements Dice {
     @NonNull
     private final InputSource inputSource;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int roll() {
 
