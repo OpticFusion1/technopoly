@@ -6,9 +6,11 @@ import com.qub.Technopoly.actions.action.ExitGameAction;
 import com.qub.Technopoly.actions.action.LoadGameAction;
 import com.qub.Technopoly.actions.action.StartNewGameAction;
 import com.qub.Technopoly.board.Board;
-import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
 import lombok.Getter;
+
+import static com.qub.Technopoly.io.IOHelper.getInputSource;
+import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 
 /**
  * {@inheritDoc}
@@ -23,10 +25,10 @@ public class GameInitializeActionGroup implements ActionGroup {
     @Getter
     private final Action[] actions;
 
-    private final OutputSource outputSource = IOHelper.getOutputSource();
+    private final OutputSource outputSource = getOutputSource();
 
     public GameInitializeActionGroup(Game game, Board board) {
-        actions = new Action[] {new StartNewGameAction(game, board),
+        actions = new Action[] {new StartNewGameAction(game, board, outputSource, getInputSource()),
                                 new LoadGameAction(),
                                 new ExitGameAction(game)};
     }

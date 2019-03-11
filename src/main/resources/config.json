@@ -12,7 +12,8 @@
   },
   "diceConfig": {
     "minRoll": 1,
-    "maxRoll": 6
+    "maxRoll": 6,
+    "amountDice": 2
   },
   "startConfig": {
     "name": "Start",

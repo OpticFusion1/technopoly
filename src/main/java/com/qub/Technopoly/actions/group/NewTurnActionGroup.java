@@ -1,8 +1,8 @@
 package com.qub.Technopoly.actions.group;
 
 import com.qub.Technopoly.actions.action.Action;
-import com.qub.Technopoly.actions.action.RollDiceAction;
 import com.qub.Technopoly.actions.action.ManagePropertiesAction;
+import com.qub.Technopoly.actions.action.RollDiceAction;
 import com.qub.Technopoly.actions.action.ViewBoardAction;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.board.Board;
@@ -17,6 +17,7 @@ import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 
 import static com.qub.Technopoly.io.IOHelper.doActionDelay;
+import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
@@ -35,7 +36,7 @@ public class NewTurnActionGroup implements ActionGroup {
     private final Board board;
 
     private final InventoryConfig inventoryConfig = Config.getConfig().getInventoryConfig();
-    private final OutputSource outputSource = IOHelper.getOutputSource();
+    private final OutputSource outputSource = getOutputSource();
 
     private final Action[] actions;
 
@@ -46,8 +47,14 @@ public class NewTurnActionGroup implements ActionGroup {
 
         this.actor = actor;
         this.board = board;
-        actions = new Action[] {new RollDiceAction(getDiceForActor(actor)),
-                                new ViewBoardAction(board),
+
+        var dice = new Dice[Config.getConfig().getDiceConfig().getAmountDice()];
+        for (var i = 0; i < dice.length; i++) {
+            dice[i] = getDiceForActor(actor);
+        }
+
+        actions = new Action[] {new RollDiceAction(dice),
+                                new ViewBoardAction(board, getOutputSource()),
                                 new ManagePropertiesAction(actor)};
     }
 
@@ -87,7 +94,7 @@ public class NewTurnActionGroup implements ActionGroup {
     public boolean execute() {
         var selected = getSelectedAction();
         if (selected < 0 || selected >= getActions().length) {
-            IOHelper.getOutputSource()
+            getOutputSource()
                 .writeBody("Invalid action! Please select a valid action from the list");
             describeActions();
             return false;
@@ -103,6 +110,12 @@ public class NewTurnActionGroup implements ActionGroup {
             var rollDice = (RollDiceAction) action;
             var roll = rollDice.getRoll();
             board.moveActor(actor, roll);
+
+            // Don't end the turn if the user rolled doubles
+            if (rollDice.isRolledDoubles()) {
+                describeActions();
+                return false;
+            }
         }
 
         return success;

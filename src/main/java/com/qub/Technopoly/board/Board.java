@@ -8,9 +8,7 @@ import com.qub.Technopoly.tile.Start;
 import com.qub.Technopoly.tile.Tile;
 import com.qub.Technopoly.util.CircularBuffer;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,7 +22,8 @@ public class Board {
     private CircularBuffer<Actor> actorQueue =
         new CircularBuffer<>(Actor.class, Config.getConfig().getPlayerConfig().getMaxPlayers());
 
-    private Map<Actor, Integer> actorPositions = new HashMap<>();
+    private Map<Actor, Integer> currentActorPositions = new HashMap<>();
+    private Map<Actor, Integer> nextActorPositions = new HashMap<>();
 
     private CircularBuffer<Tile> tiles;
 
@@ -48,7 +47,8 @@ public class Board {
      */
     public void addActor(Actor actor) {
         actorQueue.add(actor);
-        actorPositions.put(actor, -1);
+        currentActorPositions.put(actor, 0);
+        nextActorPositions.put(actor, 1);
     }
 
     /**
@@ -68,16 +68,19 @@ public class Board {
      * @param steps How many steps the actor should move
      */
     public void moveActor(Actor actor, int steps) {
-        tiles.setCurrentPosition(actorPositions.get(actor));
+
+        tiles.setCurrentPosition(nextActorPositions.get(actor));
 
         for (var i = 0; i < steps - 1; i++) {
             var nextTile = tiles.getNext();
             nextTile.onPass(actor);
         }
         var lastTile = tiles.getNext();
+        lastTile.onPass(actor);
         var actionCategory = lastTile.onLand(actor, this);
 
-        actorPositions.replace(actor, tiles.getCurrentPosition());
+        nextActorPositions.replace(actor, tiles.getCurrentPosition());
+        currentActorPositions.replace(actor, tiles.getPreviousPosition());
 
         if (actionCategory != null) {
             actionCategory.describe();
@@ -119,7 +122,7 @@ public class Board {
     public Actor[] getActorsAtTile(Tile tile) {
         var tiles = Arrays.asList(getTiles());
         var tileIndex = tiles.indexOf(tile);
-        return actorPositions.keySet().stream().filter(a -> actorPositions.get(a) == tileIndex)
+        return nextActorPositions.keySet().stream().filter(a -> currentActorPositions.get(a) == tileIndex)
             .collect(Collectors.toList()).toArray(Actor[]::new);
     }
 

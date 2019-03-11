@@ -1,11 +1,12 @@
 package com.qub.Technopoly.actions.action;
 
+import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.dice.Dice;
+import com.qub.Technopoly.exception.GameStateException;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 import static com.qub.Technopoly.io.IOHelper.doActionDelay;
 import static java.lang.String.format;
@@ -14,10 +15,10 @@ import static java.lang.String.format;
  * {@inheritDoc}
  * Used to roll the dice
  */
-@RequiredArgsConstructor
 public class RollDiceAction implements Action {
 
-    private static final String EXECUTE_MESSAGE_FORMAT = "You rolled %s!";
+    private static final String EXECUTE_MESSAGE_FORMAT = "You rolled %s and %s for a total of %s!";
+    private static final String EXECUTE_DOUBLES_MESSAGE = "DOUBLES! You get one more turn!";
 
     private static final String NAME = "Roll Dice";
     private static final String DESCRIPTION = "Roll the dice and see what you get!";
@@ -25,10 +26,20 @@ public class RollDiceAction implements Action {
     private final OutputSource outputSource = IOHelper.getOutputSource();
 
     @NonNull
-    private Dice dice;
+    private final Dice[] dice;
 
     @Getter
     private int roll;
+
+    @Getter
+    private boolean rolledDoubles;
+
+    public RollDiceAction(Dice[] dice) {
+        if (dice.length != Config.getConfig().getDiceConfig().getAmountDice()) {
+            throw new GameStateException("Amount of dice is not equal to expected amount!");
+        }
+        this.dice = dice;
+    }
 
     /**
      * {@inheritDoc}
@@ -51,8 +62,21 @@ public class RollDiceAction implements Action {
      */
     @Override
     public boolean execute() {
-        roll = dice.roll();
-        outputSource.writeBody(format(EXECUTE_MESSAGE_FORMAT, roll));
+
+        rolledDoubles = false;
+
+        // TODO - Current dice count is hardcoded to 2.
+        // TODO - Change this in future if you want to have more dice.
+        var firstDiceRoll = dice[0].roll();
+        var secondDiceRoll = dice[1].roll();
+
+        roll = firstDiceRoll + secondDiceRoll;
+        outputSource.writeBody(format(EXECUTE_MESSAGE_FORMAT, firstDiceRoll, secondDiceRoll, roll));
+
+        if (firstDiceRoll == secondDiceRoll) {
+            outputSource.writeBody(EXECUTE_DOUBLES_MESSAGE);
+            rolledDoubles = true;
+        }
 
         doActionDelay();
 
