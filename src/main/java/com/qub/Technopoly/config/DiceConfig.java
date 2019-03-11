@@ -11,10 +11,12 @@ import lombok.Value;
 public class DiceConfig {
     private final int minRoll;
     private final int maxRoll;
+    private final int amountDice;
 
     // Default Configuration
     public DiceConfig(){
         minRoll = 1;
         maxRoll = 6;
+        amountDice = 2;
     }
 }

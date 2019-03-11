@@ -1,8 +1,8 @@
 package com.qub.Technopoly.actions.group;
 
 import com.qub.Technopoly.actions.action.Action;
-import com.qub.Technopoly.actions.action.RollDiceAction;
 import com.qub.Technopoly.actions.action.ManagePropertiesAction;
+import com.qub.Technopoly.actions.action.RollDiceAction;
 import com.qub.Technopoly.actions.action.ViewBoardAction;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.board.Board;
@@ -47,7 +47,13 @@ public class NewTurnActionGroup implements ActionGroup {
 
         this.actor = actor;
         this.board = board;
-        actions = new Action[] {new RollDiceAction(getDiceForActor(actor)),
+
+        var dice = new Dice[Config.getConfig().getDiceConfig().getAmountDice()];
+        for (var i = 0; i < dice.length; i++) {
+            dice[i] = getDiceForActor(actor);
+        }
+
+        actions = new Action[] {new RollDiceAction(dice),
                                 new ViewBoardAction(board, getOutputSource()),
                                 new ManagePropertiesAction(actor)};
     }
@@ -104,6 +110,12 @@ public class NewTurnActionGroup implements ActionGroup {
             var rollDice = (RollDiceAction) action;
             var roll = rollDice.getRoll();
             board.moveActor(actor, roll);
+
+            // Don't end the turn if the user rolled doubles
+            if (rollDice.isRolledDoubles()) {
+                describeActions();
+                return false;
+            }
         }
 
         return success;

@@ -76,6 +76,7 @@ public class Board {
             nextTile.onPass(actor);
         }
         var lastTile = tiles.getNext();
+        lastTile.onPass(actor);
         var actionCategory = lastTile.onLand(actor, this);
 
         nextActorPositions.replace(actor, tiles.getCurrentPosition());
