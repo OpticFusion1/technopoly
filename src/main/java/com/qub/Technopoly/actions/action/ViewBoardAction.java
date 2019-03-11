@@ -25,10 +25,11 @@ public class ViewBoardAction implements Action {
 
     private static final String FIELD_BORDER = "#####################";
 
-    private final OutputSource outputSource = IOHelper.getOutputSource();
-
     @NonNull
     private final Board board;
+
+    @NonNull
+    private final OutputSource outputSource;
 
     /**
      * {@inheritDoc}

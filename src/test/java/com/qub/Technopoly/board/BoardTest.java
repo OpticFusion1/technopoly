@@ -28,14 +28,14 @@ public class BoardTest {
     }
 
     @Test
-    public void AddActorToCapacityDoesNotThrow() {
+    public void addActorToCapacityDoesNotThrow() {
         for (var i = 0; i < board.getBoardActorCapacity(); i++) {
             board.addActor(EXPECTED_ACTOR);
         }
     }
 
     @Test
-    public void AddActorOverCapacityThrowsArrayIndexOutOfBoundsException() {
+    public void addActorOverCapacityThrowsArrayIndexOutOfBoundsException() {
         for (var i = 0; i < board.getBoardActorCapacity(); i++) {
             board.addActor(EXPECTED_ACTOR);
         }
@@ -43,7 +43,7 @@ public class BoardTest {
     }
 
     @Test
-    public void AddActorGetNextReturnsExpectedOrderOfActors() {
+    public void addActorGetNextReturnsExpectedOrderOfActors() {
         var expectedActors = new Actor[board.getBoardActorCapacity()];
         for (var i = 0; i < board.getBoardActorCapacity(); i++) {
             var newActor = new Player("Actor " + i, new Inventory());

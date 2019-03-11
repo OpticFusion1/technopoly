@@ -48,7 +48,7 @@ public class Board {
      */
     public void addActor(Actor actor) {
         actorQueue.add(actor);
-        actorPositions.put(actor, -1);
+        actorPositions.put(actor, 0);
     }
 
     /**

@@ -68,28 +68,59 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void getCurrentPositionReturnsMinusOneWhenOnCreated(){
+    public void getCurrentPositionReturnsZeroOnCreated() {
         var circularBuffer = new CircularBuffer<>(Integer.class, 5);
-        assertEquals(-1, circularBuffer.getCurrentPosition());
+        assertEquals(0, circularBuffer.getCurrentPosition());
     }
 
     @Test
-    public void getCurrentPositionReturnsZeroWhenCalledOnce(){
+    public void getCurrentPositionReturnsOneWhenCalledOnce() {
         var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
         var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
         Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
 
         circularBuffer.getNext();
-        assertEquals(0, circularBuffer.getCurrentPosition());
+        assertEquals(1, circularBuffer.getCurrentPosition());
     }
 
     @Test
-    public void setCurrentPositionCyclesPosition(){
+    public void getPreviousPositionReturnsLengthOnCreated() {
         var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
         var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
         Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
 
-        for(var i = 0; i < VALIDATION_RUNS; i++){
+        assertEquals(underlyingBuffer.length - 1, circularBuffer.getPreviousPosition());
+    }
+
+    @Test
+    public void getPreviousPositionReturnsZeroWhenCalledOnce() {
+        var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
+        var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
+        Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
+
+        circularBuffer.getNext();
+        assertEquals(0, circularBuffer.getPreviousPosition());
+    }
+
+    @Test
+    public void getPreviousPositionReturnsCurrentPositionMinusOne() {
+        var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
+        var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
+        Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
+
+        circularBuffer.getNext();
+        circularBuffer.getNext();
+
+        assertEquals(circularBuffer.getCurrentPosition() - 1, circularBuffer.getPreviousPosition());
+    }
+
+    @Test
+    public void setCurrentPositionCyclesPosition() {
+        var underlyingBuffer = new Integer[] {1, 2, 3, 4, 5};
+        var circularBuffer = new CircularBuffer<>(Integer.class, underlyingBuffer.length);
+        Arrays.stream(underlyingBuffer).forEach(circularBuffer::add);
+
+        for (var i = 0; i < VALIDATION_RUNS; i++) {
             circularBuffer.setCurrentPosition(i);
             var expectedIndex = i % underlyingBuffer.length;
 
