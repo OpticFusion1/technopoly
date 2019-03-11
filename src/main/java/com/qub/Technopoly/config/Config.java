@@ -3,7 +3,6 @@ package com.qub.Technopoly.config;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import com.qub.Technopoly.exception.ConfigurationException;
-import com.qub.Technopoly.io.IOHelper;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
@@ -11,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static com.qub.Technopoly.io.IOHelper.*;
+import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 
 @RequiredArgsConstructor
 @Value
