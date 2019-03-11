@@ -30,7 +30,8 @@ public class UpgradePropertyAction implements Action {
     @NonNull
     private final Property property;
 
-    private final OutputSource outputSource = IOHelper.getOutputSource();
+    @NonNull
+    private final OutputSource outputSource;
 
     /**
      * {@inheritDoc}

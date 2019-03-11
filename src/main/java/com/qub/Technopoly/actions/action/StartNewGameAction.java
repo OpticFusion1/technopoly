@@ -43,11 +43,13 @@ public class StartNewGameAction implements Action {
     private final Board board;
 
     @NonNull
+    private final OutputSource outputSource;
+
+    @NonNull
+    private final InputSource inputSource;
+
+    @NonNull
     private final PlayerConfig playerConfig = Config.getConfig().getPlayerConfig();
-
-    private final OutputSource outputSource = IOHelper.getOutputSource();
-
-    private final InputSource inputSource = IOHelper.getInputSource();
 
     /**
      * {@inheritDoc}

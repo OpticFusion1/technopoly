@@ -28,7 +28,8 @@ public class ManagePropertiesActionGroup implements ActionGroup {
         List<Action> allActions =
             Arrays.stream(actor.getInventory().getTypeInInventory(Property.class))
                 .filter(p -> Field.hasAllPropertiesInFieldForProperty(actor, p))
-                .map(p -> new UpgradePropertyAction(actor, p)).collect(Collectors.toList());
+                .map(p -> new UpgradePropertyAction(actor, p, getOutputSource()))
+                .collect(Collectors.toList());
         allActions.add(new BackAction());
         actions = allActions.toArray(Action[]::new);
     }
