@@ -1,4 +1,4 @@
-package com.qub.Technopoly.actions.category;
+package com.qub.Technopoly.actions.group;
 
 import com.qub.Technopoly.Game;
 import com.qub.Technopoly.actions.action.Action;
@@ -7,11 +7,10 @@ import com.qub.Technopoly.actions.action.LoadGameAction;
 import com.qub.Technopoly.actions.action.StartNewGameAction;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.io.IOHelper;
-import com.qub.Technopoly.io.InputSource;
 import com.qub.Technopoly.io.OutputSource;
 import lombok.Getter;
 
-public class GameInitializeActionCategory implements ActionCategory {
+public class GameInitializeActionGroup implements ActionGroup {
 
     private static final String TITLE_DESCRIPTION = "Welcome to Technopoly!";
     private static final String INIT_DESCRIPTION =
@@ -22,7 +21,7 @@ public class GameInitializeActionCategory implements ActionCategory {
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
 
-    public GameInitializeActionCategory(Game game, Board board) {
+    public GameInitializeActionGroup(Game game, Board board) {
         actions = new Action[] {new StartNewGameAction(game, board),
                                 new LoadGameAction(),
                                 new ExitGameAction(game)};

@@ -1,4 +1,4 @@
-package com.qub.Technopoly.actions.category;
+package com.qub.Technopoly.actions.group;
 
 import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actions.action.RollDiceAction;
@@ -20,7 +20,7 @@ import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
-public class NewTurnActionCategory implements ActionCategory {
+public class NewTurnActionGroup implements ActionGroup {
 
     private static final String TITLE_DESCRIPTION_FORMAT = "It is your turn %s!";
     private static final String TITLE_BODY_FORMAT = "You currently have %s properties and %s %s.";
@@ -35,7 +35,7 @@ public class NewTurnActionCategory implements ActionCategory {
 
     private final Action[] actions;
 
-    public NewTurnActionCategory(Actor actor, Board board) {
+    public NewTurnActionGroup(Actor actor, Board board) {
 
         requireNonNull(actor);
         requireNonNull(board);
