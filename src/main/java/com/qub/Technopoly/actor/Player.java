@@ -1,6 +1,6 @@
 package com.qub.Technopoly.actor;
 
-import com.qub.Technopoly.actions.category.NewTurnActionCategory;
+import com.qub.Technopoly.actions.group.NewTurnActionGroup;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.exception.GameStateException;
 import com.qub.Technopoly.inventory.Inventory;
@@ -19,7 +19,7 @@ public class Player implements Actor {
     private final Inventory inventory;
 
     private boolean isActive = false;
-    private NewTurnActionCategory newTurn;
+    private NewTurnActionGroup newTurn;
 
 
     @Override
@@ -32,7 +32,7 @@ public class Player implements Actor {
         isActive = true;
 
         if (newTurn == null) {
-            newTurn = new NewTurnActionCategory(this, board);
+            newTurn = new NewTurnActionGroup(this, board);
         }
 
         newTurn.describe();
@@ -51,7 +51,7 @@ public class Player implements Actor {
         }
 
         if (newTurn == null) {
-            newTurn = new NewTurnActionCategory(this, board);
+            newTurn = new NewTurnActionGroup(this, board);
         }
 
         return newTurn.execute();

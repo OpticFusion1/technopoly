@@ -1,4 +1,4 @@
-package com.qub.Technopoly.actions.category;
+package com.qub.Technopoly.actions.group;
 
 import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.io.IOHelper;
@@ -6,16 +6,16 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import static java.util.Objects.nonNull;
 
-public interface ActionCategory {
+public interface ActionGroup {
     /**
-     * Describes the action category
+     * Describes the action group
      *
      * @return
      */
     void describe();
 
     /**
-     * Execute the action category.
+     * Execute the action group.
      *
      * @return True if the action was executed, false if it wasn't.
      */

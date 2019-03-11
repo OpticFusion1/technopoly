@@ -1,35 +1,44 @@
-package com.qub.Technopoly.actions.category;
+package com.qub.Technopoly.actions.group;
 
 import com.qub.Technopoly.actions.action.Action;
-import com.qub.Technopoly.actions.action.EndTurnAction;
-import com.qub.Technopoly.actions.action.PayRentAction;
+import com.qub.Technopoly.actions.action.AuctionPropertyAction;
+import com.qub.Technopoly.actions.action.BuyPropertyAction;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
 import com.qub.Technopoly.tile.Property;
 import com.qub.Technopoly.util.Field;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
 import static java.lang.String.format;
+import static java.util.Objects.requireNonNull;
 
-@RequiredArgsConstructor
-public class OwnedPropertyActionCategory implements ActionCategory {
+public class UnownedPropertyActionGroup implements ActionGroup {
 
     private static final String DESCRIPTION_FIELD_FORMAT = "Welcome to %s!";
     private static final String DESCRIPTION_PROPERTY_FORMAT = "You are currently in %s";
 
-    private static final String OWNED_SELF_DESCRIPTION = "This property is owned by you.";
-    private static final String OWNED_OTHER_DESCRIPTION_FORMAT =
-        "This property is owned by %s. Rent is %s %s";
+    private static final String DESCRIPTION_TWO_FORMAT = "You can buy this property for %s %s.";
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
-    @NonNull
-    private final Actor actor;
+
     @NonNull
     private final Property property;
+
+    private final Action[] actions;
+
+    public UnownedPropertyActionGroup(Actor actor, Property property, Board board) {
+        requireNonNull(actor);
+        requireNonNull(property);
+
+        this.property = property;
+
+        actions =
+            new Action[] {new BuyPropertyAction(actor, property), new AuctionPropertyAction(property, board)};
+    }
 
     @Override
     public void describe() {
@@ -44,24 +53,14 @@ public class OwnedPropertyActionCategory implements ActionCategory {
 
         DoActionDelay();
 
-        var description = property.getOwner().equals(actor) ?
-            OWNED_SELF_DESCRIPTION :
-            format(OWNED_OTHER_DESCRIPTION_FORMAT, property.getOwner().getActorName(),
-                property.getRent(), Config.getConfig().getInventoryConfig().getCurrencyName());
-        outputSource.writeTitle(description);
+        outputSource.writeBody(format(DESCRIPTION_TWO_FORMAT, property.getPrice(),
+            Config.getConfig().getInventoryConfig().getCurrencyName()));
 
         describeActions();
     }
 
     @Override
     public Action[] getActions() {
-
-        if (property.getOwner().equals(actor)) {
-            // Return Owned Actions
-            return new Action[] {new EndTurnAction()};
-        } else {
-            // Return Other's Actions
-            return new Action[] {new PayRentAction(actor, property)};
-        }
+        return actions;
     }
 }

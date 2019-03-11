@@ -1,8 +1,8 @@
 package com.qub.Technopoly.tile;
 
-import com.qub.Technopoly.actions.category.ActionCategory;
-import com.qub.Technopoly.actions.category.OwnedPropertyActionCategory;
-import com.qub.Technopoly.actions.category.UnownedPropertyActionCategory;
+import com.qub.Technopoly.actions.group.ActionGroup;
+import com.qub.Technopoly.actions.group.OwnedPropertyActionGroup;
+import com.qub.Technopoly.actions.group.UnownedPropertyActionGroup;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.HouseConfig;
@@ -42,11 +42,11 @@ public class Property implements Tile, Ownable {
     }
 
     @Override
-    public ActionCategory onLand(Actor actor, Board board) {
+    public ActionGroup onLand(Actor actor, Board board) {
         var owner = getOwner();
         return owner == null ?
-            new UnownedPropertyActionCategory(actor, this, board) :
-            new OwnedPropertyActionCategory(actor, this);
+            new UnownedPropertyActionGroup(actor, this, board) :
+            new OwnedPropertyActionGroup(actor, this);
     }
 
     public int getRent() {

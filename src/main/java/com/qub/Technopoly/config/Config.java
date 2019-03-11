@@ -3,12 +3,15 @@ package com.qub.Technopoly.config;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import com.qub.Technopoly.exception.ConfigurationException;
+import com.qub.Technopoly.io.IOHelper;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import static com.qub.Technopoly.io.IOHelper.*;
 
 @RequiredArgsConstructor
 @Value
@@ -27,14 +30,18 @@ public class Config {
             return config;
         }
 
+        getOutputSource().writeTitle("Loading Game Configuration");
+        getOutputSource().writeBody("Attempting to load configuration from disk...");
         config = getConfigFromDisk();
         if (config != null) {
+            getOutputSource().writeBody("Configuration loaded from disk!");
             return config;
         }
 
-
+        getOutputSource().writeBody("Attempting to load default configuration...");
         config = getConfigFromResources();
         if (config != null) {
+            getOutputSource().writeBody("Loaded default configuration!");
             return config;
         }
 
@@ -48,7 +55,7 @@ public class Config {
         try (var reader = new JsonReader(new FileReader(CONFIG_FILENAME))) {
             config = gson.fromJson(reader, Config.class);
         } catch (IOException e) {
-            e.printStackTrace();
+            getOutputSource().writeBody("Failed loading configuration from disk.");
         }
         return config;
     }

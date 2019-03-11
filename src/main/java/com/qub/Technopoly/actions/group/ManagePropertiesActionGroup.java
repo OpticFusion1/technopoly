@@ -1,10 +1,9 @@
-package com.qub.Technopoly.actions.category;
+package com.qub.Technopoly.actions.group;
 
 import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actions.action.BackAction;
 import com.qub.Technopoly.actions.action.UpgradePropertyAction;
 import com.qub.Technopoly.actor.Actor;
-import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.tile.Property;
 import com.qub.Technopoly.util.Field;
 import lombok.NonNull;
@@ -16,14 +15,14 @@ import java.util.stream.Collectors;
 import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 import static java.util.Objects.requireNonNull;
 
-public class ManagePropertiesActionCategory implements ActionCategory {
+public class ManagePropertiesActionGroup implements ActionGroup {
 
     @NonNull
     private final Actor actor;
 
     private final Action[] actions;
 
-    public ManagePropertiesActionCategory(Actor actor) {
+    public ManagePropertiesActionGroup(Actor actor) {
         requireNonNull(actor);
         this.actor = actor;
 
