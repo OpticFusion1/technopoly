@@ -12,10 +12,14 @@ import com.qub.Technopoly.tile.Property;
 import com.qub.Technopoly.util.Field;
 import lombok.NonNull;
 
-import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
+import static com.qub.Technopoly.io.IOHelper.doActionDelay;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
+/**
+ * {@inheritDoc}
+ * Used when an actor lands on an unowned property
+ */
 public class UnownedPropertyActionGroup implements ActionGroup {
 
     private static final String DESCRIPTION_FIELD_FORMAT = "Welcome to %s!";
@@ -40,18 +44,21 @@ public class UnownedPropertyActionGroup implements ActionGroup {
             new Action[] {new BuyPropertyAction(actor, property), new AuctionPropertyAction(property, board)};
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void describe() {
         var field = Field.getFieldForProperty(property);
         outputSource.writeTitle(format(DESCRIPTION_FIELD_FORMAT, field.getName()));
         outputSource.writeBody(field.getDescription());
 
-        DoActionDelay();
+        doActionDelay();
 
         outputSource.writeBody(format(DESCRIPTION_PROPERTY_FORMAT, property.getName()));
         outputSource.writeBody(property.getDescription());
 
-        DoActionDelay();
+        doActionDelay();
 
         outputSource.writeBody(format(DESCRIPTION_TWO_FORMAT, property.getPrice(),
             Config.getConfig().getInventoryConfig().getCurrencyName()));
@@ -59,6 +66,9 @@ public class UnownedPropertyActionGroup implements ActionGroup {
         describeActions();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Action[] getActions() {
         return actions;

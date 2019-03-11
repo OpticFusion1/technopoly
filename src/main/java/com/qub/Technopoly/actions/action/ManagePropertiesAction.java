@@ -5,6 +5,10 @@ import com.qub.Technopoly.actor.Actor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * {@inheritDoc}
+ * Used to manage properties for an actor. Wraps the {@link ManagePropertiesActionGroup}
+ */
 @RequiredArgsConstructor
 public class ManagePropertiesAction implements Action {
 
@@ -17,16 +21,25 @@ public class ManagePropertiesAction implements Action {
         managePropertiesActionCategory = new ManagePropertiesActionGroup(actor);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return DESCRIPTION;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         managePropertiesActionCategory.describe();

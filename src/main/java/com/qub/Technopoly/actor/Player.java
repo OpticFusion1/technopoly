@@ -21,12 +21,17 @@ public class Player implements Actor {
     private boolean isActive = false;
     private NewTurnActionGroup newTurn;
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean IsActive() {
         return isActive;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void SetActive(Board board) {
         isActive = true;
@@ -38,11 +43,17 @@ public class Player implements Actor {
         newTurn.describe();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void SetInactive() {
         isActive = false;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean Update(Board board) {
         if (!IsActive()) {
@@ -57,6 +68,9 @@ public class Player implements Actor {
         return newTurn.execute();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isBankrupt() {
         return inventory.getCurrentBalance() < 0;

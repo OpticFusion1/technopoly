@@ -3,6 +3,9 @@ package com.qub.Technopoly.config;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
+/**
+ * Configuration for the {@link com.qub.Technopoly.actor.Player}
+ */
 @RequiredArgsConstructor
 @Value
 public class PlayerConfig {

@@ -10,6 +10,10 @@ import lombok.RequiredArgsConstructor;
 
 import static java.lang.String.format;
 
+/**
+ * {@inheritDoc}
+ * Used to pay rent to a specific actor, from a specific actor
+ */
 @RequiredArgsConstructor
 public class PayRentAction implements Action {
 
@@ -27,11 +31,17 @@ public class PayRentAction implements Action {
 
     private final OutputSource outputSource = IOHelper.getOutputSource();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         var currency = Config.getConfig().getInventoryConfig().getCurrencyName();
@@ -39,6 +49,9 @@ public class PayRentAction implements Action {
             property.getOwner().getActorName());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         var senderInventory = sender.getInventory();

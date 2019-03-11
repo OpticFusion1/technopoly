@@ -16,10 +16,14 @@ import com.qub.Technopoly.io.OutputSource;
 import com.qub.Technopoly.tile.Property;
 import lombok.NonNull;
 
-import static com.qub.Technopoly.io.IOHelper.DoActionDelay;
+import static com.qub.Technopoly.io.IOHelper.doActionDelay;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
+/**
+ * {@inheritDoc}
+ * Used to display possible actions when it is an actors turn
+ */
 public class NewTurnActionGroup implements ActionGroup {
 
     private static final String TITLE_DESCRIPTION_FORMAT = "It is your turn %s!";
@@ -47,11 +51,14 @@ public class NewTurnActionGroup implements ActionGroup {
                                 new ManagePropertiesAction(actor)};
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void describe() {
         outputSource.writeTitle(format(TITLE_DESCRIPTION_FORMAT, actor.getActorName()));
 
-        DoActionDelay();
+        doActionDelay();
 
         var inventory = actor.getInventory();
         var currencySign = inventoryConfig.getCurrencyName();
@@ -60,16 +67,22 @@ public class NewTurnActionGroup implements ActionGroup {
             format(TITLE_BODY_FORMAT, actor.getInventory().getCountInInventory(Property.class),
                 inventory.getCurrentBalance(), currencySign));
 
-        DoActionDelay();
+        doActionDelay();
 
         describeActions();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Action[] getActions() {
         return actions;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         var selected = getSelectedAction();

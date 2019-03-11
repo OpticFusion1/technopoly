@@ -5,8 +5,17 @@ import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.board.Board;
 
 public interface Tile {
+
+    /**
+     * Get the name of the tile
+     * @return
+     */
     String getName();
 
+    /**
+     * Get a flavour description of the tile
+     * @return
+     */
     String getDescription();
 
     /**
@@ -20,5 +29,9 @@ public interface Tile {
      */
     ActionGroup onLand(Actor actor, Board board);
 
+    /**
+     * A human readable string description of the {@link Tile}
+     * @return
+     */
     String toString();
 }

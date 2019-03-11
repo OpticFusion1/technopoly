@@ -11,6 +11,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents an instance of an inventory which can contain various items
+ */
 @RequiredArgsConstructor
 public class Inventory {
     private static final String UNIQUE_ITEMS_ONLY_EXCEPTION_MSG_FORMAT =
@@ -22,6 +25,10 @@ public class Inventory {
     @Getter
     private int currentBalance = Config.getConfig().getInventoryConfig().getStartBalance();
 
+    /**
+     * Adds a new {@link Ownable} to this inventory
+     * @param ownable The ownable to add to the inventory
+     */
     public void add(Ownable ownable) {
         if (owned.contains(ownable)) {
             throw new InventoryException(
@@ -30,11 +37,18 @@ public class Inventory {
         owned.add(ownable);
     }
 
-
+    /**
+     * Adds currency to this inventory
+     * @param amount The amount (currency) to add to the inventory
+     */
     public void add(int amount) {
         currentBalance += amount;
     }
 
+    /**
+     * Removes an {@link Ownable} from this inventory
+     * @param ownable The ownable to remove from the inventory
+     */
     public void remove(Ownable ownable) {
         if (!owned.contains(ownable)) {
             throw new InventoryException(
@@ -44,14 +58,31 @@ public class Inventory {
         owned.remove(ownable);
     }
 
+    /**
+     * Check whether the inventory contains a specific {@link Ownable}
+     * @param ownable The ownable to check if it exists in this inventory
+     * @return
+     */
     public boolean contains(Ownable ownable) {
         return owned.contains(ownable);
     }
 
+    /**
+     * Get the amount of a specific type of {@link Ownable} in the inventory
+     * @param type The type of {@link Ownable} to check the count for
+     * @param <T> The type of {@link Ownable} to check the count for
+     * @return
+     */
     public <T extends Ownable> int getCountInInventory(Class<T> type) {
         return (int) owned.stream().filter(type::isInstance).count();
     }
 
+    /**
+     * Gets all {@link Ownable}s of a specific type from the inventory
+     * @param type The type of {@link Ownable} to get
+     * @param <T> The type of {@link Ownable} to get
+     * @return
+     */
     public <T extends Ownable> T[] getTypeInInventory(Class<T> type) {
         var ownablesGeneric = owned.stream().filter(type::isInstance).toArray();
         var ownablesOfType = (T[]) Array.newInstance(type, ownablesGeneric.length);
@@ -63,6 +94,10 @@ public class Inventory {
         return ownablesOfType;
     }
 
+    /**
+     * Removes currency from the inventory
+     * @param amount The amount to remove from the inventory
+     */
     public void remove(int amount) {
         currentBalance -= amount;
     }

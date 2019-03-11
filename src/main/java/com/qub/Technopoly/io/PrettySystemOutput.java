@@ -2,6 +2,9 @@ package com.qub.Technopoly.io;
 
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * Pretty Prints System Output for more human-readable console output
+ */
 public class PrettySystemOutput implements OutputSource {
 
     private static final char OUTER_BORDER = '*';
@@ -10,6 +13,9 @@ public class PrettySystemOutput implements OutputSource {
     private static final int OUTER_PADDING = 3;
     private static final int INNER_PADDING = 1;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void writeTitle(String title) {
         var border = StringUtils
@@ -26,6 +32,9 @@ public class PrettySystemOutput implements OutputSource {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void writeBody(String body) {
         System.out.println(body);

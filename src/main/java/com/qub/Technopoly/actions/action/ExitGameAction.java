@@ -6,6 +6,10 @@ import com.qub.Technopoly.io.OutputSource;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * {@inheritDoc}
+ * Exits the game / Terminates the program
+ */
 @RequiredArgsConstructor
 public class ExitGameAction implements Action {
 
@@ -19,16 +23,25 @@ public class ExitGameAction implements Action {
     @NonNull
     private final Game game;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return DESCRIPTION;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         outputSource.writeTitle(EXECUTE_MESSAGE);

@@ -16,6 +16,9 @@ import java.util.stream.Stream;
 
 import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 
+/**
+ * Representation of a game board containing all game elements
+ */
 public class Board {
 
     private CircularBuffer<Actor> actorQueue =
@@ -39,11 +42,19 @@ public class Board {
         }
     }
 
+    /**
+     * Add a new {@link Actor} to the board
+     * @param actor The actor to add
+     */
     public void addActor(Actor actor) {
         actorQueue.add(actor);
         actorPositions.put(actor, 0);
     }
 
+    /**
+     * Add an array of {@link Actor} to the board
+     * @param actors The actors to add
+     */
     public void addActors(Actor[] actors) {
         actorQueue = new CircularBuffer<>(Actor.class, actors.length);
         for (var i = 0; i < actors.length; i++) {
@@ -51,6 +62,11 @@ public class Board {
         }
     }
 
+    /**
+     * Move an Actor on the board
+     * @param actor The {@link Actor} to mvoe
+     * @param steps How many steps the actor should move
+     */
     public void moveActor(Actor actor, int steps) {
         tiles.setCurrentPosition(actorPositions.get(actor));
 
@@ -74,18 +90,35 @@ public class Board {
         }
     }
 
+    /**
+     * Gets the next actor in the queue
+     * @return
+     */
     public Actor getNextActor() {
         return actorQueue.getNext();
     }
 
+    /**
+     * Gets the board {@link Actor} capacity
+     * @return
+     */
     public int getBoardActorCapacity() {
         return actorQueue.length;
     }
 
+    /**
+     * Gets the underlying board {@link Tile} array
+     * @return
+     */
     public Tile[] getTiles() {
         return tiles.getBuffer();
     }
 
+    /**
+     * Helper method to get all {@link Actor}s at a specific {@link Tile}
+     * @param tile The tile to get actors from
+     * @return All the actors on the tile, or if there are none, a null or empty array
+     */
     public Actor[] getActorsAtTile(Tile tile) {
         var tiles = Arrays.asList(getTiles());
         var tileIndex = tiles.indexOf(tile);
@@ -93,6 +126,10 @@ public class Board {
             .collect(Collectors.toList()).toArray(Actor[]::new);
     }
 
+    /**
+     * Get all the actors in the game
+     * @return
+     */
     public Actor[] getActors(){
         return actorQueue.getBuffer();
     }

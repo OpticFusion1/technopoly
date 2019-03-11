@@ -13,6 +13,10 @@ import lombok.RequiredArgsConstructor;
 
 import static org.apache.commons.lang3.ArrayUtils.isEmpty;
 
+/**
+ * {@inheritDoc}
+ * Used to view the game board
+ */
 @RequiredArgsConstructor
 public class ViewBoardAction implements Action {
 
@@ -26,16 +30,25 @@ public class ViewBoardAction implements Action {
     @NonNull
     private final Board board;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public @NonNull String getName() {
         return NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return DESCRIPTION;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean execute() {
         var tiles = board.getTiles();

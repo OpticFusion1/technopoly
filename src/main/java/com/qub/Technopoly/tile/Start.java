@@ -22,17 +22,26 @@ public class Start implements Tile {
     @NonNull
     private final StartConfig startConfig;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName() {
         return startConfig.getName();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return format(DESCRIPTION_FORMAT, startConfig.getStartPassBonus(),
             Config.getConfig().getInventoryConfig().getCurrencyName());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onPass(Actor actor) {
         var inventory = actor.getInventory();
@@ -45,12 +54,18 @@ public class Start implements Tile {
                 inventoryConfig.getCurrencyName()));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ActionGroup onLand(Actor actor, Board board) {
         // TODO - Add money to Actor?
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "[" + getName() + "]";

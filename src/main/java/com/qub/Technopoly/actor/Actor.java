@@ -38,5 +38,9 @@ public interface Actor {
      */
     Inventory getInventory();
 
+    /**
+     * Check whether or not an actor is bankrupt or not
+     * @return
+     */
     boolean isBankrupt();
 }

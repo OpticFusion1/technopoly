@@ -10,6 +10,10 @@ import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.io.OutputSource;
 import lombok.Getter;
 
+/**
+ * {@inheritDoc}
+ * Used to initialize the game
+ */
 public class GameInitializeActionGroup implements ActionGroup {
 
     private static final String TITLE_DESCRIPTION = "Welcome to Technopoly!";
@@ -27,6 +31,9 @@ public class GameInitializeActionGroup implements ActionGroup {
                                 new ExitGameAction(game)};
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void describe() {
         outputSource.writeTitle(TITLE_DESCRIPTION);
