@@ -8,7 +8,10 @@ import com.qub.Technopoly.tile.Start;
 import com.qub.Technopoly.tile.Tile;
 import com.qub.Technopoly.util.CircularBuffer;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,6 +46,7 @@ public class Board {
 
     /**
      * Add a new {@link Actor} to the board
+     *
      * @param actor The actor to add
      */
     public void addActor(Actor actor) {
@@ -53,6 +57,7 @@ public class Board {
 
     /**
      * Add an array of {@link Actor} to the board
+     *
      * @param actors The actors to add
      */
     public void addActors(Actor[] actors) {
@@ -64,6 +69,7 @@ public class Board {
 
     /**
      * Move an Actor on the board
+     *
      * @param actor The {@link Actor} to mvoe
      * @param steps How many steps the actor should move
      */
@@ -84,7 +90,8 @@ public class Board {
 
         if (actionCategory != null) {
             actionCategory.describe();
-            while (!actionCategory.execute());
+            while (!actionCategory.execute())
+                ;
         } else {
             getOutputSource().writeTitle("You landed on " + lastTile.getName() + "!");
         }
@@ -92,6 +99,7 @@ public class Board {
 
     /**
      * Gets the next actor in the queue
+     *
      * @return
      */
     public Actor getNextActor() {
@@ -100,6 +108,7 @@ public class Board {
 
     /**
      * Gets the board {@link Actor} capacity
+     *
      * @return
      */
     public int getBoardActorCapacity() {
@@ -108,6 +117,7 @@ public class Board {
 
     /**
      * Gets the underlying board {@link Tile} array
+     *
      * @return
      */
     public Tile[] getTiles() {
@@ -116,21 +126,40 @@ public class Board {
 
     /**
      * Helper method to get all {@link Actor}s at a specific {@link Tile}
+     *
      * @param tile The tile to get actors from
      * @return All the actors on the tile, or if there are none, a null or empty array
      */
     public Actor[] getActorsAtTile(Tile tile) {
         var tiles = Arrays.asList(getTiles());
         var tileIndex = tiles.indexOf(tile);
-        return nextActorPositions.keySet().stream().filter(a -> currentActorPositions.get(a) == tileIndex)
-            .collect(Collectors.toList()).toArray(Actor[]::new);
+        return nextActorPositions.keySet().stream()
+            .filter(a -> currentActorPositions.get(a) == tileIndex).collect(Collectors.toList())
+            .toArray(Actor[]::new);
     }
 
     /**
      * Get all the actors in the game
+     *
      * @return
      */
-    public Actor[] getActors(){
+    public Actor[] getActors() {
         return actorQueue.getBuffer();
+    }
+
+    /**
+     * Gets the actors with the most amount of money
+     * @return The actors with the most amount of money
+     */
+    public List<Actor> getActorsWithMostMoney() {
+        var highestScore =
+            Arrays.stream(getActors()).mapToInt(a -> a.getInventory().getCurrentBalance()).max()
+                .orElse(-1);
+
+        var winners = Arrays.stream(getActors())
+            .filter(a -> a.getInventory().getCurrentBalance() == highestScore)
+            .collect(Collectors.toList());
+
+        return winners;
     }
 }

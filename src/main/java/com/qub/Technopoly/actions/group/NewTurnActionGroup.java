@@ -1,9 +1,7 @@
 package com.qub.Technopoly.actions.group;
 
-import com.qub.Technopoly.actions.action.Action;
-import com.qub.Technopoly.actions.action.ManagePropertiesAction;
-import com.qub.Technopoly.actions.action.RollDiceAction;
-import com.qub.Technopoly.actions.action.ViewBoardAction;
+import com.qub.Technopoly.Game;
+import com.qub.Technopoly.actions.action.*;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.config.Config;
@@ -32,21 +30,22 @@ public class NewTurnActionGroup implements ActionGroup {
 
     @NonNull
     private final Actor actor;
+
     @NonNull
-    private final Board board;
+    private final Game game;
 
     private final InventoryConfig inventoryConfig = Config.getConfig().getInventoryConfig();
     private final OutputSource outputSource = getOutputSource();
 
     private final Action[] actions;
 
-    public NewTurnActionGroup(Actor actor, Board board) {
+    public NewTurnActionGroup(Actor actor, Game game) {
 
         requireNonNull(actor);
-        requireNonNull(board);
+        requireNonNull(game);
 
         this.actor = actor;
-        this.board = board;
+        this.game = game;
 
         var dice = new Dice[Config.getConfig().getDiceConfig().getAmountDice()];
         for (var i = 0; i < dice.length; i++) {
@@ -54,8 +53,9 @@ public class NewTurnActionGroup implements ActionGroup {
         }
 
         actions = new Action[] {new RollDiceAction(dice),
-                                new ViewBoardAction(board, getOutputSource()),
-                                new ManagePropertiesAction(actor)};
+                                new ViewBoardAction(game.getBoard(), getOutputSource()),
+                                new ManagePropertiesAction(actor),
+                                new ExitGameAction(game)};
     }
 
     /**
@@ -109,7 +109,7 @@ public class NewTurnActionGroup implements ActionGroup {
         if (action instanceof RollDiceAction) {
             var rollDice = (RollDiceAction) action;
             var roll = rollDice.getRoll();
-            board.moveActor(actor, roll);
+            game.getBoard().moveActor(actor, roll);
 
             // Don't end the turn if the user rolled doubles
             if (rollDice.isRolledDoubles()) {

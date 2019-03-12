@@ -2,6 +2,7 @@ package com.qub.Technopoly;
 
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.exception.GameStateException;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +17,7 @@ public class Game {
     // TODO - Allow loading game from disk...
 
     @NonNull
+    @Getter
     private final Board board;
     private boolean gameRunning = false;
 
@@ -70,10 +72,10 @@ public class Game {
 
         // TODO - update game.
         final var nextActor = board.getNextActor();
-        nextActor.SetActive(board);
+        nextActor.SetActive(this);
 
         while (nextActor.IsActive()) {
-            if (nextActor.Update(board)) {
+            if (nextActor.Update(this)) {
                 nextActor.SetInactive();
             }
         }
