@@ -1,5 +1,6 @@
 package com.qub.Technopoly.actor;
 
+import com.qub.Technopoly.Game;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.inventory.Inventory;
 import org.junit.jupiter.api.Test;
@@ -12,13 +13,15 @@ public class PlayerTest {
 
     @Test
     public void setActiveIsActive() {
-        TEST_PLAYER.SetActive(new Board());
+        var game = new Game(new Board());
+        TEST_PLAYER.SetActive(game);
         assertTrue(TEST_PLAYER.IsActive());
     }
 
     @Test
     public void setInactiveIsInactive() {
-        TEST_PLAYER.SetActive(new Board());
+        var game = new Game(new Board());
+        TEST_PLAYER.SetActive(game);
         TEST_PLAYER.SetInactive();
         assertFalse(TEST_PLAYER.IsActive());
     }

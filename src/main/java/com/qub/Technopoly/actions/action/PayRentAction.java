@@ -74,6 +74,8 @@ public class PayRentAction implements Action {
 
             outputSource.writeBody(
                 format(EXECUTE_CANT_AFFORD_MESSAGE_FORMAT, property.getOwner().getActorName()));
+
+            sender.setBankrupt();
         }
 
         return true;

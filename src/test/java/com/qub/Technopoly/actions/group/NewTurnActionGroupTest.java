@@ -1,5 +1,6 @@
 package com.qub.Technopoly.actions.group;
 
+import com.qub.Technopoly.Game;
 import com.qub.Technopoly.actor.Actor;
 import com.qub.Technopoly.actor.Player;
 import com.qub.Technopoly.board.Board;
@@ -21,7 +22,7 @@ public class NewTurnActionGroupTest {
         testActor = new Player("Test Player", new Inventory());
         testBoard = new Board();
 
-        actionGroup = new NewTurnActionGroup(testActor, testBoard);
+        actionGroup = new NewTurnActionGroup(testActor, new Game(testBoard));
     }
 
     @Test

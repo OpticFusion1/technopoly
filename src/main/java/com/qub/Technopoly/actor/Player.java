@@ -1,5 +1,7 @@
 package com.qub.Technopoly.actor;
 
+import com.qub.Technopoly.Game;
+import com.qub.Technopoly.actions.action.ExitGameAction;
 import com.qub.Technopoly.actions.group.NewTurnActionGroup;
 import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.exception.GameStateException;
@@ -18,6 +20,8 @@ public class Player implements Actor {
     @NonNull
     private final Inventory inventory;
 
+    private Game game;
+
     private boolean isActive = false;
     private NewTurnActionGroup newTurn;
 
@@ -33,11 +37,12 @@ public class Player implements Actor {
      * {@inheritDoc}
      */
     @Override
-    public void SetActive(Board board) {
+    public void SetActive(Game game) {
         isActive = true;
+        this.game = game;
 
         if (newTurn == null) {
-            newTurn = new NewTurnActionGroup(this, board);
+            newTurn = new NewTurnActionGroup(this, game);
         }
 
         newTurn.describe();
@@ -55,14 +60,16 @@ public class Player implements Actor {
      * {@inheritDoc}
      */
     @Override
-    public boolean Update(Board board) {
+    public boolean Update(Game game) {
+        this.game = game;
+
         if (!IsActive()) {
             throw new GameStateException(
                 "Can't update actor " + actorName + " because it isn't that actors turn!");
         }
 
         if (newTurn == null) {
-            newTurn = new NewTurnActionGroup(this, board);
+            newTurn = new NewTurnActionGroup(this, game);
         }
 
         return newTurn.execute();
@@ -72,7 +79,10 @@ public class Player implements Actor {
      * {@inheritDoc}
      */
     @Override
-    public boolean isBankrupt() {
-        return inventory.getCurrentBalance() < 0;
+    public void setBankrupt() {
+        if(this.game == null){
+            throw new GameStateException("Game is null");
+        }
+        new ExitGameAction(game).execute();
     }
 }
