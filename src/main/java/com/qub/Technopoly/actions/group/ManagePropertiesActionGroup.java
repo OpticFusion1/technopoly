@@ -4,6 +4,7 @@ import com.qub.Technopoly.actions.action.Action;
 import com.qub.Technopoly.actions.action.BackAction;
 import com.qub.Technopoly.actions.action.UpgradePropertyAction;
 import com.qub.Technopoly.actor.Actor;
+import com.qub.Technopoly.io.IOHelper;
 import com.qub.Technopoly.tile.Property;
 import com.qub.Technopoly.util.Field;
 
@@ -20,18 +21,12 @@ import static java.util.Objects.requireNonNull;
  */
 public class ManagePropertiesActionGroup implements ActionGroup {
 
-    private final Action[] actions;
+    private final Actor actor;
+    private Action[] actions;
 
     public ManagePropertiesActionGroup(Actor actor) {
         requireNonNull(actor);
-
-        List<Action> allActions =
-            Arrays.stream(actor.getInventory().getTypeInInventory(Property.class))
-                .filter(p -> Field.hasAllPropertiesInFieldForProperty(actor, p))
-                .map(p -> new UpgradePropertyAction(actor, p, getOutputSource()))
-                .collect(Collectors.toList());
-        allActions.add(new BackAction());
-        actions = allActions.toArray(Action[]::new);
+        this.actor = actor;
     }
 
     /**
@@ -39,7 +34,7 @@ public class ManagePropertiesActionGroup implements ActionGroup {
      */
     @Override
     public void describe() {
-        if (actions.length == 1) {
+        if (getActions().length == 1) {
             getOutputSource().writeBody("You have no completed fields.");
         }
         describeActions();
@@ -50,6 +45,39 @@ public class ManagePropertiesActionGroup implements ActionGroup {
      */
     @Override
     public Action[] getActions() {
+        List<Action> allActions =
+            Arrays.stream(actor.getInventory().getTypeInInventory(Property.class))
+                .filter(p -> Field.hasAllPropertiesInFieldForProperty(actor, p))
+                .map(p -> new UpgradePropertyAction(actor, p, getOutputSource()))
+                .collect(Collectors.toList());
+        allActions.add(new BackAction());
+        actions = allActions.toArray(Action[]::new);
         return actions;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean execute() {
+        boolean backSelected = false;
+        while(!backSelected) {
+            var selected = getSelectedAction();
+            if (selected < 0 || selected >= getActions().length) {
+                IOHelper.getOutputSource().writeBody("Invalid action! Please select a valid action from the list");
+                describeActions();
+                return false;
+            }
+
+            var selectedAction = getActions()[selected];
+            selectedAction.execute();
+            if(selectedAction instanceof BackAction){
+                backSelected = true;
+                return false;
+            }
+
+            describeActions();
+        }
+        return false;
     }
 }

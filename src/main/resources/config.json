@@ -1,6 +1,6 @@
 {
   "delayConfig": {
-    "actionWait": 0.5
+    "actionWait": 0
   },
   "inventoryConfig": {
     "startBalance": 1500,
