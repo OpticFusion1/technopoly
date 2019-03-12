@@ -60,7 +60,7 @@ public class IOHelper {
     }
 
     /**
-     * Forces a delay in execution based on {@link DelayConfig#getActionWait()}
+     * Forces a delay in execution based on {@link DelayConfig}
      */
     public static void doActionDelay() {
         var waitSeconds = Config.getConfig().getDelayConfig().getActionWait();

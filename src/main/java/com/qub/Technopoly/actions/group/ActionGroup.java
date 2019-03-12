@@ -13,7 +13,6 @@ public interface ActionGroup {
     /**
      * Describes the action group
      *
-     * @return
      */
     void describe();
 

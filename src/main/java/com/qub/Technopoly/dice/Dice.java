@@ -13,7 +13,7 @@ public interface Dice {
     /**
      * Roll the dice to get a number back.
      *
-     * @return Result of the dice roll, clamped between {@link DiceConfig#getMinRoll()} and {@link DiceConfig#getMaxRoll()}
+     * @return Result of the dice roll, clamped between {@link DiceConfig} min roll and {@link DiceConfig} max roll
      */
     int roll();
 }
