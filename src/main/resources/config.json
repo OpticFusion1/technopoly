@@ -29,27 +29,27 @@
           "propertyName": "Hyderabad",
           "propertyDescription": "Also known as 'Cyberabad'. This city is a rapidly modernizing tech hub.",
           "propertyPrice": 50,
-          "propertyRent": 10,
+          "propertyRent": 25,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 50,
-              "houseRent": 10
+              "houseRent": 50
             },
             {
               "houseName": "2nd Office",
               "housePrice": 50,
-              "houseRent": 30
+              "houseRent": 100
             },
             {
               "houseName": "3rd Office",
               "housePrice": 50,
-              "houseRent": 90
+              "houseRent": 200
             },
             {
               "houseName": "HQ",
               "housePrice": 50,
-              "houseRent": 200
+              "houseRent": 400
             }
           ]
         },
@@ -62,22 +62,22 @@
             {
               "houseName": "1st Office",
               "housePrice": 75,
-              "houseRent": 30
+              "houseRent": 60
             },
             {
               "houseName": "2nd Office",
               "housePrice": 75,
-              "houseRent": 60
+              "houseRent": 120
             },
             {
               "houseName": "3rd Office",
               "housePrice": 75,
-              "houseRent": 120
+              "houseRent": 240
             },
             {
               "houseName": "HQ",
               "housePrice": 75,
-              "houseRent": 250
+              "houseRent": 480
             }
           ]
         }
@@ -96,22 +96,22 @@
             {
               "houseName": "1st Office",
               "housePrice": 100,
-              "houseRent": 60
+              "houseRent": 120
             },
             {
               "houseName": "2nd Office",
               "housePrice": 100,
-              "houseRent": 90
+              "houseRent": 240
             },
             {
               "houseName": "3rd Office",
               "housePrice": 100,
-              "houseRent": 120
+              "houseRent": 480
             },
             {
               "houseName": "HQ",
               "housePrice": 100,
-              "houseRent": 325
+              "houseRent": 960
             }
           ]
         },
@@ -124,22 +124,22 @@
             {
               "houseName": "1st Office",
               "housePrice": 125,
-              "houseRent": 80
+              "houseRent": 160
             },
             {
               "houseName": "2nd Office",
               "housePrice": 125,
-              "houseRent": 150
+              "houseRent": 320
             },
             {
               "houseName": "3rd Office",
               "housePrice": 125,
-              "houseRent": 200
+              "houseRent": 640
             },
             {
               "houseName": "HQ",
               "housePrice": 125,
-              "houseRent": 400
+              "houseRent": 1280
             }
 			]
 		},
@@ -152,22 +152,22 @@
             {
               "houseName": "1st Office",
               "housePrice": 150,
-              "houseRent": 110
+              "houseRent": 220
             },
             {
               "houseName": "2nd Office",
               "housePrice": 150,
-              "houseRent": 175
+              "houseRent": 440
             },
             {
               "houseName": "3rd Office",
               "housePrice": 150,
-              "houseRent": 225
+              "houseRent": 880
             },
             {
               "houseName": "HQ",
               "housePrice": 150,
-              "houseRent": 450
+              "houseRent": 1760
             }
           ]
         }
@@ -181,27 +181,27 @@
           "propertyName": "Ho Chi Minh City",
           "propertyDescription": "Tax-friendly and ambitious Vietnam has all the ingredients for a successful tech-hub industry. ",
           "propertyPrice": 175,
-          "propertyRent": 100,
+          "propertyRent": 150,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 175,
-              "houseRent": 150
+              "houseRent": 300
             },
             {
               "houseName": "2nd Office",
               "housePrice": 175,
-              "houseRent": 225
+              "houseRent": 600
             },
             {
               "houseName": "3rd Office",
               "housePrice": 175,
-              "houseRent": 325
+              "houseRent": 1200
             },
             {
               "houseName": "HQ",
               "housePrice": 175,
-              "houseRent": 525
+              "houseRent": 2400
             }
           ]
         },
@@ -209,27 +209,27 @@
           "propertyName": "Shanghai",
           "propertyDescription": "China's biggest technology hub in one of the world's economic powerhouses.",
           "propertyPrice": 200,
-          "propertyRent": 120,
+          "propertyRent": 175,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 200,
-              "houseRent": 180
+              "houseRent": 350
             },
             {
               "houseName": "2nd Office",
               "housePrice": 200,
-              "houseRent": 260
+              "houseRent": 700
             },
             {
               "houseName": "3rd Office",
               "housePrice": 200,
-              "houseRent": 370
+              "houseRent": 1400
             },
             {
               "houseName": "HQ",
               "housePrice": 200,
-              "houseRent": 600
+              "houseRent": 2800
             }
           ]
         },
@@ -237,27 +237,27 @@
           "propertyName": "Singapore",
           "propertyDescription": "Attractive trade policies, high-tech and a cosmopolitan city. Singapore is a gateway into Asia's rapidly growing markets. ",
           "propertyPrice": 225,
-          "propertyRent": 150,
+          "propertyRent": 200,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 225,
-              "houseRent": 200
+              "houseRent": 400
             },
             {
               "houseName": "2nd Office",
               "housePrice": 225,
-              "houseRent": 300
+              "houseRent": 800
             },
             {
               "houseName": "3rd Office",
               "housePrice": 225,
-              "houseRent": 450
+              "houseRent": 1600
             },
             {
               "houseName": "HQ",
               "housePrice": 225,
-              "houseRent": 700
+              "houseRent": 3200
             }
           ]
         }
@@ -271,27 +271,27 @@
           "propertyName": "New York",
           "propertyDescription": "A rich diversity and skilled workforce make this a very attractive tech stronghold to invest in. New York is a city that everybody wants to be in.",
           "propertyPrice": 250,
-          "propertyRent": 175,
+          "propertyRent": 200,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 250,
-              "houseRent": 225
+              "houseRent": 400
             },
             {
               "houseName": "2nd Office",
               "housePrice": 250,
-              "houseRent": 350
+              "houseRent": 800
             },
             {
               "houseName": "3rd Office",
               "housePrice": 250,
-              "houseRent": 570
+              "houseRent": 1600
             },
             {
               "houseName": "HQ",
               "housePrice": 250,
-              "houseRent": 900
+              "houseRent": 3200
             }
           ]
         },
@@ -299,27 +299,27 @@
           "propertyName": "Silicon Valley",
           "propertyDescription": "The worlds global center for high technology, innovation and investment.  Silicon Valley has been the bench-mark for tech success for decades. ",
           "propertyPrice": 300,
-          "propertyRent": 200,
+          "propertyRent": 250,
           "houseConfigs": [
             {
               "houseName": "1st Office",
               "housePrice": 300,
-              "houseRent": 275
+              "houseRent": 500
             },
             {
               "houseName": "2nd Office",
               "housePrice": 300,
-              "houseRent": 450
+              "houseRent": 1000
             },
             {
               "houseName": "3rd Office",
               "housePrice": 300,
-              "houseRent": 800
+              "houseRent": 2000
             },
             {
               "houseName": "HQ",
               "housePrice": 300,
-              "houseRent": 1200
+              "houseRent": 4000
             }
           ]
         }
