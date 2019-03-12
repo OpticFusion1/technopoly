@@ -9,7 +9,9 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Field {
 
@@ -51,8 +53,11 @@ public class Field {
         var matchingProperties =
             Arrays.stream(actor.getInventory().getTypeInInventory(Property.class))
                 .map(Property::getPropertyConfig)
-                .filter(pc -> ArrayUtils.contains(field.getPropertyConfigs(), pc));
+                .filter(pc -> ArrayUtils.contains(field.getPropertyConfigs(), pc))
+                .collect(Collectors.toList());
 
-        return Arrays.equals(field.getPropertyConfigs(), matchingProperties.toArray());
+        var fieldPropertyConfigs = Arrays.asList(field.getPropertyConfigs());
+
+        return new HashSet<>(matchingProperties).containsAll(fieldPropertyConfigs);
     }
 }
