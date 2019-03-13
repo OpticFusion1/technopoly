@@ -56,4 +56,43 @@ public class BoardTest {
             assertEquals(expectedActors[actorIndex], board.getNextActor());
         }
     }
+
+    @Test
+    public void getActorsWithMostMoneyReturnsExpectedActor(){
+        var expectedActors = new Actor[board.getBoardActorCapacity()];
+        for (var i = 0; i < board.getBoardActorCapacity(); i++) {
+            var newActor = new Player("Actor " + i, new Inventory());
+            expectedActors[i] = newActor;
+            board.addActor(newActor);
+        }
+
+        var expectedActor = expectedActors[0];
+        expectedActor.getInventory().add(1);
+
+        var actualActors = board.getActorsWithMostMoney();
+
+        assertEquals(1, actualActors.size());
+        assertEquals(expectedActor, actualActors.get(0));
+    }
+
+    @Test
+    public void getActorsWithMostMoneyReturnsExpectedActors(){
+        var expectedActors = new Actor[board.getBoardActorCapacity()];
+        for (var i = 0; i < board.getBoardActorCapacity(); i++) {
+            var newActor = new Player("Actor " + i, new Inventory());
+            expectedActors[i] = newActor;
+            board.addActor(newActor);
+        }
+
+        var expectedActor = expectedActors[0];
+        var expectedActor2 = expectedActors[1];
+        expectedActor.getInventory().add(1);
+        expectedActor2.getInventory().add(1);
+
+        var actualActors = board.getActorsWithMostMoney();
+
+        assertEquals(2, actualActors.size());
+        assertEquals(expectedActor, actualActors.get(0));
+        assertEquals(expectedActor2, actualActors.get(1));
+    }
 }
