@@ -61,7 +61,7 @@ public class Inventory {
     /**
      * Check whether the inventory contains a specific {@link Ownable}
      * @param ownable The ownable to check if it exists in this inventory
-     * @return
+     * @return Whether the inventory contains the ownable, or not
      */
     public boolean contains(Ownable ownable) {
         return owned.contains(ownable);
@@ -71,7 +71,7 @@ public class Inventory {
      * Get the amount of a specific type of {@link Ownable} in the inventory
      * @param type The type of {@link Ownable} to check the count for
      * @param <T> The type of {@link Ownable} to check the count for
-     * @return
+     * @return The count of items of the supplied type
      */
     public <T extends Ownable> int getCountInInventory(Class<T> type) {
         return (int) owned.stream().filter(type::isInstance).count();
@@ -81,7 +81,7 @@ public class Inventory {
      * Gets all {@link Ownable}s of a specific type from the inventory
      * @param type The type of {@link Ownable} to get
      * @param <T> The type of {@link Ownable} to get
-     * @return
+     * @return All items of supplied type
      */
     public <T extends Ownable> T[] getTypeInInventory(Class<T> type) {
         var ownablesGeneric = owned.stream().filter(type::isInstance).toArray();

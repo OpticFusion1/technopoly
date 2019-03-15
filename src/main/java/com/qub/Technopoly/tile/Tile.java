@@ -8,13 +8,13 @@ public interface Tile {
 
     /**
      * Get the name of the tile
-     * @return
+     * @return The name of the tile
      */
     String getName();
 
     /**
      * Get a flavour description of the tile
-     * @return
+     * @return The description of the tile
      */
     String getDescription();
 
@@ -31,7 +31,7 @@ public interface Tile {
 
     /**
      * A human readable string description of the {@link Tile}
-     * @return
+     * @return A string description of the tile
      */
     String toString();
 }

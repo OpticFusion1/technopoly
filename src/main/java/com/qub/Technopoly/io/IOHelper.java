@@ -22,7 +22,7 @@ public class IOHelper {
 
     /**
      * Helper method to return the current set {@link InputSource}
-     * @return
+     * @return The input source to use
      */
     public static InputSource getInputSource() {
         if (inputSource == null || inputSource.isClosed()) {
@@ -33,7 +33,7 @@ public class IOHelper {
 
     /**
      * Helper method to return the current set {@link OutputSource}
-     * @return
+     * @return The output source to use
      */
     public static OutputSource getOutputSource() {
         return outputSource;
@@ -41,7 +41,7 @@ public class IOHelper {
 
     /**
      * Gets the {@link Random} instance to use for the game
-     * @return
+     * @return The random instance to use
      */
     public static Random getRandom() {
         return random;

@@ -7,7 +7,7 @@ import com.qub.Technopoly.inventory.Inventory;
 public interface Actor {
     /**
      * Check whether it is this actors turn
-     * @return
+     * @return Whether the actor is active or not
      */
     boolean isActive();
 
@@ -41,7 +41,6 @@ public interface Actor {
 
     /**
      * Set a player to bankrupt
-     * @return
      */
     void setBankrupt();
 }

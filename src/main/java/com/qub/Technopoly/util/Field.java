@@ -35,7 +35,7 @@ public class Field {
      * Gets the {@link FieldConfig} for a specific {@link Property}
      *
      * @param property The property to get the field for
-     * @return
+     * @return The field for the supplied property
      */
     public static FieldConfig getFieldForProperty(Property property) {
         return fieldsForProperties.get(property.getPropertyConfig());
@@ -46,7 +46,7 @@ public class Field {
      *
      * @param actor    The actor that owns the property
      * @param property The property in the field we're checking
-     * @return
+     * @return Whether the actor has all the properties in the field for the supplied property
      */
     public static boolean hasAllPropertiesInFieldForProperty(Actor actor, Property property) {
         var field = fieldsForProperties.get(property.getPropertyConfig());

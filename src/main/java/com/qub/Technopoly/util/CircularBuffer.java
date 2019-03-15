@@ -41,7 +41,7 @@ public class CircularBuffer<T> {
     /**
      * Gets the next item in the circular buffer
      *
-     * @return
+     * @return The next item in the buffer
      */
     public T getNext() {
         var next = buffer[currentIndex];
@@ -87,7 +87,7 @@ public class CircularBuffer<T> {
     /**
      * Gets the underlying array that the buffer uses
      *
-     * @return
+     * @return The underlying buffer
      */
     public T[] getBuffer() {
         return buffer;
