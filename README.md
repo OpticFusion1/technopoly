@@ -1,1 +1,1 @@
-This is our Technopolis project, by the way.
+This is our Technopolis project, by the way. The final deliverables (The report, and the demo) can be found in the Final_Deliverables/ folder.
