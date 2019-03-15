@@ -29,7 +29,6 @@ public class GameInitializeActionGroup implements ActionGroup {
 
     public GameInitializeActionGroup(Game game, Board board) {
         actions = new Action[] {new StartNewGameAction(game, board, outputSource, getInputSource()),
-                                new LoadGameAction(),
                                 new ExitGameAction(game)};
     }
 

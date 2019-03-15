@@ -6,7 +6,7 @@ import com.qub.Technopoly.exception.ConfigurationException;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
-import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -30,6 +30,7 @@ public class Config {
 
     /**
      * Gets the Config to use for this game.
+     *
      * @return The configuration to use for the game
      */
     public static Config getConfig() {
@@ -59,7 +60,10 @@ public class Config {
         var gson = new Gson();
 
         Config config = null;
-        try (var reader = new JsonReader(new FileReader(CONFIG_FILENAME))) {
+        var is = Config.class.getClassLoader().getResourceAsStream(CONFIG_FILENAME);
+        var isr = new InputStreamReader(is);
+        var br = new BufferedReader(isr);
+        try (var reader = new JsonReader(br)) {
             config = gson.fromJson(reader, Config.class);
         } catch (IOException e) {
             getOutputSource().writeBody("Failed loading configuration from disk.");
