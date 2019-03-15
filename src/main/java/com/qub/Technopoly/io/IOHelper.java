@@ -14,7 +14,7 @@ public class IOHelper {
     private static OutputSource outputSource = new PrettySystemOutput();
 
     // TODO - Remove seed later
-    private static Random random = new Random(1234);
+    private static Random random = new Random();
 
     private IOHelper() {
         // Prevent instantiation
