@@ -106,7 +106,7 @@ public class Board {
     /**
      * Gets the next actor in the queue
      *
-     * @return
+     * @return The next actor in the queue
      */
     public Actor getNextActor() {
         return actorQueue.getNext();
@@ -115,7 +115,7 @@ public class Board {
     /**
      * Gets the board {@link Actor} capacity
      *
-     * @return
+     * @return The actor capacity of the board
      */
     public int getBoardActorCapacity() {
         return actorQueue.length;
@@ -124,7 +124,7 @@ public class Board {
     /**
      * Gets the underlying board {@link Tile} array
      *
-     * @return
+     * @return All the tiles that make up the board
      */
     public Tile[] getTiles() {
         return tiles.getBuffer();
@@ -147,7 +147,7 @@ public class Board {
     /**
      * Get all the actors in the game
      *
-     * @return
+     * @return All the actors currently on the board
      */
     public Actor[] getActors() {
         return actorQueue.getBuffer();

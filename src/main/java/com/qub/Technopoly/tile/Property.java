@@ -67,7 +67,7 @@ public class Property implements Tile, Ownable {
     /**
      * Calculates the rent that needs to be paid for landing on this property.
      * <p>The rent factors in how many houses are on the property</p>
-     * @return
+     * @return The rent that must be paid when landing on this property
      */
     public int getRent() {
         if (currentHouses == 0) {
@@ -79,7 +79,7 @@ public class Property implements Tile, Ownable {
 
     /**
      * Gets the price of this property that the user has to pay to buy it.
-     * @return
+     * @return The price to purchase the property
      */
     public int getPrice() {
         return propertyConfig.getPropertyPrice();
@@ -119,7 +119,7 @@ public class Property implements Tile, Ownable {
 
     /**
      * Check whether or not it is possible to upgrade this property
-     * @return
+     * @return Whether we can upgrade the property
      */
     public boolean canUpgrade() {
         return currentHouses < propertyConfig.getHouseConfigs().length;

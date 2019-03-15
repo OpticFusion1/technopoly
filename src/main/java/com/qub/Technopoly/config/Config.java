@@ -30,7 +30,7 @@ public class Config {
 
     /**
      * Gets the Config to use for this game.
-     * @return
+     * @return The configuration to use for the game
      */
     public static Config getConfig() {
         if (config != null) {

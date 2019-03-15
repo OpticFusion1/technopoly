@@ -5,13 +5,13 @@ import com.qub.Technopoly.actor.Actor;
 public interface Ownable {
     /**
      * Get the name of the ownable
-     * @return
+     * @return The name of the ownable
      */
     String getName();
 
     /**
      * Get the {@link Actor} that owns this ownable
-     * @return
+     * @return The owner of the ownable
      */
     Actor getOwner();
 }

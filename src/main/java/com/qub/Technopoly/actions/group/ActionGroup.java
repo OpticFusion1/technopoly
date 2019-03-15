@@ -40,7 +40,7 @@ public interface ActionGroup {
     /**
      * Get the actions that can be performed. The index corresponds to the expected input. (E.g. 1. Start New Game)
      *
-     * @return
+     * @return The actions
      */
     Action[] getActions();
 
@@ -64,7 +64,7 @@ public interface ActionGroup {
 
     /**
      * Gets the next selected action by the user
-     * @return
+     * @return The selected action
      */
     default int getSelectedAction() {
         return IOHelper.getInputSource().getNextInt() - 1;

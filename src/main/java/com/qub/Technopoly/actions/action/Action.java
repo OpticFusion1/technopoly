@@ -21,6 +21,7 @@ public interface Action {
 
     /**
      * Executes the action
+     * @return Whether the action succeeded or not
      */
     boolean execute();
 }

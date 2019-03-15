@@ -26,7 +26,7 @@ public class Game {
      * <p>
      * Throws {@link GameStateException} if this method is called when the game is not running
      *
-     * @throws GameStateException
+     * @throws GameStateException When the game is not running
      */
     public void stop() throws GameStateException {
         if (!gameRunning) {
@@ -38,7 +38,7 @@ public class Game {
     /**
      * Check whether the game is running
      *
-     * @return
+     * @return Whether the game is running or not
      */
     public boolean isGameRunning() {
         return gameRunning;
@@ -49,7 +49,7 @@ public class Game {
      * <p>
      * Throws {@link GameStateException} if this method is called when the game is already running
      *
-     * @throws GameStateException
+     * @throws GameStateException When the game is already running
      */
     public void start() throws GameStateException {
         if (gameRunning) {
@@ -63,7 +63,7 @@ public class Game {
      * <p>
      * Throws {@link GameStateException} if this method is called when the game is not running
      *
-     * @throws GameStateException
+     * @throws GameStateException When the game is not running
      */
     public void update() throws GameStateException {
         if (!gameRunning) {
