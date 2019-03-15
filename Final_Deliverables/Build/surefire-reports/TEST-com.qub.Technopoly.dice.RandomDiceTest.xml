@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qub.Technopoly.dice.RandomDiceTest" time="0.069" tests="200" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\lakrs\OneDrive\Career\Queens\Projects\Technopoly\target\test-classes;C:\Users\lakrs\OneDrive\Career\Queens\Projects\Technopoly\target\classes;C:\Users\lakrs\.m2\repository\org\projectlombok\lombok\1.18.6\lombok-1.18.6.jar;C:\Users\lakrs\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\lakrs\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\lakrs\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\lakrs\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\lakrs\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\lakrs\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\lakrs\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\lakrs\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\lakrs\.m2\repository\org\mockito\mockito-junit-jupiter\2.25.0\mockito-junit-jupiter-2.25.0.jar;C:\Users\lakrs\.m2\repository\org\mockito\mockito-core\2.25.0\mockito-core-2.25.0.jar;C:\Users\lakrs\.m2\repository\net\bytebuddy\byte-buddy\1.9.7\byte-buddy-1.9.7.jar;C:\Users\lakrs\.m2\repository\net\bytebuddy\byte-buddy-agent\1.9.7\byte-buddy-agent-1.9.7.jar;C:\Users\lakrs\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;C:\Users\lakrs\.m2\repository\org\hamcrest\hamcrest-all\1.3\hamcrest-all-1.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/London"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\lakrs\AppData\Local\Temp\surefire15389531928893120762\surefirebooter18023473102162037507.jar C:\Users\lakrs\AppData\Local\Temp\surefire15389531928893120762 2019-03-15T08-45-37_360-jvmRun1 surefire7215371349023488634tmp surefire_04680572728107753150tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\lakrs\OneDrive\Career\Queens\Projects\Technopoly\target\test-classes;C:\Users\lakrs\OneDrive\Career\Queens\Projects\Technopoly\target\classes;C:\Users\lakrs\.m2\repository\org\projectlombok\lombok\1.18.6\lombok-1.18.6.jar;C:\Users\lakrs\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\lakrs\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\lakrs\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\lakrs\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\lakrs\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\lakrs\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\lakrs\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\lakrs\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\lakrs\.m2\repository\org\mockito\mockito-junit-jupiter\2.25.0\mockito-junit-jupiter-2.25.0.jar;C:\Users\lakrs\.m2\repository\org\mockito\mockito-core\2.25.0\mockito-core-2.25.0.jar;C:\Users\lakrs\.m2\repository\net\bytebuddy\byte-buddy\1.9.7\byte-buddy-1.9.7.jar;C:\Users\lakrs\.m2\repository\net\bytebuddy\byte-buddy-agent\1.9.7\byte-buddy-agent-1.9.7.jar;C:\Users\lakrs\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;C:\Users\lakrs\.m2\repository\org\hamcrest\hamcrest-all\1.3\hamcrest-all-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\lakrs"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2019-01-15"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.2"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\lakrs\OneDrive\Career\Queens\Projects\Technopoly"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\lakrs\AppData\Local\Temp\surefire15389531928893120762\surefirebooter18023473102162037507.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.2+9-LTS"/>
+    <property name="user.name" value="lakrs"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\lakrs\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\lakrs\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2018.3.5"/>
+    <property name="java.version" value="11.0.2"/>
+    <property name="user.dir" value="C:\Users\lakrs\OneDrive\Career\Queens\Projects\Technopoly"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\libnvvp;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\lib\x64;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\extras\CUPTI\libx64;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git LFS;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\lakrs\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\lakrs\AppData\Local\Programs\Python\Python36-32\;C:\Users\lakrs\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.5\bin;;C:\Program Files\Java\jdk-11.0.2\bin;;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.2+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[1]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[2]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[3]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[4]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[5]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[6]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[7]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[8]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[9]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[10]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[11]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[12]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[13]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[14]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[15]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[16]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[17]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[18]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[19]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[20]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[21]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[22]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[23]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[24]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[25]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[26]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[27]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[28]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[29]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[30]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[31]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[32]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[33]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[34]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[35]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[36]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[37]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[38]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[39]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[40]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[41]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[42]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[43]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[44]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[45]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[46]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[47]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[48]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[49]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[50]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[51]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[52]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[53]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[54]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[55]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[56]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[57]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[58]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[59]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[60]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[61]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[62]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[63]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[64]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[65]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[66]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[67]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[68]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[69]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[70]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[71]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[72]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[73]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[74]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[75]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[76]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[77]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[78]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[79]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[80]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[81]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[82]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[83]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[84]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[85]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[86]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[87]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[88]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[89]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[90]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[91]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[92]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[93]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[94]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[95]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[96]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[97]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[98]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[99]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMaxRoll[100]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[1]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[2]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[3]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[4]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[5]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[6]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[7]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[8]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[9]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[10]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[11]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[12]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[13]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[14]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[15]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[16]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[17]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[18]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[19]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[20]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[21]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[22]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[23]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[24]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[25]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[26]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[27]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[28]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[29]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[30]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[31]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[32]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[33]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[34]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[35]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[36]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[37]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[38]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[39]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[40]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[41]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[42]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[43]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[44]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[45]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[46]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[47]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[48]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[49]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[50]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[51]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[52]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[53]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[54]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[55]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[56]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[57]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[58]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[59]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[60]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[61]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[62]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[63]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[64]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[65]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[66]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[67]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[68]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[69]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[70]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[71]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[72]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[73]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[74]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[75]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[76]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[77]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[78]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[79]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[80]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[81]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[82]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[83]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[84]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[85]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[86]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[87]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[88]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[89]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[90]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[91]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0.001"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[92]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[93]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[94]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[95]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[96]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[97]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[98]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[99]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+  <testcase name="rollReturnsValuesGreaterThanOrEqualToMinRoll[100]" classname="com.qub.Technopoly.dice.RandomDiceTest" time="0"/>
+</testsuite>

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.qub.Technopoly.inventory.InventoryTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.qub.Technopoly.inventory.InventoryTest
