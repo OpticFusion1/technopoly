@@ -25,6 +25,7 @@ public class Config {
     private final PlayerConfig playerConfig;
     private final DiceConfig diceConfig;
     private final StartConfig startConfig;
+    private final FreeParkingConfig freeParkingConfig;
     private final FieldConfig[] fieldConfigs;
 
     /**

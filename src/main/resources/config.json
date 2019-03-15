@@ -20,6 +20,10 @@
     "startPassBonus": 300,
     "startLandOnBonus": 300
   },
+  "freeParkingConfig": {
+    "name": "Free Parking",
+    "tilePosition": 7
+  },
   "fieldConfigs": [
     {
       "name": "India",
@@ -141,9 +145,9 @@
               "housePrice": 125,
               "houseRent": 1280
             }
-			]
-		},
-		{
+          ]
+        },
+        {
           "propertyName": "London",
           "propertyDescription": "The second-most connected tech ecosystem globally make London a sound investment opportunity.",
           "propertyPrice": 150,
@@ -177,7 +181,7 @@
       "name": "East Asia",
       "description": "The world's most populous and rapidly-growing regional economy.",
       "propertyConfigs": [
-	  {
+        {
           "propertyName": "Ho Chi Minh City",
           "propertyDescription": "Tax-friendly and ambitious Vietnam has all the ingredients for a successful tech-hub industry. ",
           "propertyPrice": 175,

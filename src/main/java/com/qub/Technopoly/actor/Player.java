@@ -3,7 +3,6 @@ package com.qub.Technopoly.actor;
 import com.qub.Technopoly.Game;
 import com.qub.Technopoly.actions.action.ExitGameAction;
 import com.qub.Technopoly.actions.group.NewTurnActionGroup;
-import com.qub.Technopoly.board.Board;
 import com.qub.Technopoly.exception.GameStateException;
 import com.qub.Technopoly.inventory.Inventory;
 import lombok.Getter;
@@ -29,7 +28,7 @@ public class Player implements Actor {
      * {@inheritDoc}
      */
     @Override
-    public boolean IsActive() {
+    public boolean isActive() {
         return isActive;
     }
 
@@ -37,7 +36,7 @@ public class Player implements Actor {
      * {@inheritDoc}
      */
     @Override
-    public void SetActive(Game game) {
+    public void setActive(Game game) {
         isActive = true;
         this.game = game;
 
@@ -52,7 +51,7 @@ public class Player implements Actor {
      * {@inheritDoc}
      */
     @Override
-    public void SetInactive() {
+    public void setInactive() {
         isActive = false;
     }
 
@@ -60,10 +59,10 @@ public class Player implements Actor {
      * {@inheritDoc}
      */
     @Override
-    public boolean Update(Game game) {
+    public boolean update(Game game) {
         this.game = game;
 
-        if (!IsActive()) {
+        if (!isActive()) {
             throw new GameStateException(
                 "Can't update actor " + actorName + " because it isn't that actors turn!");
         }

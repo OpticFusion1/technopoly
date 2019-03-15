@@ -14,21 +14,21 @@ public class PlayerTest {
     @Test
     public void setActiveIsActive() {
         var game = new Game(new Board());
-        TEST_PLAYER.SetActive(game);
-        assertTrue(TEST_PLAYER.IsActive());
+        TEST_PLAYER.setActive(game);
+        assertTrue(TEST_PLAYER.isActive());
     }
 
     @Test
     public void setInactiveIsInactive() {
         var game = new Game(new Board());
-        TEST_PLAYER.SetActive(game);
-        TEST_PLAYER.SetInactive();
-        assertFalse(TEST_PLAYER.IsActive());
+        TEST_PLAYER.setActive(game);
+        TEST_PLAYER.setInactive();
+        assertFalse(TEST_PLAYER.isActive());
     }
 
     @Test
     public void playerIsInactiveByDefault() {
-        assertFalse(TEST_PLAYER.IsActive());
+        assertFalse(TEST_PLAYER.isActive());
     }
 
     @Test
