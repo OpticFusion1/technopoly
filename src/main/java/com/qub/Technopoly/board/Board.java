@@ -1,8 +1,8 @@
 package com.qub.Technopoly.board;
 
 import com.qub.Technopoly.actor.Actor;
-import com.qub.Technopoly.config.Config;
 import com.qub.Technopoly.config.FieldConfig;
+import com.qub.Technopoly.tile.FreeParking;
 import com.qub.Technopoly.tile.Property;
 import com.qub.Technopoly.tile.Start;
 import com.qub.Technopoly.tile.Tile;
@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.qub.Technopoly.config.Config.getConfig;
 import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 
 /**
@@ -23,7 +24,7 @@ import static com.qub.Technopoly.io.IOHelper.getOutputSource;
 public class Board {
 
     private CircularBuffer<Actor> actorQueue =
-        new CircularBuffer<>(Actor.class, Config.getConfig().getPlayerConfig().getMaxPlayers());
+        new CircularBuffer<>(Actor.class, getConfig().getPlayerConfig().getMaxPlayers());
 
     private Map<Actor, Integer> currentActorPositions = new HashMap<>();
     private Map<Actor, Integer> nextActorPositions = new HashMap<>();
@@ -32,15 +33,20 @@ public class Board {
 
     public Board() {
         var propertyConfigs =
-            Arrays.stream(Config.getConfig().getFieldConfigs()).map(FieldConfig::getPropertyConfigs)
+            Arrays.stream(getConfig().getFieldConfigs()).map(FieldConfig::getPropertyConfigs)
                 .flatMap(Stream::of);
         var properties = propertyConfigs.map(Property::new).collect(Collectors.toList());
 
-        tiles = new CircularBuffer<>(Tile.class, properties.size() + 1);
-        tiles.add(new Start(Config.getConfig().getStartConfig()));
+        tiles = new CircularBuffer<>(Tile.class, properties.size() + 2);
+        tiles.add(new Start(getConfig().getStartConfig()));
 
-        for (var property : properties) {
+        for (int i = 0; i < properties.size(); i++) {
+            var property = properties.get(i);
             tiles.add(property);
+
+            if (i == getConfig().getFreeParkingConfig().getTilePosition()) {
+                tiles.add(new FreeParking(getConfig().getFreeParkingConfig()));
+            }
         }
     }
 
@@ -149,6 +155,7 @@ public class Board {
 
     /**
      * Gets the actors with the most amount of money
+     *
      * @return The actors with the most amount of money
      */
     public List<Actor> getActorsWithMostMoney() {

@@ -9,25 +9,25 @@ public interface Actor {
      * Check whether it is this actors turn
      * @return
      */
-    boolean IsActive();
+    boolean isActive();
 
     /**
      * Set this Actor active, i.e., it is this actor's turn.
      * @param game The game instance
      */
-    void SetActive(Game game);
+    void setActive(Game game);
 
     /**
      * Set this Actor inactive, i.e., it is no longer this actor's turn.
      */
-    void SetInactive();
+    void setInactive();
 
     /**
      * update the Actor
      * @param game The game instance
      * @return True if the actor updated, False is the actor did not update
      */
-    boolean Update(Game game);
+    boolean update(Game game);
 
     /**
      * @return The actor's name
