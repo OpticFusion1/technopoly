@@ -1,0 +1,599 @@
+@startuml
+annotation java.lang.Override
+annotation lombok.Getter
+annotation lombok.NonNull
+annotation lombok.RequiredArgsConstructor
+annotation lombok.Setter
+annotation lombok.Value
+annotation lombok.experimental.NonFinal
+annotation org.junit.jupiter.api.AfterEach
+annotation org.junit.jupiter.api.BeforeEach
+annotation org.junit.jupiter.api.RepeatedTest
+annotation org.junit.jupiter.api.Test
+class com.google.gson.Gson
+class com.google.gson.stream.JsonReader
+class com.qub.Technopoly.App
+class com.qub.Technopoly.Game
+class com.qub.Technopoly.GameTest
+class com.qub.Technopoly.actions.action.AuctionPropertyAction
+class com.qub.Technopoly.actions.action.BackAction
+class com.qub.Technopoly.actions.action.BuyPropertyAction
+class com.qub.Technopoly.actions.action.EndTurnAction
+class com.qub.Technopoly.actions.action.ExitGameAction
+class com.qub.Technopoly.actions.action.LoadGameAction
+class com.qub.Technopoly.actions.action.ManagePropertiesAction
+class com.qub.Technopoly.actions.action.PayRentAction
+class com.qub.Technopoly.actions.action.RollDiceAction
+class com.qub.Technopoly.actions.action.StartNewGameAction
+class com.qub.Technopoly.actions.action.StartNewGameActionTest
+class com.qub.Technopoly.actions.action.UpgradePropertyAction
+class com.qub.Technopoly.actions.action.UpgradePropertyActionTest
+class com.qub.Technopoly.actions.action.ViewBoardAction
+class com.qub.Technopoly.actions.action.ViewBoardActionTest
+class com.qub.Technopoly.actions.group.GameInitializeActionGroup
+class com.qub.Technopoly.actions.group.GameInitializeActionGroupTest
+class com.qub.Technopoly.actions.group.ManagePropertiesActionGroup
+class com.qub.Technopoly.actions.group.ManagePropertiesActionGroupTest
+class com.qub.Technopoly.actions.group.NewTurnActionGroup
+class com.qub.Technopoly.actions.group.NewTurnActionGroupTest
+class com.qub.Technopoly.actions.group.OwnedPropertyActionGroup
+class com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest
+class com.qub.Technopoly.actions.group.UnownedPropertyActionGroup
+class com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest
+class com.qub.Technopoly.actor.Player
+class com.qub.Technopoly.actor.PlayerTest
+class com.qub.Technopoly.board.Board
+class com.qub.Technopoly.board.BoardTest
+class com.qub.Technopoly.config.Config
+class com.qub.Technopoly.config.DelayConfig
+class com.qub.Technopoly.config.DiceConfig
+class com.qub.Technopoly.config.FieldConfig
+class com.qub.Technopoly.config.HouseConfig
+class com.qub.Technopoly.config.InventoryConfig
+class com.qub.Technopoly.config.PlayerConfig
+class com.qub.Technopoly.config.PropertyConfig
+class com.qub.Technopoly.config.StartConfig
+class com.qub.Technopoly.dice.DeveloperDice
+class com.qub.Technopoly.dice.DeveloperDiceTest
+class com.qub.Technopoly.dice.RandomDice
+class com.qub.Technopoly.dice.RandomDiceTest
+class com.qub.Technopoly.exception.ConfigurationException
+class com.qub.Technopoly.exception.GameStateException
+class com.qub.Technopoly.exception.InventoryException
+class com.qub.Technopoly.inventory.Inventory
+class com.qub.Technopoly.inventory.InventoryTest
+class com.qub.Technopoly.io.DefaultSystemOutput
+class com.qub.Technopoly.io.IOHelper
+class com.qub.Technopoly.io.IOHelperTest
+class com.qub.Technopoly.io.PrettySystemOutput
+class com.qub.Technopoly.io.ScannerInput
+class com.qub.Technopoly.io.ScannerInputTest
+class com.qub.Technopoly.tile.Property
+class com.qub.Technopoly.tile.PropertyTest
+class com.qub.Technopoly.tile.Start
+class com.qub.Technopoly.tile.StartTest
+class com.qub.Technopoly.util.CircularBuffer
+class com.qub.Technopoly.util.CircularBufferTest
+class com.qub.Technopoly.util.Field
+class com.qub.Technopoly.util.FieldTest
+class java.io.ByteArrayInputStream
+class java.io.FileReader
+class java.io.IOException
+class java.io.InputStreamReader
+class java.lang.Float
+class java.lang.RuntimeException
+class java.lang.String
+class java.lang.reflect.Array
+class java.util.ArrayList
+class java.util.Arrays
+class java.util.HashMap
+class java.util.HashSet
+class java.util.List
+class java.util.Map
+class java.util.Objects
+class java.util.Random
+class java.util.Scanner
+class java.util.stream.Collectors
+class java.util.stream.Stream
+class org.apache.commons.lang3.ArrayUtils
+class org.apache.commons.lang3.StringUtils
+class org.hamcrest.CoreMatchers
+class org.hamcrest.MatcherAssert
+class org.hamcrest.Matchers
+class org.junit.jupiter.api.Assertions
+class org.mockito.Mockito
+interface com.qub.Technopoly.actions.action.Action
+interface com.qub.Technopoly.actions.group.ActionGroup
+interface com.qub.Technopoly.actor.Actor
+interface com.qub.Technopoly.dice.Dice
+interface com.qub.Technopoly.io.InputSource
+interface com.qub.Technopoly.io.OutputSource
+interface com.qub.Technopoly.tile.Ownable
+interface com.qub.Technopoly.tile.Tile
+interface java.io.Closeable
+com.qub.Technopoly.App ..> com.qub.Technopoly.actions.group.GameInitializeActionGroup
+com.qub.Technopoly.App ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.Game ..> lombok.NonNull
+com.qub.Technopoly.Game ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.Game ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.Game ..> com.qub.Technopoly.exception.GameStateException
+com.qub.Technopoly.GameTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.GameTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.GameTest ..> com.qub.Technopoly.exception.GameStateException
+com.qub.Technopoly.GameTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.util.Field
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> java.lang.String
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> java.util.Arrays
+com.qub.Technopoly.actions.action.AuctionPropertyAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.io.InputSource
+com.qub.Technopoly.actions.action.AuctionPropertyAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.BackAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.BackAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.BackAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> java.lang.String
+com.qub.Technopoly.actions.action.BuyPropertyAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.BuyPropertyAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.EndTurnAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.EndTurnAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.EndTurnAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.ExitGameAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.ExitGameAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.ExitGameAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.ExitGameAction ..> com.qub.Technopoly.Game
+com.qub.Technopoly.actions.action.ExitGameAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.ExitGameAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.ExitGameAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.LoadGameAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.LoadGameAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.LoadGameAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.LoadGameAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.LoadGameAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.ManagePropertiesAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.ManagePropertiesAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.ManagePropertiesAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.ManagePropertiesAction ..> com.qub.Technopoly.actions.group.ManagePropertiesActionGroup
+com.qub.Technopoly.actions.action.ManagePropertiesAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.ManagePropertiesAction ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.PayRentAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.PayRentAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.PayRentAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.PayRentAction ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.PayRentAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.PayRentAction ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.action.PayRentAction ..> java.lang.String
+com.qub.Technopoly.actions.action.PayRentAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.PayRentAction ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.PayRentAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.RollDiceAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.RollDiceAction ..> lombok.Getter
+com.qub.Technopoly.actions.action.RollDiceAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.RollDiceAction ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.RollDiceAction ..> com.qub.Technopoly.exception.GameStateException
+com.qub.Technopoly.actions.action.RollDiceAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.RollDiceAction ..> java.lang.String
+com.qub.Technopoly.actions.action.RollDiceAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.RollDiceAction ..> com.qub.Technopoly.dice.Dice
+com.qub.Technopoly.actions.action.RollDiceAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.StartNewGameAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.StartNewGameAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.StartNewGameAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.Game
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.config.PlayerConfig
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.StartNewGameAction ..> java.lang.String
+com.qub.Technopoly.actions.action.StartNewGameAction ..> java.util.HashSet
+com.qub.Technopoly.actions.action.StartNewGameAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.io.InputSource
+com.qub.Technopoly.actions.action.StartNewGameAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> com.qub.Technopoly.Game
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> java.util.Arrays
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> java.util.stream.Collectors
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> org.hamcrest.MatcherAssert
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> org.hamcrest.Matchers
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> org.mockito.Mockito
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> com.qub.Technopoly.io.InputSource
+com.qub.Technopoly.actions.action.StartNewGameActionTest ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> java.lang.String
+com.qub.Technopoly.actions.action.UpgradePropertyAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.UpgradePropertyAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.UpgradePropertyActionTest ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.ViewBoardAction ..> java.lang.Override
+com.qub.Technopoly.actions.action.ViewBoardAction ..> lombok.NonNull
+com.qub.Technopoly.actions.action.ViewBoardAction ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.config.FieldConfig
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.util.Field
+com.qub.Technopoly.actions.action.ViewBoardAction ..> org.apache.commons.lang3.ArrayUtils
+com.qub.Technopoly.actions.action.ViewBoardAction --|> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.tile.Ownable
+com.qub.Technopoly.actions.action.ViewBoardAction ..> com.qub.Technopoly.tile.Tile
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.config.FieldConfig
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.config.PropertyConfig
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> java.util.Arrays
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> java.util.stream.Collectors
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> java.util.stream.Stream
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> org.mockito.Mockito
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.action.ViewBoardActionTest ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> java.lang.Override
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> lombok.Getter
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.Game
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.actions.action.ExitGameAction
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.actions.action.LoadGameAction
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.actions.action.StartNewGameAction
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.group.GameInitializeActionGroup --|> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.actions.group.GameInitializeActionGroup ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.group.GameInitializeActionGroupTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.group.GameInitializeActionGroupTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.group.GameInitializeActionGroupTest ..> com.qub.Technopoly.Game
+com.qub.Technopoly.actions.group.GameInitializeActionGroupTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.group.GameInitializeActionGroupTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> java.lang.Override
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> com.qub.Technopoly.actions.action.BackAction
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> com.qub.Technopoly.actions.action.UpgradePropertyAction
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> com.qub.Technopoly.util.Field
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> java.util.Arrays
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> java.util.List
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> java.util.Objects
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> java.util.stream.Collectors
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup --|> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroup ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroupTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroupTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroupTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroupTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroupTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.group.ManagePropertiesActionGroupTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> java.lang.Override
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> lombok.NonNull
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.actions.action.ManagePropertiesAction
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.actions.action.RollDiceAction
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.actions.action.ViewBoardAction
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.config.InventoryConfig
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.dice.DeveloperDice
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.dice.RandomDice
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> java.lang.String
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> java.util.Objects
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.group.NewTurnActionGroup --|> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.dice.Dice
+com.qub.Technopoly.actions.group.NewTurnActionGroup ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.group.NewTurnActionGroupTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.group.NewTurnActionGroupTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.group.NewTurnActionGroupTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.actions.group.NewTurnActionGroupTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.group.NewTurnActionGroupTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actions.group.NewTurnActionGroupTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.group.NewTurnActionGroupTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> java.lang.Override
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> lombok.NonNull
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.actions.action.EndTurnAction
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.actions.action.PayRentAction
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.util.Field
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> java.lang.String
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup --|> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroup ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.group.OwnedPropertyActionGroupTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> java.lang.Override
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> lombok.NonNull
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.actions.action.AuctionPropertyAction
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.actions.action.BuyPropertyAction
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.util.Field
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> java.lang.String
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> java.util.Objects
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup --|> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroup ..> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.group.UnownedPropertyActionGroupTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actor.Player ..> java.lang.Override
+com.qub.Technopoly.actor.Player ..> lombok.Getter
+com.qub.Technopoly.actor.Player ..> lombok.NonNull
+com.qub.Technopoly.actor.Player ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.actor.Player ..> com.qub.Technopoly.actions.group.NewTurnActionGroup
+com.qub.Technopoly.actor.Player ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actor.Player ..> com.qub.Technopoly.exception.GameStateException
+com.qub.Technopoly.actor.Player ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actor.Player --|> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.actor.PlayerTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.actor.PlayerTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actor.PlayerTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.actor.PlayerTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.config.FieldConfig
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.tile.Start
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.util.CircularBuffer
+com.qub.Technopoly.board.Board ..> java.util.stream.Collectors
+com.qub.Technopoly.board.Board ..> java.util.stream.Stream
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.board.Board ..> com.qub.Technopoly.tile.Tile
+com.qub.Technopoly.board.BoardTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.board.BoardTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.board.BoardTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.board.BoardTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.board.BoardTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.board.BoardTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.config.Config ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.Config ..> lombok.Value
+com.qub.Technopoly.config.Config ..> com.google.gson.Gson
+com.qub.Technopoly.config.Config ..> com.google.gson.stream.JsonReader
+com.qub.Technopoly.config.Config ..> com.qub.Technopoly.exception.ConfigurationException
+com.qub.Technopoly.config.Config ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.config.Config ..> java.io.FileReader
+com.qub.Technopoly.config.Config ..> java.io.IOException
+com.qub.Technopoly.config.Config ..> java.io.InputStreamReader
+com.qub.Technopoly.config.DelayConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.DelayConfig ..> lombok.Value
+com.qub.Technopoly.config.DelayConfig ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.config.DiceConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.DiceConfig ..> lombok.Value
+com.qub.Technopoly.config.FieldConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.FieldConfig ..> lombok.Value
+com.qub.Technopoly.config.HouseConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.HouseConfig ..> lombok.Value
+com.qub.Technopoly.config.InventoryConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.InventoryConfig ..> lombok.Value
+com.qub.Technopoly.config.PlayerConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.PlayerConfig ..> lombok.Value
+com.qub.Technopoly.config.PropertyConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.PropertyConfig ..> lombok.Value
+com.qub.Technopoly.config.StartConfig ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.config.StartConfig ..> lombok.Value
+com.qub.Technopoly.dice.DeveloperDice ..> java.lang.Override
+com.qub.Technopoly.dice.DeveloperDice ..> lombok.NonNull
+com.qub.Technopoly.dice.DeveloperDice ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.dice.DeveloperDice ..> com.qub.Technopoly.config.DiceConfig
+com.qub.Technopoly.dice.DeveloperDice --|> com.qub.Technopoly.dice.Dice
+com.qub.Technopoly.dice.DeveloperDice ..> com.qub.Technopoly.io.InputSource
+com.qub.Technopoly.dice.DeveloperDiceTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.dice.DeveloperDiceTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.dice.DeveloperDiceTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.dice.DeveloperDiceTest ..> com.qub.Technopoly.config.DiceConfig
+com.qub.Technopoly.dice.DeveloperDiceTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.dice.DeveloperDiceTest ..> org.mockito.Mockito
+com.qub.Technopoly.dice.DeveloperDiceTest ..> com.qub.Technopoly.io.InputSource
+com.qub.Technopoly.dice.RandomDice ..> java.lang.Override
+com.qub.Technopoly.dice.RandomDice ..> lombok.NonNull
+com.qub.Technopoly.dice.RandomDice ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.dice.RandomDice ..> com.qub.Technopoly.config.DiceConfig
+com.qub.Technopoly.dice.RandomDice ..> java.util.Random
+com.qub.Technopoly.dice.RandomDice --|> com.qub.Technopoly.dice.Dice
+com.qub.Technopoly.dice.RandomDiceTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.dice.RandomDiceTest ..> org.junit.jupiter.api.RepeatedTest
+com.qub.Technopoly.dice.RandomDiceTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.dice.RandomDiceTest ..> com.qub.Technopoly.config.DiceConfig
+com.qub.Technopoly.dice.RandomDiceTest ..> java.util.Random
+com.qub.Technopoly.dice.RandomDiceTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.exception.ConfigurationException ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.exception.ConfigurationException --|> java.lang.RuntimeException
+com.qub.Technopoly.exception.GameStateException ..> com.qub.Technopoly.Game
+com.qub.Technopoly.exception.GameStateException --|> java.lang.RuntimeException
+com.qub.Technopoly.exception.InventoryException ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.exception.InventoryException --|> java.lang.RuntimeException
+com.qub.Technopoly.inventory.Inventory ..> lombok.Getter
+com.qub.Technopoly.inventory.Inventory ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.inventory.Inventory ..> lombok.experimental.NonFinal
+com.qub.Technopoly.inventory.Inventory ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.inventory.Inventory ..> com.qub.Technopoly.exception.InventoryException
+com.qub.Technopoly.inventory.Inventory ..> java.lang.reflect.Array
+com.qub.Technopoly.inventory.Inventory ..> java.util.ArrayList
+com.qub.Technopoly.inventory.Inventory ..> java.util.List
+com.qub.Technopoly.inventory.Inventory ..> com.qub.Technopoly.tile.Ownable
+com.qub.Technopoly.inventory.InventoryTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.inventory.InventoryTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.inventory.InventoryTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.inventory.InventoryTest ..> com.qub.Technopoly.exception.InventoryException
+com.qub.Technopoly.inventory.InventoryTest ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.inventory.InventoryTest ..> org.apache.commons.lang3.ArrayUtils
+com.qub.Technopoly.inventory.InventoryTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.io.DefaultSystemOutput ..> java.lang.Override
+com.qub.Technopoly.io.DefaultSystemOutput --|> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.io.IOHelper ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.io.IOHelper ..> com.qub.Technopoly.config.DelayConfig
+com.qub.Technopoly.io.IOHelper ..> java.lang.Float
+com.qub.Technopoly.io.IOHelper ..> java.util.Random
+com.qub.Technopoly.io.IOHelper ..> java.util.Scanner
+com.qub.Technopoly.io.IOHelperTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.io.IOHelperTest ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.io.IOHelperTest ..> java.io.IOException
+com.qub.Technopoly.io.IOHelperTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.io.PrettySystemOutput ..> java.lang.Override
+com.qub.Technopoly.io.PrettySystemOutput ..> org.apache.commons.lang3.StringUtils
+com.qub.Technopoly.io.PrettySystemOutput --|> com.qub.Technopoly.io.OutputSource
+com.qub.Technopoly.io.ScannerInput ..> java.lang.Override
+com.qub.Technopoly.io.ScannerInput ..> lombok.Getter
+com.qub.Technopoly.io.ScannerInput ..> lombok.NonNull
+com.qub.Technopoly.io.ScannerInput ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.io.ScannerInput ..> java.io.IOException
+com.qub.Technopoly.io.ScannerInput ..> java.util.Objects
+com.qub.Technopoly.io.ScannerInput ..> java.util.Scanner
+com.qub.Technopoly.io.ScannerInput --|> com.qub.Technopoly.io.InputSource
+com.qub.Technopoly.io.ScannerInput --|> java.io.Closeable
+com.qub.Technopoly.io.ScannerInputTest ..> org.junit.jupiter.api.AfterEach
+com.qub.Technopoly.io.ScannerInputTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.io.ScannerInputTest ..> java.io.ByteArrayInputStream
+com.qub.Technopoly.io.ScannerInputTest ..> java.io.IOException
+com.qub.Technopoly.io.ScannerInputTest ..> java.lang.String
+com.qub.Technopoly.io.ScannerInputTest ..> java.util.Scanner
+com.qub.Technopoly.io.ScannerInputTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.tile.Property ..> java.lang.Override
+com.qub.Technopoly.tile.Property ..> lombok.Getter
+com.qub.Technopoly.tile.Property ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.tile.Property ..> lombok.Setter
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.actions.group.OwnedPropertyActionGroup
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.actions.group.UnownedPropertyActionGroup
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.config.HouseConfig
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.config.PropertyConfig
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.exception.GameStateException
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.util.Field
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.tile.Property ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.tile.Property --|> com.qub.Technopoly.tile.Ownable
+com.qub.Technopoly.tile.Property --|> com.qub.Technopoly.tile.Tile
+com.qub.Technopoly.tile.PropertyTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.tile.PropertyTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.actions.group.OwnedPropertyActionGroup
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.actions.group.UnownedPropertyActionGroup
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.config.PropertyConfig
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.exception.GameStateException
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.util.Field
+com.qub.Technopoly.tile.PropertyTest ..> org.hamcrest.CoreMatchers
+com.qub.Technopoly.tile.PropertyTest ..> org.hamcrest.MatcherAssert
+com.qub.Technopoly.tile.PropertyTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.tile.PropertyTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.tile.Start ..> java.lang.Override
+com.qub.Technopoly.tile.Start ..> lombok.NonNull
+com.qub.Technopoly.tile.Start ..> lombok.RequiredArgsConstructor
+com.qub.Technopoly.tile.Start ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.tile.Start ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.tile.Start ..> com.qub.Technopoly.config.StartConfig
+com.qub.Technopoly.tile.Start ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.tile.Start ..> java.lang.String
+com.qub.Technopoly.tile.Start ..> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.tile.Start ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.tile.Start --|> com.qub.Technopoly.tile.Tile
+com.qub.Technopoly.tile.StartTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.tile.StartTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.tile.StartTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.tile.StartTest ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.tile.StartTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.tile.StartTest ..> com.qub.Technopoly.config.StartConfig
+com.qub.Technopoly.tile.StartTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.tile.StartTest ..> org.hamcrest.CoreMatchers
+com.qub.Technopoly.tile.StartTest ..> org.hamcrest.MatcherAssert
+com.qub.Technopoly.tile.StartTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.tile.StartTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.util.CircularBuffer ..> java.lang.reflect.Array
+com.qub.Technopoly.util.CircularBufferTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.util.CircularBufferTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.util.CircularBufferTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.util.CircularBufferTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.util.CircularBufferTest ..> java.util.Arrays
+com.qub.Technopoly.util.CircularBufferTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.util.CircularBufferTest ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.util.Field ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.util.Field ..> com.qub.Technopoly.config.FieldConfig
+com.qub.Technopoly.util.Field ..> com.qub.Technopoly.config.PropertyConfig
+com.qub.Technopoly.util.Field ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.util.Field ..> java.util.Arrays
+com.qub.Technopoly.util.Field ..> java.util.HashMap
+com.qub.Technopoly.util.Field ..> java.util.Map
+com.qub.Technopoly.util.Field ..> org.apache.commons.lang3.ArrayUtils
+com.qub.Technopoly.util.Field ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.util.FieldTest ..> org.junit.jupiter.api.BeforeEach
+com.qub.Technopoly.util.FieldTest ..> org.junit.jupiter.api.Test
+com.qub.Technopoly.util.FieldTest ..> com.qub.Technopoly.actor.Player
+com.qub.Technopoly.util.FieldTest ..> com.qub.Technopoly.config.Config
+com.qub.Technopoly.util.FieldTest ..> com.qub.Technopoly.config.FieldConfig
+com.qub.Technopoly.util.FieldTest ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.util.FieldTest ..> com.qub.Technopoly.tile.Property
+com.qub.Technopoly.util.FieldTest ..> java.util.Arrays
+com.qub.Technopoly.util.FieldTest ..> org.junit.jupiter.api.Assertions
+com.qub.Technopoly.actions.action.Action ..> lombok.NonNull
+com.qub.Technopoly.actions.group.ActionGroup ..> com.qub.Technopoly.io.IOHelper
+com.qub.Technopoly.actions.group.ActionGroup ..> java.util.Objects
+com.qub.Technopoly.actions.group.ActionGroup ..> org.apache.commons.lang3.ArrayUtils
+com.qub.Technopoly.actions.group.ActionGroup ..> com.qub.Technopoly.actions.action.Action
+com.qub.Technopoly.actor.Actor ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.actor.Actor ..> com.qub.Technopoly.inventory.Inventory
+com.qub.Technopoly.dice.Dice ..> com.qub.Technopoly.config.DiceConfig
+com.qub.Technopoly.tile.Ownable ..> com.qub.Technopoly.actor.Actor
+com.qub.Technopoly.tile.Tile ..> com.qub.Technopoly.board.Board
+com.qub.Technopoly.tile.Tile ..> com.qub.Technopoly.actions.group.ActionGroup
+com.qub.Technopoly.tile.Tile ..> com.qub.Technopoly.actor.Actor
+@enduml
